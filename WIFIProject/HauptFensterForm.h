@@ -98,12 +98,16 @@ namespace WIFIProject {
 		}
 #pragma endregion
 	private: System::Void btnEscape_Click(System::Object^ sender, System::EventArgs^ e) {
+		/*dient dazu den {(L-D)-V} zu beenden*/
 		this->Close();
 	}
 	public: bool To_Admin_Login = false;
+		  /*ermöglicht das GUI zu wechseln*/
 	private: System::Void linkAdminLogin_LinkClicked(System::Object^ sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^ e) {
 		this->To_Admin_Login = true;
+		/*ermöglicht das GUI zu wechseln, einmal gewechselt soll den Fenster zugemacht werden*/
 		this ->Close();
+
 	}
 	};
 }
