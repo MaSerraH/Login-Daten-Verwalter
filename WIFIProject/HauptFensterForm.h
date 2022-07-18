@@ -62,19 +62,25 @@ namespace WIFIProject {
 			// linkAdminLogin
 			// 
 			this->linkAdminLogin->AutoSize = true;
+			this->linkAdminLogin->Font = (gcnew System::Drawing::Font(L"Arial", 15.75F, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			this->linkAdminLogin->LinkColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
 			this->linkAdminLogin->Location = System::Drawing::Point(385, 238);
 			this->linkAdminLogin->Name = L"linkAdminLogin";
-			this->linkAdminLogin->Size = System::Drawing::Size(129, 24);
+			this->linkAdminLogin->Size = System::Drawing::Size(142, 24);
 			this->linkAdminLogin->TabIndex = 0;
 			this->linkAdminLogin->TabStop = true;
-			this->linkAdminLogin->Text = L"Admin_Login";
+			this->linkAdminLogin->Text = L"Admin-Login";
 			this->linkAdminLogin->LinkClicked += gcnew System::Windows::Forms::LinkLabelLinkClickedEventHandler(this, &HauptFensterForm::linkAdminLogin_LinkClicked);
 			// 
 			// btnEscape
 			// 
+			this->btnEscape->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
 			this->btnEscape->Location = System::Drawing::Point(668, 505);
 			this->btnEscape->Name = L"btnEscape";
-			this->btnEscape->Size = System::Drawing::Size(115, 80);
+			this->btnEscape->Size = System::Drawing::Size(135, 80);
 			this->btnEscape->TabIndex = 1;
 			this->btnEscape->Text = L"Escape";
 			this->btnEscape->UseVisualStyleBackColor = true;
@@ -84,7 +90,7 @@ namespace WIFIProject {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(12, 24);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(854, 672);
+			this->ClientSize = System::Drawing::Size(874, 672);
 			this->Controls->Add(this->btnEscape);
 			this->Controls->Add(this->linkAdminLogin);
 			this->Font = (gcnew System::Drawing::Font(L"Arial", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
