@@ -2,7 +2,7 @@
 
 
 using namespace System;
-
+//Klasse Administrator(Admin)
 public ref class Admin
 {
 public:

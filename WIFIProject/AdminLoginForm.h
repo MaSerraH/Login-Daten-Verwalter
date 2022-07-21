@@ -174,6 +174,7 @@ namespace WIFIProject {
 				static_cast<System::Byte>(0)));
 			this->Margin = System::Windows::Forms::Padding(6);
 			this->Name = L"AdminLoginForm";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Admin_Login";
 			this->ResumeLayout(false);
 			this->PerformLayout();
@@ -184,6 +185,7 @@ namespace WIFIProject {
 	public: bool To_Haupt_Fenster = false;
 	private: System::Void linkHauptFenster_LinkClicked(System::Object^ sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^ e) {
 		this->To_Haupt_Fenster = true;
+		//macht den Fenster zu
 		this->Close();
 	}
 	private: System::Void btnCancel_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -204,7 +206,7 @@ private: System::Void btnOK_Click(System::Object^ sender, System::EventArgs^ e) 
 		//Adresse des Database
 		String^ connString = "Data Source=(localdb)\\MSSQLLocalDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 		SqlConnection sqlconn(connString);
-		sqlconn.Open();//Verindung öffnen
+		sqlconn.Open();//Verbindung öffnen
 
 		String^ sqlQuery = "SELECT * FROM Admin WHERE name=@name AND passwort=@passwort;";//Query
 		SqlCommand command(sqlQuery, % sqlconn);
@@ -214,7 +216,8 @@ private: System::Void btnOK_Click(System::Object^ sender, System::EventArgs^ e) 
 		SqlDataReader^ reader = command.ExecuteReader();
 		if (reader->Read())
 		{
-			admin = gcnew Admin;//man erzeugt a neues Pointer am Heap, "gc" bedeutet "garbage collection"-> es wird automatish zerstört->kein Destruktor ist notwending."
+			admin = gcnew Admin;//man erzeugt a neues Pointer am Heap, "gc" bedeutet "garbage collection"-> es wird automatisch zerstört->kein Destruktor ist notwending."
+			//reader list die Daten id, name und passwort vom Database ein und speichert sie im admin.
 			admin->id = reader->GetInt32(0);
 			admin->name = reader->GetString(1);
 			admin->passwort = reader->GetString(2);
@@ -222,12 +225,12 @@ private: System::Void btnOK_Click(System::Object^ sender, System::EventArgs^ e) 
 		}
 		else
 		{
-			//wenn beide werte, name und Passwort nicht stimmen mit dem Wert im DB soll eine Fehler-meldung erscheinen
+			//wenn beide werte, name und Passwort mit den Werten im DB nicht stimmen, soll eine Fehler-meldung erscheinen
 			MessageBox::Show("Name oder Passwort sind falsch", "Fehler", MessageBoxButtons::OK);
 		}
 	}
 	catch(Exception^ e) {
-		//Wenn die Veindung mit dem DB unmöglicht ist, soll eine Fehler-meldung erscheinen
+		//Wenn die Vebindung mit dem DB unmöglicht ist, soll eine Fehler-meldung erscheinen
 		MessageBox::Show("Verbindung mit database fehlgeschlagen", "Verbingung Fehler", MessageBoxButtons::OK);
 	}
 }

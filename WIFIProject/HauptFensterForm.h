@@ -97,6 +97,7 @@ namespace WIFIProject {
 				static_cast<System::Byte>(0)));
 			this->Margin = System::Windows::Forms::Padding(6);
 			this->Name = L"HauptFensterForm";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"HauptFensterForm";
 			this->ResumeLayout(false);
 			this->PerformLayout();

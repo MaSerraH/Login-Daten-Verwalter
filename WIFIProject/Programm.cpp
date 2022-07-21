@@ -21,14 +21,14 @@ void main(array<String^>^ args)
 			adminloginForm.ShowDialog();
 
 			Admin^ admin = adminloginForm.admin;
-			//Wenn das Objekt nicht leer ist, das heisst wenn die angegebene Information mit den vom DB überall stimmt 
+			//Wenn das Objekt nicht leer ist, das heisst wenn die angegebene Informationen mit den vom DB überall stimmen 
 			if (admin != nullptr)
 			{
 				MessageBox::Show("Willkommen " + admin->name, "{(L-D)-V}", MessageBoxButtons::OK);
 			}
 			else
 			{
-				//Wenn man das Button Cancel druckt
+				//Wenn man das Button Cancel druckt, erscheint volgende Meldung
 				MessageBox::Show("Authentifizierung annulliert", "{(L-D)-V}", MessageBoxButtons::OK);
 			}
 
