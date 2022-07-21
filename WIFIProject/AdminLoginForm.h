@@ -1,4 +1,5 @@
 #pragma once
+#include "Admin.h"//klasse des Admins
 
 namespace WIFIProject {
 
@@ -8,6 +9,7 @@ namespace WIFIProject {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace System::Data::SqlClient;//ermöglcht die Verbindung 
 
 	/// <summary>
 	/// Zusammenfassung für AdminLoginForm
@@ -143,6 +145,7 @@ namespace WIFIProject {
 			this->btnOK->TabIndex = 6;
 			this->btnOK->Text = L"OK";
 			this->btnOK->UseVisualStyleBackColor = true;
+			this->btnOK->Click += gcnew System::EventHandler(this, &AdminLoginForm::btnOK_Click);
 			// 
 			// btnCancel
 			// 
@@ -177,13 +180,56 @@ namespace WIFIProject {
 
 		}
 #pragma endregion
+		//Man wird zum Hauptfenster geleitet
 	public: bool To_Haupt_Fenster = false;
 	private: System::Void linkHauptFenster_LinkClicked(System::Object^ sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^ e) {
 		this->To_Haupt_Fenster = true;
 		this->Close();
 	}
 	private: System::Void btnCancel_Click(System::Object^ sender, System::EventArgs^ e) {
-		this->Close();
+	this->Close();
 	}
+	public: Admin^ admin=nullptr;//Objekt der Klasse Admin
+
+private: System::Void btnOK_Click(System::Object^ sender, System::EventArgs^ e) {
+	String^ name = this->tbName->Text;//liest den eingegebene Name ein
+	String^ passwort = this->tbPasswort->Text;//liest das eingegebne Passwort ein
+	if (name->Length == 0 || passwort->Length == 0)//Bedingung
+	{
+		//wenn beide leer sind soll eine Meldung erscheinen
+		MessageBox::Show("Name und Passwort bitte eintragen", "Name oder Passwort sind leer", MessageBoxButtons::OK);
+		return;
+	}
+	try {
+		//Adresse des Database
+		String^ connString = "Data Source=(localdb)\\MSSQLLocalDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+		SqlConnection sqlconn(connString);
+		sqlconn.Open();//Verindung öffnen
+
+		String^ sqlQuery = "SELECT * FROM Admin WHERE name=@name AND passwort=@passwort;";//Query
+		SqlCommand command(sqlQuery, % sqlconn);
+		command.Parameters->AddWithValue("@name", name);
+		command.Parameters->AddWithValue("@passwort", passwort);
+
+		SqlDataReader^ reader = command.ExecuteReader();
+		if (reader->Read())
+		{
+			admin = gcnew Admin;//man erzeugt a neues Pointer am Heap, "gc" bedeutet "garbage collection"-> es wird automatish zerstört->kein Destruktor ist notwending."
+			admin->id = reader->GetInt32(0);
+			admin->name = reader->GetString(1);
+			admin->passwort = reader->GetString(2);
+			this->Close();
+		}
+		else
+		{
+			//wenn beide werte, name und Passwort nicht stimmen mit dem Wert im DB soll eine Fehler-meldung erscheinen
+			MessageBox::Show("Name oder Passwort sind falsch", "Fehler", MessageBoxButtons::OK);
+		}
+	}
+	catch(Exception^ e) {
+		//Wenn die Veindung mit dem DB unmöglicht ist, soll eine Fehler-meldung erscheinen
+		MessageBox::Show("Verbindung mit database fehlgeschlagen", "Verbingung Fehler", MessageBoxButtons::OK);
+	}
+}
 };
 }
