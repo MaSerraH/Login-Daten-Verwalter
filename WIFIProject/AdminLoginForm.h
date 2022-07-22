@@ -216,7 +216,7 @@ private: System::Void btnOK_Click(System::Object^ sender, System::EventArgs^ e) 
 		SqlDataReader^ reader = command.ExecuteReader();
 		if (reader->Read())
 		{
-			admin = gcnew Admin;//man erzeugt a neues Pointer am Heap, "gc" bedeutet "garbage collection"-> es wird automatisch zerstört->kein Destruktor ist notwending."
+			admin = gcnew Admin;//man erzeugt ein Objekt am Heap, "gc" bedeutet "garbage collection"-> es wird automatisch zerstört->kein Destruktor ist notwending."
 			//reader list die Daten id, name und passwort vom Database ein und speichert sie im admin.
 			admin->id = reader->GetInt32(0);
 			admin->name = reader->GetString(1);

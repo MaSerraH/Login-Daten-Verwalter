@@ -16,7 +16,7 @@ void main(array<String^>^ args)
 
 		if (hauptfensterForm.To_Admin_Login)
 		{
-			/*wenn der Link geclicket wurde, dann soll man in anderen Fenster geleitet werden (Admin Login).*/
+			/*wenn der Link geclicket wurde(Admin-Login), dann soll man in anderen Fenster geleitet werden (Admin Login).*/
 			WIFIProject::AdminLoginForm adminloginForm;
 			adminloginForm.ShowDialog();
 
@@ -24,11 +24,11 @@ void main(array<String^>^ args)
 			//Wenn das Objekt nicht leer ist, das heisst wenn die angegebene Informationen mit den vom DB überall stimmen 
 			if (admin != nullptr)
 			{
-				MessageBox::Show("Willkommen " + admin->name, "{(L-D)-V}", MessageBoxButtons::OK);
+				MessageBox::Show("Willkommen "  + admin->name + ". Sie sind der Administrator" , "{(L-D)-V}", MessageBoxButtons::OK);
 			}
 			else
 			{
-				//Wenn man das Button Cancel druckt, erscheint volgende Meldung
+				//Wenn man das Button Cancel druckt, erscheint folgende Meldung
 				MessageBox::Show("Authentifizierung annulliert", "{(L-D)-V}", MessageBoxButtons::OK);
 			}
 
