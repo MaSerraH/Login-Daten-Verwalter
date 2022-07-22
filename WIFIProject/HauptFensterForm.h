@@ -105,8 +105,20 @@ namespace WIFIProject {
 		}
 #pragma endregion
 	private: System::Void btnEscape_Click(System::Object^ sender, System::EventArgs^ e) {
+		System::Windows::Forms::DialogResult Escape;
 		/*dient dazu den {(L-D)-V} zu beenden*/
-		this->Close();
+		//this->Close();
+		try{
+			Escape = MessageBox::Show("Escape vom {(L-D)-V}:", "{(L-D)-V}", MessageBoxButtons::YesNo, MessageBoxIcon::Question);
+			if (Escape == System::Windows::Forms::DialogResult::Yes)
+			{
+				Application::Exit();
+			}
+		}
+		catch (Exception^ e)
+		{
+			MessageBox::Show(e->Message, "{(L-D)-V}", MessageBoxButtons::YesNo, MessageBoxIcon::Information);
+		}
 	}
 	public: bool To_Admin_Login = false;
 		  /*ermöglicht das GUI zu wechseln*/
