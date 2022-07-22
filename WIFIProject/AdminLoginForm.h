@@ -181,27 +181,33 @@ namespace WIFIProject {
 
 		}
 #pragma endregion
-		//Man wird zum Hauptfenster geleitet
-	public: bool To_Haupt_Fenster = false;
+		
+	public: bool To_Haupt_Fenster = false;//Verbindung zum Haupt_Fenster
+
 	private: System::Void linkHauptFenster_LinkClicked(System::Object^ sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^ e) {
-		this->To_Haupt_Fenster = true;
-		//macht den Fenster zu
-		this->Close();
+
+		this->To_Haupt_Fenster = true;//Man wird zum Hauptfenster geleitet
+		this->Close();//macht den Fenster zu
 	}
+
 	private: System::Void btnCancel_Click(System::Object^ sender, System::EventArgs^ e) {
-	this->Close();
+	this->Close();//macht den Fenster zu
 	}
-	public: Admin^ admin=nullptr;//Objekt der Klasse Admin
+
+	public: Admin^ admin=nullptr;//Variable der Klasse Admin, man initialisiert es auf null
 
 private: System::Void btnOK_Click(System::Object^ sender, System::EventArgs^ e) {
+
 	String^ name = this->tbName->Text;//liest den eingegebene Name ein
 	String^ passwort = this->tbPasswort->Text;//liest das eingegebne Passwort ein
+
 	if (name->Length == 0 || passwort->Length == 0)//Bedingung
 	{
 		//wenn beide leer sind soll eine Meldung erscheinen
 		MessageBox::Show("Name und Passwort bitte eintragen", "Name oder Passwort sind leer", MessageBoxButtons::OK);
 		return;
 	}
+
 	try {
 		//Adresse des Database
 		String^ connString = "Data Source=(localdb)\\MSSQLLocalDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
@@ -212,6 +218,7 @@ private: System::Void btnOK_Click(System::Object^ sender, System::EventArgs^ e) 
 		SqlCommand command(sqlQuery, % sqlconn);
 		command.Parameters->AddWithValue("@name", name);
 		command.Parameters->AddWithValue("@passwort", passwort);
+		//AddWithValue überschreibt @name und @passwort für die eingegebene name und passwort, damit sie im DB gefunden werden können
 
 		SqlDataReader^ reader = command.ExecuteReader();
 		if (reader->Read())
