@@ -24,6 +24,9 @@
     <ClCompile Include="Programm.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="AdminFensterForm.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HauptFensterForm.h">
@@ -33,6 +36,9 @@
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="Admin.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="AdminFensterForm.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>

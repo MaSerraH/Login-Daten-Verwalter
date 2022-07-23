@@ -1,5 +1,6 @@
 #include "HauptFensterForm.h"
 #include "AdminLoginForm.h"
+#include "AdminFensterForm.h"
 
 using namespace System;
 using namespace System::Windows::Forms;
@@ -25,6 +26,16 @@ void main(array<String^>^ args)
 			if (admin != nullptr)
 			{
 				MessageBox::Show("Willkommen "  + admin->name + ". Sie sind der Administrator" , "{(L-D)-V}", MessageBoxButtons::OK);
+
+				//es öffnet sich automatisch der Admin Fenster
+				WIFIProject::AdminFensterForm adminfensterForm;
+				adminfensterForm.ShowDialog();
+
+				//Wenn den Link gelickt wurde, dann wird man zum Haupt-fenster geleitet
+				if (adminfensterForm.To_Haupt_Fenster)
+				{
+					continue;
+				}
 			}
 			else
 			{

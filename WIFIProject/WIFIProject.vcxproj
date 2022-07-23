@@ -122,12 +122,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AdminFensterForm.cpp" />
     <ClCompile Include="AdminLoginForm.cpp" />
     <ClCompile Include="HauptFensterForm.cpp" />
     <ClCompile Include="Programm.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Admin.h" />
+    <ClInclude Include="AdminFensterForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="AdminLoginForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -136,6 +140,9 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AdminFensterForm.resx">
+      <DependentUpon>AdminFensterForm.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminLoginForm.resx">
       <DependentUpon>AdminLoginForm.h</DependentUpon>
     </EmbeddedResource>

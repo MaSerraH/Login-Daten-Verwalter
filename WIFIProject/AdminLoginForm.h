@@ -80,13 +80,13 @@ namespace WIFIProject {
 			this->linkHauptFenster->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->linkHauptFenster->AutoSize = true;
-			this->linkHauptFenster->Font = (gcnew System::Drawing::Font(L"Arial", 15.75F, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
-				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			this->linkHauptFenster->Font = (gcnew System::Drawing::Font(L"Arial", 15.75F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->linkHauptFenster->LinkColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)),
 				static_cast<System::Int32>(static_cast<System::Byte>(128)), static_cast<System::Int32>(static_cast<System::Byte>(0)));
 			this->linkHauptFenster->Location = System::Drawing::Point(413, 419);
 			this->linkHauptFenster->Name = L"linkHauptFenster";
-			this->linkHauptFenster->Size = System::Drawing::Size(101, 24);
+			this->linkHauptFenster->Size = System::Drawing::Size(96, 24);
 			this->linkHauptFenster->TabIndex = 0;
 			this->linkHauptFenster->TabStop = true;
 			this->linkHauptFenster->Text = L"zum  H-F";
@@ -191,7 +191,22 @@ namespace WIFIProject {
 	}
 
 	private: System::Void btnCancel_Click(System::Object^ sender, System::EventArgs^ e) {
-	this->Close();//macht den Fenster zu
+	//this->Close();//macht den Fenster zu
+		System::Windows::Forms::DialogResult Cancel;
+		//Dialog um zu beenden
+
+		try{
+			Cancel = MessageBox::Show("{(L-D)-V} beenden", "{(L-D)-V}", MessageBoxButtons::YesNo, MessageBoxIcon::Question);
+
+			if (Cancel == System::Windows::Forms::DialogResult::Yes)
+			{
+				Application::Exit();
+			}
+		}
+		catch (Exception^ e)
+		{
+			MessageBox::Show(e->Message, "{(L-D)-V}", MessageBoxButtons::YesNo, MessageBoxIcon::Information);
+		}
 	}
 
 	public: Admin^ admin=nullptr;//Variable der Klasse Admin, man initialisiert es auf null
