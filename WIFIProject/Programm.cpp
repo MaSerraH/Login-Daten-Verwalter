@@ -25,6 +25,7 @@ void main(array<String^>^ args)
 			//Wenn das Objekt nicht leer ist, das heisst wenn die angegebene Informationen mit den vom DB überall stimmen 
 			if (admin != nullptr)
 			{
+				
 				MessageBox::Show("Willkommen "  + admin->name + ". Sie sind der Administrator" , "{(L-D)-V}", MessageBoxButtons::OK);
 
 				//es öffnet sich automatisch der Admin Fenster

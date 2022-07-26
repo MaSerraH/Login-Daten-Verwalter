@@ -84,7 +84,8 @@ namespace WIFIProject {
 				static_cast<System::Byte>(0)));
 			this->linkHauptFenster->LinkColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)),
 				static_cast<System::Int32>(static_cast<System::Byte>(128)), static_cast<System::Int32>(static_cast<System::Byte>(0)));
-			this->linkHauptFenster->Location = System::Drawing::Point(413, 419);
+			this->linkHauptFenster->Location = System::Drawing::Point(310, 314);
+			this->linkHauptFenster->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->linkHauptFenster->Name = L"linkHauptFenster";
 			this->linkHauptFenster->Size = System::Drawing::Size(96, 24);
 			this->linkHauptFenster->TabIndex = 0;
@@ -96,25 +97,28 @@ namespace WIFIProject {
 			// 
 			this->label1->Font = (gcnew System::Drawing::Font(L"Arial", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(147, 53);
+			this->label1->Location = System::Drawing::Point(110, 40);
+			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(210, 43);
+			this->label1->Size = System::Drawing::Size(184, 32);
 			this->label1->TabIndex = 1;
 			this->label1->Text = L"Admin Login";
 			// 
 			// label2
 			// 
-			this->label2->Location = System::Drawing::Point(43, 132);
+			this->label2->Location = System::Drawing::Point(32, 99);
+			this->label2->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(114, 30);
+			this->label2->Size = System::Drawing::Size(86, 22);
 			this->label2->TabIndex = 2;
 			this->label2->Text = L"Name:";
 			// 
 			// label3
 			// 
-			this->label3->Location = System::Drawing::Point(43, 190);
+			this->label3->Location = System::Drawing::Point(32, 142);
+			this->label3->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(114, 30);
+			this->label3->Size = System::Drawing::Size(86, 22);
 			this->label3->TabIndex = 3;
 			this->label3->Text = L"Passwort:";
 			// 
@@ -122,26 +126,31 @@ namespace WIFIProject {
 			// 
 			this->tbName->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->tbName->Location = System::Drawing::Point(199, 132);
+			this->tbName->Location = System::Drawing::Point(149, 99);
+			this->tbName->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->tbName->Name = L"tbName";
-			this->tbName->Size = System::Drawing::Size(304, 32);
+			this->tbName->Size = System::Drawing::Size(229, 26);
 			this->tbName->TabIndex = 4;
 			// 
 			// tbPasswort
 			// 
 			this->tbPasswort->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->tbPasswort->Location = System::Drawing::Point(199, 187);
+			this->tbPasswort->Location = System::Drawing::Point(149, 140);
+			this->tbPasswort->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->tbPasswort->Name = L"tbPasswort";
 			this->tbPasswort->PasswordChar = '$';
-			this->tbPasswort->Size = System::Drawing::Size(304, 32);
+			this->tbPasswort->Size = System::Drawing::Size(229, 26);
 			this->tbPasswort->TabIndex = 5;
 			// 
 			// btnOK
 			// 
-			this->btnOK->Location = System::Drawing::Point(121, 284);
+			this->btnOK->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnOK->Location = System::Drawing::Point(91, 213);
+			this->btnOK->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->btnOK->Name = L"btnOK";
-			this->btnOK->Size = System::Drawing::Size(117, 43);
+			this->btnOK->Size = System::Drawing::Size(88, 32);
 			this->btnOK->TabIndex = 6;
 			this->btnOK->Text = L"OK";
 			this->btnOK->UseVisualStyleBackColor = true;
@@ -149,9 +158,12 @@ namespace WIFIProject {
 			// 
 			// btnCancel
 			// 
-			this->btnCancel->Location = System::Drawing::Point(319, 284);
+			this->btnCancel->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnCancel->Location = System::Drawing::Point(239, 213);
+			this->btnCancel->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->btnCancel->Name = L"btnCancel";
-			this->btnCancel->Size = System::Drawing::Size(113, 43);
+			this->btnCancel->Size = System::Drawing::Size(85, 32);
 			this->btnCancel->TabIndex = 7;
 			this->btnCancel->Text = L"Cancel";
 			this->btnCancel->UseVisualStyleBackColor = true;
@@ -159,9 +171,9 @@ namespace WIFIProject {
 			// 
 			// AdminLoginForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(12, 24);
+			this->AutoScaleDimensions = System::Drawing::SizeF(9, 18);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(543, 482);
+			this->ClientSize = System::Drawing::Size(407, 362);
 			this->Controls->Add(this->btnCancel);
 			this->Controls->Add(this->btnOK);
 			this->Controls->Add(this->tbPasswort);
@@ -170,9 +182,9 @@ namespace WIFIProject {
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->linkHauptFenster);
-			this->Font = (gcnew System::Drawing::Font(L"Arial", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Margin = System::Windows::Forms::Padding(6);
+			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->Name = L"AdminLoginForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Admin_Login";
