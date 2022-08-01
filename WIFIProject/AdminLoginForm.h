@@ -231,17 +231,17 @@ private: System::Void btnOK_Click(System::Object^ sender, System::EventArgs^ e) 
 	if (name->Length == 0 || passwort->Length == 0)//Bedingung
 	{
 		//wenn beide leer sind soll eine Meldung erscheinen
-		MessageBox::Show("Name und Passwort bitte eintragen", "Name oder Passwort sind leer", MessageBoxButtons::OK);
+		MessageBox::Show("Name und Passwort bitte eingeben", "Name oder Passwort sind leer", MessageBoxButtons::OK);
 		return;
 	}
 
 	try {
 		//Adresse des Database
-		String^ connString = "Data Source=(localdb)\\MSSQLLocalDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+		String^ connString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 		SqlConnection sqlconn(connString);
 		sqlconn.Open();//Verbindung öffnen
 
-		String^ sqlQuery = "SELECT * FROM Admin WHERE name=@name AND passwort=@passwort;";//Query
+		String^ sqlQuery = "SELECT * FROM Admin WHERE Name=@name AND Passwort=@passwort;";//Query
 		SqlCommand command(sqlQuery, % sqlconn);
 		command.Parameters->AddWithValue("@name", name);
 		command.Parameters->AddWithValue("@passwort", passwort);

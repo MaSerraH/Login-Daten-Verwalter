@@ -32,6 +32,8 @@ void main(array<String^>^ args)
 				WIFIProject::AdminFensterForm adminfensterForm;
 				adminfensterForm.ShowDialog();
 
+				
+
 				//Wenn den Link gelickt wurde, dann wird man zum Haupt-fenster geleitet
 				if (adminfensterForm.To_Haupt_Fenster)
 				{

@@ -1,5 +1,6 @@
 #pragma once
 
+
 namespace WIFIProject {
 
 	using namespace System;
@@ -48,8 +49,10 @@ namespace WIFIProject {
 	private: System::Windows::Forms::Button^ btnReset;
 	private: System::Windows::Forms::Label^ label5;
 	private: System::Windows::Forms::TextBox^ tbID;
-	private: System::Windows::Forms::Button^ btnUpdate;
+
 	private: System::Windows::Forms::Panel^ panel2;
+	private: System::Windows::Forms::Label^ labelListe;
+
 	protected:
 
 	protected:
@@ -82,8 +85,8 @@ namespace WIFIProject {
 			this->btnReset = (gcnew System::Windows::Forms::Button());
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->tbID = (gcnew System::Windows::Forms::TextBox());
-			this->btnUpdate = (gcnew System::Windows::Forms::Button());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
+			this->labelListe = (gcnew System::Windows::Forms::Label());
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->panel2->SuspendLayout();
@@ -98,10 +101,10 @@ namespace WIFIProject {
 				static_cast<System::Byte>(0)));
 			this->linkHauptFenster->LinkColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)),
 				static_cast<System::Int32>(static_cast<System::Byte>(128)), static_cast<System::Int32>(static_cast<System::Byte>(0)));
-			this->linkHauptFenster->Location = System::Drawing::Point(485, 448);
+			this->linkHauptFenster->Location = System::Drawing::Point(51, 153);
 			this->linkHauptFenster->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->linkHauptFenster->Name = L"linkHauptFenster";
-			this->linkHauptFenster->Size = System::Drawing::Size(95, 24);
+			this->linkHauptFenster->Size = System::Drawing::Size(124, 31);
 			this->linkHauptFenster->TabIndex = 0;
 			this->linkHauptFenster->TabStop = true;
 			this->linkHauptFenster->Text = L"zum H_F";
@@ -150,7 +153,7 @@ namespace WIFIProject {
 			this->tbName->Location = System::Drawing::Point(126, 87);
 			this->tbName->Margin = System::Windows::Forms::Padding(2);
 			this->tbName->Name = L"tbName";
-			this->tbName->Size = System::Drawing::Size(158, 26);
+			this->tbName->Size = System::Drawing::Size(158, 30);
 			this->tbName->TabIndex = 5;
 			// 
 			// tbPasswort
@@ -159,7 +162,7 @@ namespace WIFIProject {
 			this->tbPasswort->Margin = System::Windows::Forms::Padding(2);
 			this->tbPasswort->Name = L"tbPasswort";
 			this->tbPasswort->PasswordChar = '*';
-			this->tbPasswort->Size = System::Drawing::Size(158, 26);
+			this->tbPasswort->Size = System::Drawing::Size(158, 30);
 			this->tbPasswort->TabIndex = 6;
 			// 
 			// cbListe
@@ -172,7 +175,7 @@ namespace WIFIProject {
 			this->cbListe->Location = System::Drawing::Point(126, 184);
 			this->cbListe->Margin = System::Windows::Forms::Padding(2);
 			this->cbListe->Name = L"cbListe";
-			this->cbListe->Size = System::Drawing::Size(92, 26);
+			this->cbListe->Size = System::Drawing::Size(92, 31);
 			this->cbListe->TabIndex = 7;
 			// 
 			// panel1
@@ -193,6 +196,7 @@ namespace WIFIProject {
 			this->dataGridView1->Location = System::Drawing::Point(11, 9);
 			this->dataGridView1->Margin = System::Windows::Forms::Padding(2);
 			this->dataGridView1->Name = L"dataGridView1";
+			this->dataGridView1->RowHeadersWidth = 51;
 			this->dataGridView1->Size = System::Drawing::Size(376, 200);
 			this->dataGridView1->TabIndex = 0;
 			this->dataGridView1->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &AdminFensterForm::dataGridView1_CellClick);
@@ -204,7 +208,7 @@ namespace WIFIProject {
 			this->btnU_anlegen->Location = System::Drawing::Point(19, 66);
 			this->btnU_anlegen->Margin = System::Windows::Forms::Padding(2);
 			this->btnU_anlegen->Name = L"btnU_anlegen";
-			this->btnU_anlegen->Size = System::Drawing::Size(139, 36);
+			this->btnU_anlegen->Size = System::Drawing::Size(181, 36);
 			this->btnU_anlegen->TabIndex = 9;
 			this->btnU_anlegen->Text = L"User anlegen";
 			this->btnU_anlegen->UseVisualStyleBackColor = true;
@@ -214,10 +218,10 @@ namespace WIFIProject {
 			// 
 			this->btnU_loeschen->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnU_loeschen->Location = System::Drawing::Point(19, 106);
+			this->btnU_loeschen->Location = System::Drawing::Point(21, 106);
 			this->btnU_loeschen->Margin = System::Windows::Forms::Padding(2);
 			this->btnU_loeschen->Name = L"btnU_loeschen";
-			this->btnU_loeschen->Size = System::Drawing::Size(139, 33);
+			this->btnU_loeschen->Size = System::Drawing::Size(181, 33);
 			this->btnU_loeschen->TabIndex = 10;
 			this->btnU_loeschen->Text = L"User löschen";
 			this->btnU_loeschen->UseVisualStyleBackColor = true;
@@ -227,10 +231,10 @@ namespace WIFIProject {
 			// 
 			this->btnReset->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnReset->Location = System::Drawing::Point(43, 11);
+			this->btnReset->Location = System::Drawing::Point(67, 9);
 			this->btnReset->Margin = System::Windows::Forms::Padding(2);
 			this->btnReset->Name = L"btnReset";
-			this->btnReset->Size = System::Drawing::Size(87, 28);
+			this->btnReset->Size = System::Drawing::Size(96, 34);
 			this->btnReset->TabIndex = 11;
 			this->btnReset->Text = L"Reset";
 			this->btnReset->UseVisualStyleBackColor = true;
@@ -239,51 +243,47 @@ namespace WIFIProject {
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(405, 76);
+			this->label5->Location = System::Drawing::Point(370, 94);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(27, 18);
+			this->label5->Size = System::Drawing::Size(36, 23);
 			this->label5->TabIndex = 12;
 			this->label5->Text = L"ID:";
 			this->label5->Click += gcnew System::EventHandler(this, &AdminFensterForm::label5_Click);
 			// 
 			// tbID
 			// 
-			this->tbID->Location = System::Drawing::Point(462, 68);
+			this->tbID->Location = System::Drawing::Point(422, 87);
 			this->tbID->Name = L"tbID";
-			this->tbID->Size = System::Drawing::Size(50, 26);
+			this->tbID->Size = System::Drawing::Size(50, 30);
 			this->tbID->TabIndex = 13;
-			// 
-			// btnUpdate
-			// 
-			this->btnUpdate->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->btnUpdate->Location = System::Drawing::Point(19, 144);
-			this->btnUpdate->Name = L"btnUpdate";
-			this->btnUpdate->Size = System::Drawing::Size(139, 29);
-			this->btnUpdate->TabIndex = 14;
-			this->btnUpdate->Text = L"Update DB";
-			this->btnUpdate->UseVisualStyleBackColor = true;
-			this->btnUpdate->Click += gcnew System::EventHandler(this, &AdminFensterForm::btnUpdate_Click);
 			// 
 			// panel2
 			// 
 			this->panel2->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
-			this->panel2->Controls->Add(this->btnUpdate);
 			this->panel2->Controls->Add(this->btnReset);
+			this->panel2->Controls->Add(this->linkHauptFenster);
 			this->panel2->Controls->Add(this->btnU_loeschen);
 			this->panel2->Controls->Add(this->btnU_anlegen);
 			this->panel2->Location = System::Drawing::Point(468, 229);
 			this->panel2->Name = L"panel2";
-			this->panel2->Size = System::Drawing::Size(177, 199);
+			this->panel2->Size = System::Drawing::Size(222, 199);
 			this->panel2->TabIndex = 15;
+			// 
+			// labelListe
+			// 
+			this->labelListe->Location = System::Drawing::Point(537, 137);
+			this->labelListe->Name = L"labelListe";
+			this->labelListe->Size = System::Drawing::Size(96, 30);
+			this->labelListe->TabIndex = 16;
+			this->labelListe->Text = L"...";
 			// 
 			// AdminFensterForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(9, 18);
+			this->AutoScaleDimensions = System::Drawing::SizeF(11, 23);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(657, 481);
+			this->ClientSize = System::Drawing::Size(756, 481);
+			this->Controls->Add(this->labelListe);
 			this->Controls->Add(this->tbID);
-			this->Controls->Add(this->linkHauptFenster);
 			this->Controls->Add(this->label5);
 			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->cbListe);
@@ -299,11 +299,11 @@ namespace WIFIProject {
 			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"AdminFensterForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu"
-				L"uuuuuuuuuuuuuuu";
+			this->Text = L"Admin Fenster";
 			this->panel1->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->panel2->ResumeLayout(false);
+			this->panel2->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -311,40 +311,51 @@ namespace WIFIProject {
 #pragma endregion
 	private: System::Void wifi_users()
 		{
+		//die Methode wifi_users soll den Inhalt eine Tabelle der Databank lesen und dann in a datagridview aufladen, damit man sie lesen kann.
+		
 			MySqlConnection^ sqlconn = gcnew MySqlConnection();
-			sqlconn->ConnectionString = "datasource = localhost; port = 3306; username = LoginDatenVerwalter; password = wifi123; database = wifi";
+			sqlconn->ConnectionString = "datasource = localhost; port = 3306; username = Login Daten Verwalter; password = wifi123; database = wifi";
 			sqlconn->Open();
+			//man öffnet die Connection zum Server und einen Bestimmte Database/schema(wifi)
 			MySqlCommand^ sqlcom = gcnew MySqlCommand();
 			sqlcom->Connection = sqlconn;
+			//man verbindet sich mit der Database
+			//man öffnet eine bestimmte Tabelle der Database(wifi_users)
 			sqlcom->CommandText = "select * from wifi_users";
 			MySqlDataReader^ sqlrd = sqlcom->ExecuteReader();
+			//Man liest den Inhalt der Tabelle(wifi_users) mittels ein Reader
 			DataTable^ sqldt = gcnew DataTable();
 			sqldt->Load(sqlrd);
+			//man ladet den gelesenen Inhalt in einer Table auf
 			sqlrd->Close();
 			sqlconn->Close();
-
+			//man macht den Reader und die Connection wieder zu
 			dataGridView1->DataSource = sqldt;
+			//man setzt die Table mit dem gelesenen Inhalt als Informationsquelle für den DataGridView, damit der User des {(L-D)-V} sie lesen kann.
 		}
-	private: System::Void aktualisieren()
-	{
-		try {
-			MySqlConnection^ sqlconn = gcnew MySqlConnection();
-			sqlconn->ConnectionString = "datasource = localhost; port = 3306; username = LoginDatenVerwalter; password = wifi123; database = wifi";
-			MySqlCommand^ sqlcom = gcnew MySqlCommand();
-			sqlcom->Connection = sqlconn;
+	//private: System::Void aktualisieren()
+	//{
+	//	//die Methode aktualisieren(), soll Die Tabelle der Database mit geänderte Inhalt (angelegte oder gelöschte Users) aktualisieren
+	//	try {
+	//		MySqlConnection^ sqlconn = gcnew MySqlConnection();
+	//		sqlconn->ConnectionString = "datasource = localhost; port = 3306; username = Login Daten Verwalter; password = wifi123; database = wifi";
+	//		MySqlCommand^ sqlcom = gcnew MySqlCommand();
+	//		sqlcom->Connection = sqlconn;
+	//		//man öffnet die Connection zum Server und einen Bestimmte Database/schema(wifi)
+	//		//man verbindet sich mit der Database
 
-			MySqlDataAdapter^ sqldta = gcnew MySqlDataAdapter("select * from wifi_users", sqlconn);
-			DataTable^ sqldt = gcnew DataTable();
-			sqldta->Fill(sqldt);
-			dataGridView1->DataSource = sqldt;
-			
+	//		MySqlDataAdapter^ sqldta = gcnew MySqlDataAdapter("select * from wifi_users", sqlconn);
+	//		DataTable^ sqldt = gcnew DataTable();
+	//		sqldta->Fill(sqldt);
+	//		dataGridView1->DataSource = sqldt;
+	//		
 
-		}
-		catch (Exception^ e)
-		{
-			MessageBox::Show(e->Message, "{(L-D)-V}", MessageBoxButtons::YesNo, MessageBoxIcon::Information);
-		}
-	}
+	//	}
+	//	catch (Exception^ e)
+	//	{
+	//		MessageBox::Show(e->Message, "{(L-D)-V}", MessageBoxButtons::YesNo, MessageBoxIcon::Information);
+	//	}
+	//}
 
 		//damit wird man zum HauptFenster geleitet
 	public: bool To_Haupt_Fenster = false;
@@ -354,18 +365,22 @@ namespace WIFIProject {
 		this->Close();
 	}
 	private: System::Void btnReset_Click(System::Object^ sender, System::EventArgs^ e) {
+		//die Methode Reset leert textboxes, combobox und label, damit man wieder etwas eingeben kann
 		tbID->Text = "";
 		tbName->Text = "";
 		tbPasswort->Text = "";
 		cbListe->SelectedIndex = -1;
+		labelListe->Text = "";
 
 	}
 private: System::Void dataGridView1_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+	//damit erreicht man dass wenn der User des {(L-D)-V} einen bestimmte user in der Tabelle auswählt, desen Information (ID, Name, Passwort, liste) in den zugehörigen Textbox oder combobox gezeigt wird.
 	try {
 		tbID->Text = dataGridView1->SelectedRows[0]->Cells[0]->Value->ToString();
 		tbName->Text = dataGridView1->SelectedRows[0]->Cells[1]->Value->ToString();
 		tbPasswort->Text = dataGridView1->SelectedRows[0]->Cells[2]->Value->ToString();
-		cbListe->Text = dataGridView1->SelectedRows[0]->Cells[3]->Value->ToString();
+		cbListe->SelectedValue = dataGridView1->SelectedRows[0]->Cells[3]->Value->ToString();
+		labelListe->Text = dataGridView1->SelectedRows[0]->Cells[3]->Value->ToString();
 	}
 	catch(Exception ^e)
 	{
@@ -374,25 +389,32 @@ private: System::Void dataGridView1_CellClick(System::Object^ sender, System::Wi
 }
 private: System::Void btnU_anlegen_Click(System::Object^ sender, System::EventArgs^ e) {
 	MySqlConnection^ sqlconn = gcnew MySqlConnection();
-	sqlconn->ConnectionString = "datasource = localhost; port = 3306; username = LoginDatenVerwalter; password = wifi123; database = wifi";
+	sqlconn->ConnectionString = "datasource = localhost; port = 3306; username = Login Daten Verwalter; password = wifi123; database = wifi";
 	sqlconn->Open();
+	//man macht die Connection zum Server und zur Database(wifi) auf.
 
 	MySqlCommand^ sqlcom = gcnew MySqlCommand();
 	sqlcom->Connection = sqlconn;
+	//man verbindet sich mit der Database
 	try {
-		sqlcom->CommandText = "insert into wifi_users(ID, Name, Passwort, liste)" + "values('" + tbID->Text + "','" + tbName->Text + "','" + tbPasswort->Text + "','" + cbListe->Text + "')";
+		//Die Variable Name und Passwort werden von den zugehörigen textboxes gelesen, die Valiable Lis von einem Combobox(cbListe)
+		//der Combobox (cbliste) wurde mit den zahlen: 1..10, vorgefüllt
+		String^ name = tbName->Text;
+		String^ passwort = tbPasswort->Text;
+		String^ lis = cbListe->Text;
+		//mittels den Command Insert, fügt man den gelesene Inhalt von den Variablen (name, passwort und lis) in der zugehörigen Spalte der Tabelle(wifi_users) hinzu
+		sqlcom->CommandText = "insert into wifi_users(Name, Passwort, liste)" + "values('" + name + "','" + passwort + "','" + lis + "')";
 		
+		//mit folgender Logik, wird die ausgewählte Zahl vom Combobox gelöscht. Damit kann man wissen welche zahlen noch zur Verfügung stehen
+		if (cbListe->SelectedIndex != -1)
+		{
+			cbListe->Items->Remove(cbListe->SelectedItem);
+		}
+
 		sqlcom->ExecuteNonQuery();
 		sqlconn->Close();
 		wifi_users();
-		aktualisieren();
-
-		int liste = cbListe->SelectedIndex;
-
-		switch(liste)
-		{
-		case '1': cbListe->SelectedIndex=-1 ; ; break; case '2': cbListe->SelectedIndex = -1; break; case '3': cbListe->SelectedIndex = -1; break; case '4': cbListe->SelectedIndex = -1; break; case '5': cbListe->SelectedIndex = -1; break; case '6': cbListe->SelectedIndex = -1; break; case '7': cbListe->SelectedIndex = -1; break; case '8': cbListe->SelectedIndex = -1; break; case '9': cbListe->SelectedIndex = -1; break; case '10': cbListe->SelectedIndex = -1; break;
-		}
+		//die Abfrage(insert) wird durchgefüht, die Connection wieder zugemacht und man wird den aktualisierte Inhalt der Tabelle im DataGridView gezeigt bekommen.		
 	}
 	catch (Exception^ e)
 	{
@@ -402,22 +424,31 @@ private: System::Void btnU_anlegen_Click(System::Object^ sender, System::EventAr
 private: System::Void btnU_loeschen_Click(System::Object^ sender, System::EventArgs^ e) {
 	
 	try {
-		MySqlConnection^ sqlconn = gcnew MySqlConnection();
-		sqlconn->ConnectionString = "datasource = localhost; port = 3306; username = LoginDatenVerwalter; password = wifi123; database = wifi";
+		String^ lis = labelListe->Text;
+		String^ ID = tbID->Text;
 
+		MySqlConnection^ sqlconn = gcnew MySqlConnection();
+		sqlconn->ConnectionString = "datasource = localhost; port = 3306; username = Login Daten Verwalter; password = wifi123; database = wifi";
+		sqlconn->Open();
+		//man macht die Connection zum Server und zur Database(wifi) auf.
 		MySqlCommand^ sqlcom = gcnew MySqlCommand();
 		sqlcom->Connection = sqlconn;
+		//man verbindet sich mit der Database
 
-		String^ ID = tbID->Text;
+		//mittel die Abfrage(delete) wird von der Tabelle(wifi_users) einen ausgewählte User gelöscht. Das ID ist eindeutig
 		MySqlCommand^ sqlcmd = gcnew MySqlCommand("DELETE FROM wifi_users WHERE ID=" + ID + "", sqlconn);
-
-		sqlconn->Open();
-
-		MySqlDataReader^ sqlrd = sqlcmd->ExecuteReader();
-		MessageBox::Show("User gelöscht!", "{(L-D)-V}", MessageBoxButtons::YesNo, MessageBoxIcon::Asterisk);
+		//mit folgender Logik erreicht man dass im Combobox(cbListe), die Zahl des gelöschten Users wieder auftaucht.
+		if (lis)
+		{
+			cbListe->Items->Add(lis);
+		}
+	
+		sqlcmd->ExecuteNonQuery();
+		MessageBox::Show("User gelöscht!", "{(L-D)-V}", MessageBoxButtons::OK, MessageBoxIcon::Asterisk);
 		sqlconn->Close();
-		aktualisieren();
+		//Die Abfrage(delete) wird durchgeführt, dann bekommt man eine Bestätigungsmeldung und letztendlich wird die Connection wieder zugemacht.
 		wifi_users();
+		//man wird den aktualisierte Inhalt der Tabelle im DataGridView gezeigt bekommen.
 	
 	}
 	catch(Exception^ e)
@@ -427,39 +458,39 @@ private: System::Void btnU_loeschen_Click(System::Object^ sender, System::EventA
 }
 private: System::Void label5_Click(System::Object^ sender, System::EventArgs^ e) {
 }
-private: System::Void btnUpdate_Click(System::Object^ sender, System::EventArgs^ e) {
-
-	try {
-		MySqlConnection^ sqlconn = gcnew MySqlConnection();
-		sqlconn->ConnectionString = "datasource = localhost; port = 3306; username = LoginDatenVerwalter; password = wifi123; database = wifi";
-		
-		MySqlCommand^ sqlcom = gcnew MySqlCommand();
-		sqlcom->Connection = sqlconn;
-
-		
-
-		String^ id = tbID->Text;
-		String^ name = tbName->Text;
-		String^ passwort = tbPasswort->Text;
-		String^ lis = cbListe->Text;
-
-	//MySqlCommand^ sqlcmd = gcnew MySqlCommand();
-		sqlcom->CommandText = "update wifi_users set ID='" + id + "', Name = '" + name + "', Passwort = '" + passwort + "', liste = '" + lis + "' where ID = " + id + "", sqlconn;
-
-		sqlconn->Open();
-		//sqlcom->ExecuteNonQuery();
-		MySqlDataReader^ sqlrd = sqlcom->ExecuteReader();
-		sqlconn->Close();
-		wifi_users();
-		aktualisieren();
-
-		
-	}
-	catch (Exception^ e)
-	{
-		MessageBox::Show(e->Message, "{(L-D)-V}", MessageBoxButtons::YesNo, MessageBoxIcon::Information);
-	}
-	//Hallo erste Probe
-}
+//private: System::Void btnUpdate_Click(System::Object^ sender, System::EventArgs^ e) {
+//
+//	try {
+//		MySqlConnection^ sqlconn = gcnew MySqlConnection();
+//		sqlconn->ConnectionString = "datasource = localhost; port = 3306; username = Login Daten Verwalter; password = wifi123; database = wifi";
+//		
+//		MySqlCommand^ sqlcom = gcnew MySqlCommand();
+//		sqlcom->Connection = sqlconn;
+//
+//		
+//
+//		String^ id = tbID->Text;
+//		String^ name = tbName->Text;
+//		String^ passwort = tbPasswort->Text;
+//		String^ lis = cbListe->Text;
+//
+//	MySqlCommand^ sqlcmd = gcnew MySqlCommand();
+//		sqlcom->CommandText = "update wifi_users set ID='" + id + "', Name = '" + name + "', Passwort = '" + passwort + "', liste = '" + lis + "' where ID = " + id + "", sqlconn;
+//
+//		sqlconn->Open();
+//		sqlcom->ExecuteNonQuery();
+//		MySqlDataReader^ sqlrd = sqlcom->ExecuteReader();
+//		sqlconn->Close();
+//		wifi_users();
+//		aktualisieren();
+//
+//		
+//	}
+//	catch (Exception^ e)
+//	{
+//		MessageBox::Show(e->Message, "{(L-D)-V}", MessageBoxButtons::YesNo, MessageBoxIcon::Information);
+//	}
+//	Hallo erste Probe
+//}
 };
 }
