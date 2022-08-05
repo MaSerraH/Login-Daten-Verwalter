@@ -52,6 +52,8 @@ namespace WIFIProject {
 
 	private: System::Windows::Forms::Panel^ panel2;
 	private: System::Windows::Forms::Label^ labelListe;
+	private: System::Windows::Forms::Button^ btnNeuStart;
+	private: System::Windows::Forms::Label^ label6;
 
 	protected:
 
@@ -86,7 +88,9 @@ namespace WIFIProject {
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->tbID = (gcnew System::Windows::Forms::TextBox());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
+			this->btnNeuStart = (gcnew System::Windows::Forms::Button());
 			this->labelListe = (gcnew System::Windows::Forms::Label());
+			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->panel2->SuspendLayout();
@@ -97,14 +101,14 @@ namespace WIFIProject {
 			this->linkHauptFenster->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->linkHauptFenster->AutoSize = true;
-			this->linkHauptFenster->Font = (gcnew System::Drawing::Font(L"Arial", 15.75F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
+			this->linkHauptFenster->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->linkHauptFenster->LinkColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)),
 				static_cast<System::Int32>(static_cast<System::Byte>(128)), static_cast<System::Int32>(static_cast<System::Byte>(0)));
-			this->linkHauptFenster->Location = System::Drawing::Point(51, 153);
+			this->linkHauptFenster->Location = System::Drawing::Point(595, 464);
 			this->linkHauptFenster->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->linkHauptFenster->Name = L"linkHauptFenster";
-			this->linkHauptFenster->Size = System::Drawing::Size(124, 31);
+			this->linkHauptFenster->Size = System::Drawing::Size(91, 24);
 			this->linkHauptFenster->TabIndex = 0;
 			this->linkHauptFenster->TabStop = true;
 			this->linkHauptFenster->Text = L"zum H_F";
@@ -112,12 +116,12 @@ namespace WIFIProject {
 			// 
 			// label1
 			// 
-			this->label1->Font = (gcnew System::Drawing::Font(L"Arial", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label1->Font = (gcnew System::Drawing::Font(L"Arial", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label1->Location = System::Drawing::Point(96, 9);
 			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(170, 39);
+			this->label1->Size = System::Drawing::Size(238, 39);
 			this->label1->TabIndex = 1;
 			this->label1->Text = L"Admin Fenster";
 			// 
@@ -161,7 +165,7 @@ namespace WIFIProject {
 			this->tbPasswort->Location = System::Drawing::Point(126, 137);
 			this->tbPasswort->Margin = System::Windows::Forms::Padding(2);
 			this->tbPasswort->Name = L"tbPasswort";
-			this->tbPasswort->PasswordChar = '*';
+			this->tbPasswort->PasswordChar = '\"';
 			this->tbPasswort->Size = System::Drawing::Size(158, 30);
 			this->tbPasswort->TabIndex = 6;
 			// 
@@ -260,28 +264,52 @@ namespace WIFIProject {
 			// panel2
 			// 
 			this->panel2->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
+			this->panel2->Controls->Add(this->btnNeuStart);
 			this->panel2->Controls->Add(this->btnReset);
-			this->panel2->Controls->Add(this->linkHauptFenster);
 			this->panel2->Controls->Add(this->btnU_loeschen);
 			this->panel2->Controls->Add(this->btnU_anlegen);
-			this->panel2->Location = System::Drawing::Point(468, 229);
+			this->panel2->Location = System::Drawing::Point(482, 203);
 			this->panel2->Name = L"panel2";
-			this->panel2->Size = System::Drawing::Size(222, 199);
+			this->panel2->Size = System::Drawing::Size(222, 244);
 			this->panel2->TabIndex = 15;
+			// 
+			// btnNeuStart
+			// 
+			this->btnNeuStart->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnNeuStart->Location = System::Drawing::Point(44, 161);
+			this->btnNeuStart->Name = L"btnNeuStart";
+			this->btnNeuStart->Size = System::Drawing::Size(137, 59);
+			this->btnNeuStart->TabIndex = 17;
+			this->btnNeuStart->Text = L"Tabelle neu starten";
+			this->btnNeuStart->UseVisualStyleBackColor = true;
+			this->btnNeuStart->Click += gcnew System::EventHandler(this, &AdminFensterForm::btnNeuStart_Click);
 			// 
 			// labelListe
 			// 
-			this->labelListe->Location = System::Drawing::Point(537, 137);
+			this->labelListe->Location = System::Drawing::Point(639, 33);
 			this->labelListe->Name = L"labelListe";
 			this->labelListe->Size = System::Drawing::Size(96, 30);
 			this->labelListe->TabIndex = 16;
 			this->labelListe->Text = L"...";
 			// 
+			// label6
+			// 
+			this->label6->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label6->Location = System::Drawing::Point(331, 48);
+			this->label6->Name = L"label6";
+			this->label6->Size = System::Drawing::Size(171, 25);
+			this->label6->TabIndex = 17;
+			this->label6->Text = L"User-Verwaltung";
+			// 
 			// AdminFensterForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(11, 23);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(756, 481);
+			this->ClientSize = System::Drawing::Size(782, 514);
+			this->Controls->Add(this->linkHauptFenster);
+			this->Controls->Add(this->label6);
 			this->Controls->Add(this->labelListe);
 			this->Controls->Add(this->tbID);
 			this->Controls->Add(this->label5);
@@ -303,7 +331,6 @@ namespace WIFIProject {
 			this->panel1->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->panel2->ResumeLayout(false);
-			this->panel2->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -328,34 +355,32 @@ namespace WIFIProject {
 			sqldt->Load(sqlrd);
 			//man ladet den gelesenen Inhalt in einer Table auf
 			sqlrd->Close();
-			sqlconn->Close();
+			
 			//man macht den Reader und die Connection wieder zu
 			dataGridView1->DataSource = sqldt;
 			//man setzt die Table mit dem gelesenen Inhalt als Informationsquelle für den DataGridView, damit der User des {(L-D)-V} sie lesen kann.
+			try {
+				//man wählt alle Inhalt der Tabelle liste(Zahlen)
+				sqlcom->CommandText = "select * from liste";
+				//man liest deren Inhalt und man speichert sie in einem reader
+				MySqlDataReader^ sqlread = sqlcom->ExecuteReader();
+				DataTable^ sqldta = gcnew DataTable();
+				//eine tabelle ist erzeugt und wird mit dem Inhalt des readers gefüllt
+				sqldta->Load(sqlread);
+				//nur die Spalte Liste der Tabelle liste wird gezeigt(Zahlen)
+				cbListe->DisplayMember = "Liste";
+				//inhalt der Spalte
+				cbListe->DataSource = sqldta;
+
+				sqlread->Close();
+				sqlconn->Close();
+				//macht die Connection und der Reader wieder zu
+			}
+			catch (Exception^ e)
+			{
+				MessageBox::Show(e->Message, "{(L-D)-V}", MessageBoxButtons::YesNo, MessageBoxIcon::Information);
+			}
 		}
-	//private: System::Void aktualisieren()
-	//{
-	//	//die Methode aktualisieren(), soll Die Tabelle der Database mit geänderte Inhalt (angelegte oder gelöschte Users) aktualisieren
-	//	try {
-	//		MySqlConnection^ sqlconn = gcnew MySqlConnection();
-	//		sqlconn->ConnectionString = "datasource = localhost; port = 3306; username = Login Daten Verwalter; password = wifi123; database = wifi";
-	//		MySqlCommand^ sqlcom = gcnew MySqlCommand();
-	//		sqlcom->Connection = sqlconn;
-	//		//man öffnet die Connection zum Server und einen Bestimmte Database/schema(wifi)
-	//		//man verbindet sich mit der Database
-
-	//		MySqlDataAdapter^ sqldta = gcnew MySqlDataAdapter("select * from wifi_users", sqlconn);
-	//		DataTable^ sqldt = gcnew DataTable();
-	//		sqldta->Fill(sqldt);
-	//		dataGridView1->DataSource = sqldt;
-	//		
-
-	//	}
-	//	catch (Exception^ e)
-	//	{
-	//		MessageBox::Show(e->Message, "{(L-D)-V}", MessageBoxButtons::YesNo, MessageBoxIcon::Information);
-	//	}
-	//}
 
 		//damit wird man zum HauptFenster geleitet
 	public: bool To_Haupt_Fenster = false;
@@ -379,7 +404,6 @@ private: System::Void dataGridView1_CellClick(System::Object^ sender, System::Wi
 		tbID->Text = dataGridView1->SelectedRows[0]->Cells[0]->Value->ToString();
 		tbName->Text = dataGridView1->SelectedRows[0]->Cells[1]->Value->ToString();
 		tbPasswort->Text = dataGridView1->SelectedRows[0]->Cells[2]->Value->ToString();
-		cbListe->SelectedValue = dataGridView1->SelectedRows[0]->Cells[3]->Value->ToString();
 		labelListe->Text = dataGridView1->SelectedRows[0]->Cells[3]->Value->ToString();
 	}
 	catch(Exception ^e)
@@ -388,6 +412,7 @@ private: System::Void dataGridView1_CellClick(System::Object^ sender, System::Wi
 	}
 }
 private: System::Void btnU_anlegen_Click(System::Object^ sender, System::EventArgs^ e) {
+	try {
 	MySqlConnection^ sqlconn = gcnew MySqlConnection();
 	sqlconn->ConnectionString = "datasource = localhost; port = 3306; username = Login Daten Verwalter; password = wifi123; database = wifi";
 	sqlconn->Open();
@@ -396,25 +421,24 @@ private: System::Void btnU_anlegen_Click(System::Object^ sender, System::EventAr
 	MySqlCommand^ sqlcom = gcnew MySqlCommand();
 	sqlcom->Connection = sqlconn;
 	//man verbindet sich mit der Database
-	try {
-		//Die Variable Name und Passwort werden von den zugehörigen textboxes gelesen, die Valiable Lis von einem Combobox(cbListe)
-		//der Combobox (cbliste) wurde mit den zahlen: 1..10, vorgefüllt
-		String^ name = tbName->Text;
-		String^ passwort = tbPasswort->Text;
-		String^ lis = cbListe->Text;
-		//mittels den Command Insert, fügt man den gelesene Inhalt von den Variablen (name, passwort und lis) in der zugehörigen Spalte der Tabelle(wifi_users) hinzu
-		sqlcom->CommandText = "insert into wifi_users(Name, Passwort, liste)" + "values('" + name + "','" + passwort + "','" + lis + "')";
-		
-		//mit folgender Logik, wird die ausgewählte Zahl vom Combobox gelöscht. Damit kann man wissen welche zahlen noch zur Verfügung stehen
-		if (cbListe->SelectedIndex != -1)
-		{
-			cbListe->Items->Remove(cbListe->SelectedItem);
-		}
-
-		sqlcom->ExecuteNonQuery();
-		sqlconn->Close();
-		wifi_users();
-		//die Abfrage(insert) wird durchgefüht, die Connection wieder zugemacht und man wird den aktualisierte Inhalt der Tabelle im DataGridView gezeigt bekommen.		
+	
+	//Die Variable Name und Passwort werden von den zugehörigen textboxes gelesen, die Valiable Lis von einem Combobox(cbListe)
+	//der Combobox (cbliste) wurde mit den zahlen: 1..10, vorgefüllt
+	String^ name = tbName->Text;
+	String^ passwort = tbPasswort->Text;
+	String^ lis = cbListe->Text;
+	//mittels den Command Insert, fügt man den gelesene Inhalt von den Variablen (name, passwort und lis) in der zugehörigen Spalte der Tabelle(wifi_users) hinzu
+	sqlcom->CommandText = "insert into wifi_users(Name, Passwort, liste)" + "values('" + name + "','" + passwort + "','" + lis + "')";
+	sqlcom->ExecuteNonQuery();
+	//fügt in der Tabelle users_liste in der Spalte liste, den ausgewählte Wert hinzu
+	MySqlCommand^ sqlcomd = gcnew MySqlCommand("insert into users_liste(liste)" + "values('" + lis + "')", sqlconn);
+	sqlcomd->ExecuteNonQuery();
+	//löscht von der Tabelle liste den vorher hinzugefügte Wert weg 
+	MySqlCommand^ sqlcomd1 = gcnew MySqlCommand("delete from liste where Liste=" + lis + "", sqlconn);
+	sqlcomd1->ExecuteNonQuery();
+	sqlconn->Close();
+	wifi_users();
+	//die Abfrage(insert, delete) werden durchgefüht, die Connection wieder zugemacht und man wird den aktualisierte Inhalt der Tabelle im DataGridView gezeigt bekommen.		
 	}
 	catch (Exception^ e)
 	{
@@ -436,19 +460,22 @@ private: System::Void btnU_loeschen_Click(System::Object^ sender, System::EventA
 		//man verbindet sich mit der Database
 
 		//mittel die Abfrage(delete) wird von der Tabelle(wifi_users) einen ausgewählte User gelöscht. Das ID ist eindeutig
+		//fügt in der Tabelle liste den vorher gelöschte Wert wieder hinzu
+		MySqlCommand^ sqlcmd2 = gcnew MySqlCommand("insert into liste(Liste)" + "values('" + lis + "')", sqlconn);
+		sqlcmd2->ExecuteNonQuery();
+		//löscht von der Tabelle(wifi_users und users_liste) den ausgewählte User weg
 		MySqlCommand^ sqlcmd = gcnew MySqlCommand("DELETE FROM wifi_users WHERE ID=" + ID + "", sqlconn);
 		//mit folgender Logik erreicht man dass im Combobox(cbListe), die Zahl des gelöschten Users wieder auftaucht.
-		if (lis)
-		{
-			cbListe->Items->Add(lis);
-		}
-	
 		sqlcmd->ExecuteNonQuery();
+		MySqlCommand^ sqlcmd1 = gcnew MySqlCommand("delete from users_liste WHERE ID=" + ID + "", sqlconn);
+		sqlcmd1->ExecuteNonQuery();
+	
+		
 		MessageBox::Show("User gelöscht!", "{(L-D)-V}", MessageBoxButtons::OK, MessageBoxIcon::Asterisk);
 		sqlconn->Close();
-		//Die Abfrage(delete) wird durchgeführt, dann bekommt man eine Bestätigungsmeldung und letztendlich wird die Connection wieder zugemacht.
+		//Die Abfrage(delete und insert) werden durchgeführt, dann bekommt man eine Bestätigungsmeldung und letztendlich wird die Connection wieder zugemacht.
 		wifi_users();
-		//man wird den aktualisierte Inhalt der Tabelle im DataGridView gezeigt bekommen.
+		//man wird den aktualisierte Inhalt der Tabelle im DataGridView und im Combobox gezeigt bekommen.
 	
 	}
 	catch(Exception^ e)
@@ -492,5 +519,49 @@ private: System::Void label5_Click(System::Object^ sender, System::EventArgs^ e)
 //	}
 //	Hallo erste Probe
 //}
+private: System::Void btnNeuStart_Click(System::Object^ sender, System::EventArgs^ e) {
+	//man will mit der Methode neu start, die Indexierung der Tabelle von 1 an anzufangen
+	try {
+
+		MySqlConnection^ sqlconn = gcnew MySqlConnection();
+		sqlconn->ConnectionString = "datasource = localhost; port = 3306; username = Login Daten Verwalter; password = wifi123; database = wifi";
+		sqlconn->Open();
+		//man macht die Connection zum Server und zur Database(wifi) auf.
+		MySqlCommand^ sqlcom = gcnew MySqlCommand();
+		sqlcom->Connection = sqlconn;
+		//man verbindet sich mit der Database
+
+		//mit folgenden Befehle wird der Inhalt der Tabelle (wifi_users, users_liste und liste) der Database wifi, gelöscht
+		MySqlCommand^ sqlcmd = gcnew MySqlCommand("truncate table wifi_users", sqlconn);
+		MySqlCommand^ sqlcomd = gcnew MySqlCommand("truncate table liste", sqlconn);
+		MySqlCommand^ sqlcommd = gcnew MySqlCommand("truncate table users_liste", sqlconn);
+		sqlcmd->ExecuteNonQuery();
+		sqlcomd->ExecuteNonQuery();
+		sqlcommd->ExecuteNonQuery();
+
+		//mit folgenden Befehle werden wieder die vorher gelöschte Zahlen in der Tabelle liste hinzugefügt
+		MySqlCommand^ sqlcomand1 = gcnew MySqlCommand("insert into liste(Liste)" + "values('" + 1 + "')", sqlconn);
+		MySqlCommand^ sqlcomand2 = gcnew MySqlCommand("insert into liste(Liste)" + "values('" + 2 + "')", sqlconn);
+		MySqlCommand^ sqlcomand3 = gcnew MySqlCommand("insert into liste(Liste)" + "values('" + 3 + "')", sqlconn);
+		MySqlCommand^ sqlcomand4 = gcnew MySqlCommand("insert into liste(Liste)" + "values('" + 4 + "')", sqlconn);
+		MySqlCommand^ sqlcomand5 = gcnew MySqlCommand("insert into liste(Liste)" + "values('" + 5 + "')", sqlconn);
+		MySqlCommand^ sqlcomand6 = gcnew MySqlCommand("insert into liste(Liste)" + "values('" + 6 + "')", sqlconn);
+		MySqlCommand^ sqlcomand7 = gcnew MySqlCommand("insert into liste(Liste)" + "values('" + 7 + "')", sqlconn);
+		MySqlCommand^ sqlcomand8 = gcnew MySqlCommand("insert into liste(Liste)" + "values('" + 8 + "')", sqlconn);
+		MySqlCommand^ sqlcomand9 = gcnew MySqlCommand("insert into liste(Liste)" + "values('" + 9 + "')", sqlconn);
+		MySqlCommand^ sqlcomand10 = gcnew MySqlCommand("insert into liste(Liste)" + "values('" + 10 + "')", sqlconn);
+		sqlcomand1->ExecuteNonQuery(); sqlcomand2->ExecuteNonQuery(); sqlcomand3->ExecuteNonQuery(); sqlcomand4->ExecuteNonQuery(); sqlcomand5->ExecuteNonQuery(); sqlcomand6->ExecuteNonQuery(); sqlcomand7->ExecuteNonQuery(); sqlcomand8->ExecuteNonQuery(); sqlcomand9->ExecuteNonQuery(); sqlcomand10->ExecuteNonQuery();
+
+		MessageBox::Show("Tabelle neu gestartet", "{(L-D)-V}", MessageBoxButtons::OK, MessageBoxIcon::Asterisk);
+		sqlconn->Close();
+		//dann bekommt man eine Bestätigungsmeldung dass die Tabelle neugestartet wurden und letztendlich wird die Connection wieder zugemacht.
+		wifi_users();
+		//man wird den aktualisierte Inhalt der Tabelle im DataGridView und im Combobox gezeigt bekommen.
+	}
+	catch (Exception^ e)
+	{
+		MessageBox::Show(e->Message, "{(L-D)-V}", MessageBoxButtons::YesNo, MessageBoxIcon::Information);
+	}
+}
 };
 }

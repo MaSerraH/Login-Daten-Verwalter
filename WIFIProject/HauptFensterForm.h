@@ -62,13 +62,13 @@ namespace WIFIProject {
 			// linkAdminLogin
 			// 
 			this->linkAdminLogin->AutoSize = true;
-			this->linkAdminLogin->Font = (gcnew System::Drawing::Font(L"Arial", 15.75F, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
+			this->linkAdminLogin->Font = (gcnew System::Drawing::Font(L"Arial", 13.8F, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->linkAdminLogin->LinkColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
 				static_cast<System::Int32>(static_cast<System::Byte>(0)));
-			this->linkAdminLogin->Location = System::Drawing::Point(385, 238);
+			this->linkAdminLogin->Location = System::Drawing::Point(48, 85);
 			this->linkAdminLogin->Name = L"linkAdminLogin";
-			this->linkAdminLogin->Size = System::Drawing::Size(142, 24);
+			this->linkAdminLogin->Size = System::Drawing::Size(153, 26);
 			this->linkAdminLogin->TabIndex = 0;
 			this->linkAdminLogin->TabStop = true;
 			this->linkAdminLogin->Text = L"Admin-Login";
@@ -76,11 +76,11 @@ namespace WIFIProject {
 			// 
 			// btnEscape
 			// 
-			this->btnEscape->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
-				| System::Windows::Forms::AnchorStyles::Right));
-			this->btnEscape->Location = System::Drawing::Point(668, 505);
+			this->btnEscape->Font = (gcnew System::Drawing::Font(L"Arial", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnEscape->Location = System::Drawing::Point(121, 243);
 			this->btnEscape->Name = L"btnEscape";
-			this->btnEscape->Size = System::Drawing::Size(135, 80);
+			this->btnEscape->Size = System::Drawing::Size(101, 48);
 			this->btnEscape->TabIndex = 1;
 			this->btnEscape->Text = L"Escape";
 			this->btnEscape->UseVisualStyleBackColor = true;
@@ -88,9 +88,9 @@ namespace WIFIProject {
 			// 
 			// HauptFensterForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(12, 24);
+			this->AutoScaleDimensions = System::Drawing::SizeF(15, 31);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(874, 672);
+			this->ClientSize = System::Drawing::Size(416, 343);
 			this->Controls->Add(this->btnEscape);
 			this->Controls->Add(this->linkAdminLogin);
 			this->Font = (gcnew System::Drawing::Font(L"Arial", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
@@ -98,7 +98,7 @@ namespace WIFIProject {
 			this->Margin = System::Windows::Forms::Padding(6);
 			this->Name = L"HauptFensterForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"HauptFensterForm";
+			this->Text = L"Haupt Fenster";
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
