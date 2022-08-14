@@ -27,6 +27,12 @@
     <ClCompile Include="AdminFensterForm.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="UserLoginForm.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="Tabelle1.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HauptFensterForm.h">
@@ -39,6 +45,15 @@
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="AdminFensterForm.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="UserLoginForm.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Users.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Tabelle1.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>

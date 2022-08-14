@@ -38,6 +38,7 @@ namespace WIFIProject {
 	protected:
 
 	private: System::Windows::Forms::Button^ btnEscape;
+	private: System::Windows::Forms::LinkLabel^ linkLabel1;
 	protected:
 
 	protected:
@@ -57,6 +58,7 @@ namespace WIFIProject {
 		{
 			this->linkAdminLogin = (gcnew System::Windows::Forms::LinkLabel());
 			this->btnEscape = (gcnew System::Windows::Forms::Button());
+			this->linkLabel1 = (gcnew System::Windows::Forms::LinkLabel());
 			this->SuspendLayout();
 			// 
 			// linkAdminLogin
@@ -86,11 +88,25 @@ namespace WIFIProject {
 			this->btnEscape->UseVisualStyleBackColor = true;
 			this->btnEscape->Click += gcnew System::EventHandler(this, &HauptFensterForm::btnEscape_Click);
 			// 
+			// linkLabel1
+			// 
+			this->linkLabel1->AutoSize = true;
+			this->linkLabel1->Font = (gcnew System::Drawing::Font(L"Arial", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->linkLabel1->Location = System::Drawing::Point(69, 193);
+			this->linkLabel1->Name = L"linkLabel1";
+			this->linkLabel1->Size = System::Drawing::Size(156, 33);
+			this->linkLabel1->TabIndex = 2;
+			this->linkLabel1->TabStop = true;
+			this->linkLabel1->Text = L"User-Login";
+			this->linkLabel1->LinkClicked += gcnew System::Windows::Forms::LinkLabelLinkClickedEventHandler(this, &HauptFensterForm::linkLabel1_LinkClicked);
+			// 
 			// HauptFensterForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(15, 31);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(416, 343);
+			this->Controls->Add(this->linkLabel1);
 			this->Controls->Add(this->btnEscape);
 			this->Controls->Add(this->linkAdminLogin);
 			this->Font = (gcnew System::Drawing::Font(L"Arial", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
@@ -128,5 +144,10 @@ namespace WIFIProject {
 		this ->Close();
 
 	}
-	};
+	public: bool To_Users_Login = false;
+	private: System::Void linkLabel1_LinkClicked(System::Object^ sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^ e) {
+		this->To_Users_Login = true;
+		this->Close();
+	}
+};
 }

@@ -430,9 +430,13 @@ private: System::Void btnU_anlegen_Click(System::Object^ sender, System::EventAr
 	//mittels den Command Insert, fügt man den gelesene Inhalt von den Variablen (name, passwort und lis) in der zugehörigen Spalte der Tabelle(wifi_users) hinzu
 	sqlcom->CommandText = "insert into wifi_users(Name, Passwort, liste)" + "values('" + name + "','" + passwort + "','" + lis + "')";
 	sqlcom->ExecuteNonQuery();
+	//die Passwörter werden im Database verschlüsselt gespeichert
+	MySqlCommand^ sqlcom1 = gcnew MySqlCommand("update wifi_users set Passwort = MD5(Passwort)", sqlconn);
+	sqlcom1->ExecuteNonQuery();
 	//fügt in der Tabelle users_liste in der Spalte liste, den ausgewählte Wert hinzu
 	MySqlCommand^ sqlcomd = gcnew MySqlCommand("insert into users_liste(liste)" + "values('" + lis + "')", sqlconn);
 	sqlcomd->ExecuteNonQuery();
+	
 	//löscht von der Tabelle liste den vorher hinzugefügte Wert weg 
 	MySqlCommand^ sqlcomd1 = gcnew MySqlCommand("delete from liste where Liste=" + lis + "", sqlconn);
 	sqlcomd1->ExecuteNonQuery();

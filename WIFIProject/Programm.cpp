@@ -1,6 +1,8 @@
 #include "HauptFensterForm.h"
 #include "AdminLoginForm.h"
 #include "AdminFensterForm.h"
+#include "UserLoginForm.h"
+#include "Tabelle1.h"
 
 using namespace System;
 using namespace System::Windows::Forms;
@@ -31,9 +33,6 @@ void main(array<String^>^ args)
 				//es öffnet sich automatisch der Admin Fenster
 				WIFIProject::AdminFensterForm adminfensterForm;
 				adminfensterForm.ShowDialog();
-
-				
-
 				//Wenn den Link gelickt wurde, dann wird man zum Haupt-fenster geleitet
 				if (adminfensterForm.To_Haupt_Fenster)
 				{
@@ -50,6 +49,18 @@ void main(array<String^>^ args)
 			{
 				//hauptfensterForm.ShowDialog();
 				continue;
+			}
+		}
+		else if (hauptfensterForm.To_Users_Login)
+		{
+			WIFIProject::UserLoginForm userloginform;
+			WIFIProject::Tabelle1 tabelle1;
+			userloginform.ShowDialog();
+			Users^ user = userloginform.user;
+			if (user != nullptr)
+			{
+				MessageBox::Show("Willkommen " + user->name + "", "{(L-D)V}", MessageBoxButtons::OK);
+				tabelle1.ShowDialog();
 			}
 		}
 		else

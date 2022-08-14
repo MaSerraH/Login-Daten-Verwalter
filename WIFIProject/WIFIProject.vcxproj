@@ -127,6 +127,8 @@
     <ClCompile Include="AdminLoginForm.cpp" />
     <ClCompile Include="HauptFensterForm.cpp" />
     <ClCompile Include="Programm.cpp" />
+    <ClCompile Include="Tabelle1.cpp" />
+    <ClCompile Include="UserLoginForm.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Admin.h" />
@@ -139,6 +141,13 @@
     <ClInclude Include="HauptFensterForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Tabelle1.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="UserLoginForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Users.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AdminFensterForm.resx">
@@ -149,6 +158,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HauptFensterForm.resx">
       <DependentUpon>HauptFensterForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserLoginForm.resx">
+      <DependentUpon>UserLoginForm.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
