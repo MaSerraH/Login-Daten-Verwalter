@@ -2,6 +2,7 @@
 #include "AdminLoginForm.h"
 #include "AdminFensterForm.h"
 #include "UserLoginForm.h"
+#include"UserPasswortÄndernForm.h"
 #include "Tabelle1.h"
 
 using namespace System;
@@ -59,9 +60,28 @@ void main(array<String^>^ args)
 			Users^ user = userloginform.user;
 			if (user != nullptr)
 			{
-				MessageBox::Show("Willkommen " + user->name + "", "{(L-D)V}", MessageBoxButtons::OK);
+				int l = user->liste;
+
+				MessageBox::Show("Willkommen " + user->name + "!. Sie dürfen die Liste: " + user->liste + " jetzt verwalten", "{(L-D)-V}", MessageBoxButtons::OK);
+
 				tabelle1.ShowDialog();
 			}
+			if (userloginform.To_Haupt_Fenster)
+			{
+				continue;
+			}
+			else if (userloginform.To_User_Passwort_ändern)
+			{
+				WIFIProject::UserPasswortÄndernForm userpasswortändern;
+				userpasswortändern.ShowDialog();
+				Users^ user = userpasswortändern.user;
+
+				if (userpasswortändern.To_Haupt_Fenster)
+				{
+					continue;
+				}
+			}
+			
 		}
 		else
 		{

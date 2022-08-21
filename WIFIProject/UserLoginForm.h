@@ -152,6 +152,7 @@ namespace WIFIProject {
 			this->btnPasswort_Ändern->TabIndex = 8;
 			this->btnPasswort_Ändern->Text = L"Passwort_ändern";
 			this->btnPasswort_Ändern->UseVisualStyleBackColor = true;
+			this->btnPasswort_Ändern->Click += gcnew System::EventHandler(this, &UserLoginForm::btnPasswort_Ändern_Click);
 			// 
 			// btnReset
 			// 
@@ -228,7 +229,7 @@ private: System::Void btnEinloggen_Click(System::Object^ sender, System::EventAr
 			user->id = reader->GetInt16(0);
 			user->name = reader->GetString(1);
 			user->passwort = reader->GetString(2);
-			user->liste = reader->GetString(3);
+			user->liste = reader->GetInt16(3);
 			this->Close();
 
 
@@ -238,6 +239,11 @@ private: System::Void btnEinloggen_Click(System::Object^ sender, System::EventAr
 	{
 		MessageBox::Show("Verbindung mit database fehlgeschlagen", "Verbingung Fehler", MessageBoxButtons::OK);
 	}
+}
+public: bool To_User_Passwort_ändern = false;
+private: System::Void btnPasswort_Ändern_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->To_User_Passwort_ändern = true;
+	this->Close();
 }
 };
 }

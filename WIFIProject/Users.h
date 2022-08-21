@@ -8,5 +8,5 @@ public:
 	int id;
 	String^ name;
 	String^ passwort;
-	String^ liste;
+	int liste;
 };

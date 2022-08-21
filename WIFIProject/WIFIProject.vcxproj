@@ -129,6 +129,7 @@
     <ClCompile Include="Programm.cpp" />
     <ClCompile Include="Tabelle1.cpp" />
     <ClCompile Include="UserLoginForm.cpp" />
+    <ClCompile Include="UserPasswortÄndernForm.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Admin.h" />
@@ -147,6 +148,9 @@
     <ClInclude Include="UserLoginForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="UserPasswortÄndernForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Users.h" />
   </ItemGroup>
   <ItemGroup>
@@ -161,6 +165,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserLoginForm.resx">
       <DependentUpon>UserLoginForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserPasswortÄndernForm.resx">
+      <DependentUpon>UserPasswortÄndernForm.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

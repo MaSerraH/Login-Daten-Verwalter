@@ -428,14 +428,9 @@ private: System::Void btnU_anlegen_Click(System::Object^ sender, System::EventAr
 	String^ passwort = tbPasswort->Text;
 	String^ lis = cbListe->Text;
 	//mittels den Command Insert, fügt man den gelesene Inhalt von den Variablen (name, passwort und lis) in der zugehörigen Spalte der Tabelle(wifi_users) hinzu
-	sqlcom->CommandText = "insert into wifi_users(Name, Passwort, liste)" + "values('" + name + "','" + passwort + "','" + lis + "')";
+	sqlcom->CommandText = "insert into wifi_users(Name, Passwort, liste)" + "values('" + name + "',md5('" + passwort + "'), '" + lis + "')";
 	sqlcom->ExecuteNonQuery();
-	//die Passwörter werden im Database verschlüsselt gespeichert
-	MySqlCommand^ sqlcom1 = gcnew MySqlCommand("update wifi_users set Passwort = MD5(Passwort)", sqlconn);
-	sqlcom1->ExecuteNonQuery();
-	//fügt in der Tabelle users_liste in der Spalte liste, den ausgewählte Wert hinzu
-	MySqlCommand^ sqlcomd = gcnew MySqlCommand("insert into users_liste(liste)" + "values('" + lis + "')", sqlconn);
-	sqlcomd->ExecuteNonQuery();
+
 	
 	//löscht von der Tabelle liste den vorher hinzugefügte Wert weg 
 	MySqlCommand^ sqlcomd1 = gcnew MySqlCommand("delete from liste where Liste=" + lis + "", sqlconn);
@@ -466,14 +461,29 @@ private: System::Void btnU_loeschen_Click(System::Object^ sender, System::EventA
 		//mittel die Abfrage(delete) wird von der Tabelle(wifi_users) einen ausgewählte User gelöscht. Das ID ist eindeutig
 		//fügt in der Tabelle liste den vorher gelöschte Wert wieder hinzu
 		MySqlCommand^ sqlcmd2 = gcnew MySqlCommand("insert into liste(Liste)" + "values('" + lis + "')", sqlconn);
-		sqlcmd2->ExecuteNonQuery();
-		//löscht von der Tabelle(wifi_users und users_liste) den ausgewählte User weg
+		
+		
 		MySqlCommand^ sqlcmd = gcnew MySqlCommand("DELETE FROM wifi_users WHERE ID=" + ID + "", sqlconn);
+		
 		//mit folgender Logik erreicht man dass im Combobox(cbListe), die Zahl des gelöschten Users wieder auftaucht.
+
+		sqlcmd2->ExecuteNonQuery();
 		sqlcmd->ExecuteNonQuery();
-		MySqlCommand^ sqlcmd1 = gcnew MySqlCommand("delete from users_liste WHERE ID=" + ID + "", sqlconn);
-		sqlcmd1->ExecuteNonQuery();
-	
+
+		int l = 'lis';
+
+		if (lis == "1") { sqlcom->CommandText = "truncate table t_1"; sqlcom->ExecuteNonQuery(); }
+		else if (lis == "2") { sqlcom->CommandText = "truncate table t_2"; sqlcom->ExecuteNonQuery(); }
+		else if (lis == "3") { sqlcom->CommandText = "truncate table t_3"; sqlcom->ExecuteNonQuery(); }
+		else if (lis == "4") { sqlcom->CommandText = "truncate table t_4"; sqlcom->ExecuteNonQuery(); }
+		else if (lis == "5") { sqlcom->CommandText = "truncate table t_5"; sqlcom->ExecuteNonQuery(); }
+		else if (lis == "6") { sqlcom->CommandText = "truncate table t_6"; sqlcom->ExecuteNonQuery(); }
+		else if (lis == "7") { sqlcom->CommandText = "truncate table t_7"; sqlcom->ExecuteNonQuery(); }
+		else if (lis == "8") { sqlcom->CommandText = "truncate table t_8"; sqlcom->ExecuteNonQuery(); }
+		else if (lis == "9") { sqlcom->CommandText = "truncate table t_9"; sqlcom->ExecuteNonQuery(); }
+		else if (lis == "10") { sqlcom->CommandText = "truncate table t_10"; sqlcom->ExecuteNonQuery(); }
+		
+		
 		
 		MessageBox::Show("User gelöscht!", "{(L-D)-V}", MessageBoxButtons::OK, MessageBoxIcon::Asterisk);
 		sqlconn->Close();
@@ -489,40 +499,7 @@ private: System::Void btnU_loeschen_Click(System::Object^ sender, System::EventA
 }
 private: System::Void label5_Click(System::Object^ sender, System::EventArgs^ e) {
 }
-//private: System::Void btnUpdate_Click(System::Object^ sender, System::EventArgs^ e) {
-//
-//	try {
-//		MySqlConnection^ sqlconn = gcnew MySqlConnection();
-//		sqlconn->ConnectionString = "datasource = localhost; port = 3306; username = Login Daten Verwalter; password = wifi123; database = wifi";
-//		
-//		MySqlCommand^ sqlcom = gcnew MySqlCommand();
-//		sqlcom->Connection = sqlconn;
-//
-//		
-//
-//		String^ id = tbID->Text;
-//		String^ name = tbName->Text;
-//		String^ passwort = tbPasswort->Text;
-//		String^ lis = cbListe->Text;
-//
-//	MySqlCommand^ sqlcmd = gcnew MySqlCommand();
-//		sqlcom->CommandText = "update wifi_users set ID='" + id + "', Name = '" + name + "', Passwort = '" + passwort + "', liste = '" + lis + "' where ID = " + id + "", sqlconn;
-//
-//		sqlconn->Open();
-//		sqlcom->ExecuteNonQuery();
-//		MySqlDataReader^ sqlrd = sqlcom->ExecuteReader();
-//		sqlconn->Close();
-//		wifi_users();
-//		aktualisieren();
-//
-//		
-//	}
-//	catch (Exception^ e)
-//	{
-//		MessageBox::Show(e->Message, "{(L-D)-V}", MessageBoxButtons::YesNo, MessageBoxIcon::Information);
-//	}
-//	Hallo erste Probe
-//}
+
 private: System::Void btnNeuStart_Click(System::Object^ sender, System::EventArgs^ e) {
 	//man will mit der Methode neu start, die Indexierung der Tabelle von 1 an anzufangen
 	try {
@@ -538,10 +515,10 @@ private: System::Void btnNeuStart_Click(System::Object^ sender, System::EventArg
 		//mit folgenden Befehle wird der Inhalt der Tabelle (wifi_users, users_liste und liste) der Database wifi, gelöscht
 		MySqlCommand^ sqlcmd = gcnew MySqlCommand("truncate table wifi_users", sqlconn);
 		MySqlCommand^ sqlcomd = gcnew MySqlCommand("truncate table liste", sqlconn);
-		MySqlCommand^ sqlcommd = gcnew MySqlCommand("truncate table users_liste", sqlconn);
+
 		sqlcmd->ExecuteNonQuery();
 		sqlcomd->ExecuteNonQuery();
-		sqlcommd->ExecuteNonQuery();
+		
 
 		//mit folgenden Befehle werden wieder die vorher gelöschte Zahlen in der Tabelle liste hinzugefügt
 		MySqlCommand^ sqlcomand1 = gcnew MySqlCommand("insert into liste(Liste)" + "values('" + 1 + "')", sqlconn);

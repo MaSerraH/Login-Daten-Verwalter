@@ -33,6 +33,9 @@
     <ClCompile Include="Tabelle1.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="UserPasswortÄndernForm.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HauptFensterForm.h">
@@ -54,6 +57,9 @@
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="Tabelle1.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="UserPasswortÄndernForm.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
