@@ -75,11 +75,11 @@ namespace WIFIProject {
 			// linkLabel2
 			// 
 			this->linkLabel2->AutoSize = true;
-			this->linkLabel2->Font = (gcnew System::Drawing::Font(L"Arial", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->linkLabel2->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->linkLabel2->Location = System::Drawing::Point(549, 564);
+			this->linkLabel2->Location = System::Drawing::Point(334, 373);
 			this->linkLabel2->Name = L"linkLabel2";
-			this->linkLabel2->Size = System::Drawing::Size(98, 26);
+			this->linkLabel2->Size = System::Drawing::Size(83, 23);
 			this->linkLabel2->TabIndex = 1;
 			this->linkLabel2->TabStop = true;
 			this->linkLabel2->Text = L"zum H-F";
@@ -88,55 +88,58 @@ namespace WIFIProject {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(211, 76);
+			this->label1->Font = (gcnew System::Drawing::Font(L"Arial", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label1->Location = System::Drawing::Point(83, 32);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(138, 33);
+			this->label1->Size = System::Drawing::Size(177, 33);
 			this->label1->TabIndex = 2;
 			this->label1->Text = L"Users-Login";
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label2->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label2->Location = System::Drawing::Point(85, 181);
+			this->label2->Location = System::Drawing::Point(49, 122);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(67, 27);
+			this->label2->Size = System::Drawing::Size(67, 23);
 			this->label2->TabIndex = 3;
 			this->label2->Text = L"Name:";
 			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label3->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label3->Location = System::Drawing::Point(95, 271);
+			this->label3->Location = System::Drawing::Point(36, 184);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(93, 27);
+			this->label3->Size = System::Drawing::Size(99, 23);
 			this->label3->TabIndex = 4;
 			this->label3->Text = L"Passwort:";
 			// 
 			// tbName
 			// 
-			this->tbName->Location = System::Drawing::Point(202, 174);
+			this->tbName->Location = System::Drawing::Point(139, 113);
 			this->tbName->Name = L"tbName";
-			this->tbName->Size = System::Drawing::Size(263, 38);
+			this->tbName->Size = System::Drawing::Size(205, 38);
 			this->tbName->TabIndex = 5;
 			// 
 			// tbPasswort
 			// 
-			this->tbPasswort->Location = System::Drawing::Point(202, 264);
+			this->tbPasswort->Location = System::Drawing::Point(141, 173);
 			this->tbPasswort->Name = L"tbPasswort";
-			this->tbPasswort->Size = System::Drawing::Size(268, 38);
+			this->tbPasswort->PasswordChar = '&';
+			this->tbPasswort->Size = System::Drawing::Size(203, 38);
 			this->tbPasswort->TabIndex = 6;
 			// 
 			// btnEinloggen
 			// 
 			this->btnEinloggen->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnEinloggen->Location = System::Drawing::Point(128, 382);
+			this->btnEinloggen->Location = System::Drawing::Point(36, 254);
 			this->btnEinloggen->Name = L"btnEinloggen";
-			this->btnEinloggen->Size = System::Drawing::Size(135, 46);
+			this->btnEinloggen->Size = System::Drawing::Size(135, 40);
 			this->btnEinloggen->TabIndex = 7;
 			this->btnEinloggen->Text = L"Einloggen";
 			this->btnEinloggen->UseVisualStyleBackColor = true;
@@ -146,7 +149,7 @@ namespace WIFIProject {
 			// 
 			this->btnPasswort_Ändern->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnPasswort_Ändern->Location = System::Drawing::Point(332, 388);
+			this->btnPasswort_Ändern->Location = System::Drawing::Point(237, 254);
 			this->btnPasswort_Ändern->Name = L"btnPasswort_Ändern";
 			this->btnPasswort_Ändern->Size = System::Drawing::Size(170, 40);
 			this->btnPasswort_Ändern->TabIndex = 8;
@@ -158,9 +161,9 @@ namespace WIFIProject {
 			// 
 			this->btnReset->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnReset->Location = System::Drawing::Point(217, 470);
+			this->btnReset->Location = System::Drawing::Point(163, 316);
 			this->btnReset->Name = L"btnReset";
-			this->btnReset->Size = System::Drawing::Size(154, 43);
+			this->btnReset->Size = System::Drawing::Size(85, 43);
 			this->btnReset->TabIndex = 9;
 			this->btnReset->Text = L"Reset";
 			this->btnReset->UseVisualStyleBackColor = true;
@@ -170,7 +173,7 @@ namespace WIFIProject {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(13, 31);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(708, 638);
+			this->ClientSize = System::Drawing::Size(431, 416);
 			this->Controls->Add(this->btnReset);
 			this->Controls->Add(this->btnPasswort_Ändern);
 			this->Controls->Add(this->btnEinloggen);
@@ -231,7 +234,11 @@ private: System::Void btnEinloggen_Click(System::Object^ sender, System::EventAr
 			user->passwort = reader->GetString(2);
 			user->liste = reader->GetInt16(3);
 			this->Close();
-
+		}
+		else
+		{
+			MessageBox::Show("der User: " + name + ", existiert nicht!!", "Login fehlgeschlagen!", MessageBoxButtons::OK);
+			return;
 
 		}
 	}

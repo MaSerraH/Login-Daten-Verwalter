@@ -10,12 +10,12 @@ namespace WIFIProject {
 	using namespace System::Drawing;
 
 	/// <summary>
-	/// Zusammenfassung für Tabelle1
+	/// Zusammenfassung für Tabelle9
 	/// </summary>
-	public ref class Tabelle1 : public System::Windows::Forms::Form
+	public ref class Tabelle9 : public System::Windows::Forms::Form
 	{
 	public:
-		Tabelle1(void)
+		Tabelle9(void)
 		{
 			InitializeComponent();
 			//
@@ -27,16 +27,16 @@ namespace WIFIProject {
 		/// <summary>
 		/// Verwendete Ressourcen bereinigen.
 		/// </summary>
-		~Tabelle1()
+		~Tabelle9()
 		{
 			if (components)
 			{
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::LinkLabel^ linkLabel1;
-	protected:
 	private: System::Windows::Forms::Label^ label1;
+	protected:
+	private: System::Windows::Forms::LinkLabel^ linkLabel1;
 
 	private:
 		/// <summary>
@@ -51,46 +51,46 @@ namespace WIFIProject {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->linkLabel1 = (gcnew System::Windows::Forms::LinkLabel());
 			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->linkLabel1 = (gcnew System::Windows::Forms::LinkLabel());
 			this->SuspendLayout();
-			// 
-			// linkLabel1
-			// 
-			this->linkLabel1->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->linkLabel1->Location = System::Drawing::Point(423, 459);
-			this->linkLabel1->Name = L"linkLabel1";
-			this->linkLabel1->Size = System::Drawing::Size(115, 29);
-			this->linkLabel1->TabIndex = 0;
-			this->linkLabel1->TabStop = true;
-			this->linkLabel1->Text = L"zum H-F";
-			this->linkLabel1->LinkClicked += gcnew System::Windows::Forms::LinkLabelLinkClickedEventHandler(this, &Tabelle1::linkLabel1_LinkClicked);
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Arial", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(141, 50);
+			this->label1->Location = System::Drawing::Point(91, 45);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(197, 33);
-			this->label1->TabIndex = 1;
-			this->label1->Text = L"User_Konto 1";
+			this->label1->TabIndex = 3;
+			this->label1->Text = L"User_Konto 9";
 			// 
-			// Tabelle1
+			// linkLabel1
+			// 
+			this->linkLabel1->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->linkLabel1->Location = System::Drawing::Point(452, 480);
+			this->linkLabel1->Name = L"linkLabel1";
+			this->linkLabel1->Size = System::Drawing::Size(115, 29);
+			this->linkLabel1->TabIndex = 2;
+			this->linkLabel1->TabStop = true;
+			this->linkLabel1->Text = L"zum H-F";
+			this->linkLabel1->LinkClicked += gcnew System::Windows::Forms::LinkLabelLinkClickedEventHandler(this, &Tabelle9::linkLabel1_LinkClicked);
+			// 
+			// Tabelle9
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(13, 26);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(577, 527);
+			this->ClientSize = System::Drawing::Size(579, 529);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->linkLabel1);
 			this->Font = (gcnew System::Drawing::Font(L"Arial", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Margin = System::Windows::Forms::Padding(5);
-			this->Name = L"Tabelle1";
+			this->Margin = System::Windows::Forms::Padding(5, 5, 5, 5);
+			this->Name = L"Tabelle9";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"User Konto 1";
+			this->Text = L"User Konto 9";
 			this->ResumeLayout(false);
 			this->PerformLayout();
 

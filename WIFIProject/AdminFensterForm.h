@@ -139,7 +139,7 @@ namespace WIFIProject {
 			this->label3->Location = System::Drawing::Point(31, 137);
 			this->label3->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(91, 23);
+			this->label3->Size = System::Drawing::Size(103, 23);
 			this->label3->TabIndex = 3;
 			this->label3->Text = L"Passwort:";
 			// 
@@ -154,7 +154,7 @@ namespace WIFIProject {
 			// 
 			// tbName
 			// 
-			this->tbName->Location = System::Drawing::Point(126, 87);
+			this->tbName->Location = System::Drawing::Point(157, 91);
 			this->tbName->Margin = System::Windows::Forms::Padding(2);
 			this->tbName->Name = L"tbName";
 			this->tbName->Size = System::Drawing::Size(158, 30);
@@ -162,7 +162,7 @@ namespace WIFIProject {
 			// 
 			// tbPasswort
 			// 
-			this->tbPasswort->Location = System::Drawing::Point(126, 137);
+			this->tbPasswort->Location = System::Drawing::Point(157, 137);
 			this->tbPasswort->Margin = System::Windows::Forms::Padding(2);
 			this->tbPasswort->Name = L"tbPasswort";
 			this->tbPasswort->PasswordChar = '\"';
@@ -307,7 +307,7 @@ namespace WIFIProject {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(11, 23);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(782, 514);
+			this->ClientSize = System::Drawing::Size(739, 519);
 			this->Controls->Add(this->linkHauptFenster);
 			this->Controls->Add(this->label6);
 			this->Controls->Add(this->labelListe);

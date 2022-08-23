@@ -84,7 +84,7 @@ namespace WIFIProject {
 				static_cast<System::Byte>(0)));
 			this->linkHauptFenster->LinkColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)),
 				static_cast<System::Int32>(static_cast<System::Byte>(128)), static_cast<System::Int32>(static_cast<System::Byte>(0)));
-			this->linkHauptFenster->Location = System::Drawing::Point(272, 293);
+			this->linkHauptFenster->Location = System::Drawing::Point(278, 265);
 			this->linkHauptFenster->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->linkHauptFenster->Name = L"linkHauptFenster";
 			this->linkHauptFenster->Size = System::Drawing::Size(93, 24);
@@ -95,18 +95,18 @@ namespace WIFIProject {
 			// 
 			// label1
 			// 
-			this->label1->Font = (gcnew System::Drawing::Font(L"Arial", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label1->Font = (gcnew System::Drawing::Font(L"Arial", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(110, 40);
+			this->label1->Location = System::Drawing::Point(71, 34);
 			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(184, 32);
+			this->label1->Size = System::Drawing::Size(224, 32);
 			this->label1->TabIndex = 1;
 			this->label1->Text = L"Admin Login";
 			// 
 			// label2
 			// 
-			this->label2->Location = System::Drawing::Point(32, 99);
+			this->label2->Location = System::Drawing::Point(32, 91);
 			this->label2->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(86, 22);
@@ -115,16 +115,16 @@ namespace WIFIProject {
 			// 
 			// label3
 			// 
-			this->label3->Location = System::Drawing::Point(32, 142);
+			this->label3->Location = System::Drawing::Point(22, 134);
 			this->label3->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(86, 22);
+			this->label3->Size = System::Drawing::Size(96, 22);
 			this->label3->TabIndex = 3;
 			this->label3->Text = L"Passwort:";
 			// 
 			// tbName
 			// 
-			this->tbName->Location = System::Drawing::Point(149, 99);
+			this->tbName->Location = System::Drawing::Point(133, 91);
 			this->tbName->Margin = System::Windows::Forms::Padding(2);
 			this->tbName->Name = L"tbName";
 			this->tbName->Size = System::Drawing::Size(175, 30);
@@ -132,7 +132,7 @@ namespace WIFIProject {
 			// 
 			// tbPasswort
 			// 
-			this->tbPasswort->Location = System::Drawing::Point(149, 140);
+			this->tbPasswort->Location = System::Drawing::Point(134, 132);
 			this->tbPasswort->Margin = System::Windows::Forms::Padding(2);
 			this->tbPasswort->Name = L"tbPasswort";
 			this->tbPasswort->PasswordChar = '$';
@@ -143,7 +143,7 @@ namespace WIFIProject {
 			// 
 			this->btnOK->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnOK->Location = System::Drawing::Point(91, 213);
+			this->btnOK->Location = System::Drawing::Point(91, 194);
 			this->btnOK->Margin = System::Windows::Forms::Padding(2);
 			this->btnOK->Name = L"btnOK";
 			this->btnOK->Size = System::Drawing::Size(88, 32);
@@ -156,7 +156,7 @@ namespace WIFIProject {
 			// 
 			this->btnCancel->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnCancel->Location = System::Drawing::Point(239, 213);
+			this->btnCancel->Location = System::Drawing::Point(239, 196);
 			this->btnCancel->Margin = System::Windows::Forms::Padding(2);
 			this->btnCancel->Name = L"btnCancel";
 			this->btnCancel->Size = System::Drawing::Size(85, 32);
@@ -169,7 +169,7 @@ namespace WIFIProject {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(11, 23);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(396, 338);
+			this->ClientSize = System::Drawing::Size(390, 314);
 			this->Controls->Add(this->btnCancel);
 			this->Controls->Add(this->btnOK);
 			this->Controls->Add(this->tbPasswort);

@@ -80,7 +80,7 @@ namespace WIFIProject {
 			// 
 			this->btnEscape->Font = (gcnew System::Drawing::Font(L"Arial", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnEscape->Location = System::Drawing::Point(121, 243);
+			this->btnEscape->Location = System::Drawing::Point(72, 230);
 			this->btnEscape->Name = L"btnEscape";
 			this->btnEscape->Size = System::Drawing::Size(101, 48);
 			this->btnEscape->TabIndex = 1;
@@ -93,9 +93,9 @@ namespace WIFIProject {
 			this->linkLabel1->AutoSize = true;
 			this->linkLabel1->Font = (gcnew System::Drawing::Font(L"Arial", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->linkLabel1->Location = System::Drawing::Point(69, 193);
+			this->linkLabel1->Location = System::Drawing::Point(48, 164);
 			this->linkLabel1->Name = L"linkLabel1";
-			this->linkLabel1->Size = System::Drawing::Size(156, 33);
+			this->linkLabel1->Size = System::Drawing::Size(125, 26);
 			this->linkLabel1->TabIndex = 2;
 			this->linkLabel1->TabStop = true;
 			this->linkLabel1->Text = L"User-Login";
@@ -105,7 +105,7 @@ namespace WIFIProject {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(15, 31);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(416, 343);
+			this->ClientSize = System::Drawing::Size(229, 298);
 			this->Controls->Add(this->linkLabel1);
 			this->Controls->Add(this->btnEscape);
 			this->Controls->Add(this->linkAdminLogin);

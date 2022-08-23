@@ -80,7 +80,7 @@ namespace WIFIProject {
 			this->linkLabel1->AutoSize = true;
 			this->linkLabel1->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->linkLabel1->Location = System::Drawing::Point(522, 563);
+			this->linkLabel1->Location = System::Drawing::Point(412, 431);
 			this->linkLabel1->Name = L"linkLabel1";
 			this->linkLabel1->Size = System::Drawing::Size(83, 23);
 			this->linkLabel1->TabIndex = 0;
@@ -92,7 +92,7 @@ namespace WIFIProject {
 			// 
 			this->label5->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label5->Location = System::Drawing::Point(54, 317);
+			this->label5->Location = System::Drawing::Point(19, 263);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(235, 29);
 			this->label5->TabIndex = 14;
@@ -102,7 +102,7 @@ namespace WIFIProject {
 			// 
 			this->label4->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label4->Location = System::Drawing::Point(128, 266);
+			this->label4->Location = System::Drawing::Point(93, 212);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(161, 29);
 			this->label4->TabIndex = 13;
@@ -112,7 +112,7 @@ namespace WIFIProject {
 			// 
 			this->label3->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label3->Location = System::Drawing::Point(128, 218);
+			this->label3->Location = System::Drawing::Point(93, 164);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(150, 29);
 			this->label3->TabIndex = 12;
@@ -123,7 +123,7 @@ namespace WIFIProject {
 			this->label2->BackColor = System::Drawing::SystemColors::Control;
 			this->label2->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label2->Location = System::Drawing::Point(216, 167);
+			this->label2->Location = System::Drawing::Point(181, 113);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(73, 29);
 			this->label2->TabIndex = 11;
@@ -133,7 +133,7 @@ namespace WIFIProject {
 			// 
 			this->label1->Font = (gcnew System::Drawing::Font(L"Arial", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(108, 39);
+			this->label1->Location = System::Drawing::Point(60, 35);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(373, 44);
 			this->label1->TabIndex = 10;
@@ -144,7 +144,7 @@ namespace WIFIProject {
 			this->button1->BackColor = System::Drawing::SystemColors::Info;
 			this->button1->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button1->Location = System::Drawing::Point(246, 428);
+			this->button1->Location = System::Drawing::Point(185, 343);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(206, 57);
 			this->button1->TabIndex = 19;
@@ -154,7 +154,7 @@ namespace WIFIProject {
 			// 
 			// tbConfNeuesPass
 			// 
-			this->tbConfNeuesPass->Location = System::Drawing::Point(304, 312);
+			this->tbConfNeuesPass->Location = System::Drawing::Point(269, 258);
 			this->tbConfNeuesPass->Name = L"tbConfNeuesPass";
 			this->tbConfNeuesPass->PasswordChar = '+';
 			this->tbConfNeuesPass->Size = System::Drawing::Size(217, 38);
@@ -162,7 +162,7 @@ namespace WIFIProject {
 			// 
 			// tbNeuesPass
 			// 
-			this->tbNeuesPass->Location = System::Drawing::Point(304, 261);
+			this->tbNeuesPass->Location = System::Drawing::Point(269, 207);
 			this->tbNeuesPass->Name = L"tbNeuesPass";
 			this->tbNeuesPass->PasswordChar = '+';
 			this->tbNeuesPass->Size = System::Drawing::Size(217, 38);
@@ -170,7 +170,7 @@ namespace WIFIProject {
 			// 
 			// tbAltesPass
 			// 
-			this->tbAltesPass->Location = System::Drawing::Point(304, 213);
+			this->tbAltesPass->Location = System::Drawing::Point(269, 159);
 			this->tbAltesPass->Name = L"tbAltesPass";
 			this->tbAltesPass->PasswordChar = '^';
 			this->tbAltesPass->Size = System::Drawing::Size(217, 38);
@@ -178,7 +178,7 @@ namespace WIFIProject {
 			// 
 			// tbName
 			// 
-			this->tbName->Location = System::Drawing::Point(304, 162);
+			this->tbName->Location = System::Drawing::Point(269, 108);
 			this->tbName->Name = L"tbName";
 			this->tbName->Size = System::Drawing::Size(217, 38);
 			this->tbName->TabIndex = 15;
@@ -187,7 +187,7 @@ namespace WIFIProject {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(16, 31);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(710, 621);
+			this->ClientSize = System::Drawing::Size(507, 471);
 			this->Controls->Add(this->label5);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->label3);
@@ -262,7 +262,7 @@ namespace WIFIProject {
 		}
 		else
 		{
-			MessageBox::Show("die Werte stimmen nicht! (Name und altes Passwort)", "Passwörterfehler", MessageBoxButtons::OK);
+			MessageBox::Show("die Werte stimmen nicht! (Name und altes Passwort)", "Login fehlgeschlagen!", MessageBoxButtons::OK);
 			return;
 
 		}
@@ -282,8 +282,6 @@ namespace WIFIProject {
 			sqlcmd1->Parameters->AddWithValue("@pass", altesPass);
 			sqlcmd1->Parameters->AddWithValue("@pwd", neuesPass);
 			sqlcmd1->ExecuteNonQuery();
-
-
 
 			MessageBox::Show("Passwort aktualisiert!! ", "Meldung", MessageBoxButtons::OK);
 
