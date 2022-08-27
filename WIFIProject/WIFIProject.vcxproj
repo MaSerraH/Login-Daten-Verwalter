@@ -125,6 +125,7 @@
   <ItemGroup>
     <ClCompile Include="AdminFensterForm.cpp" />
     <ClCompile Include="AdminLoginForm.cpp" />
+    <ClCompile Include="AdminPasswortanlegen.cpp" />
     <ClCompile Include="HauptFensterForm.cpp" />
     <ClCompile Include="Programm.cpp" />
     <ClCompile Include="Tabelle1.cpp" />
@@ -146,6 +147,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="AdminLoginForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="AdminPasswortanlegen.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="HauptFensterForm.h">
@@ -195,6 +199,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminLoginForm.resx">
       <DependentUpon>AdminLoginForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminPasswortanlegen.resx">
+      <DependentUpon>AdminPasswortanlegen.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HauptFensterForm.resx">
       <DependentUpon>HauptFensterForm.h</DependentUpon>

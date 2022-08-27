@@ -63,6 +63,9 @@
     <ClCompile Include="Tabelle10.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="AdminPasswortanlegen.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HauptFensterForm.h">
@@ -114,6 +117,9 @@
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="Tabelle10.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="AdminPasswortanlegen.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>

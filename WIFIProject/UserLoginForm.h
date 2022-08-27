@@ -46,6 +46,8 @@ namespace WIFIProject {
 	private: System::Windows::Forms::Button^ btnEinloggen;
 	private: System::Windows::Forms::Button^ btnPasswort_Ändern;
 	private: System::Windows::Forms::Button^ btnReset;
+	private: System::Windows::Forms::Panel^ panel1;
+	private: System::Windows::Forms::Panel^ panel2;
 	protected:
 
 	private:
@@ -70,16 +72,21 @@ namespace WIFIProject {
 			this->btnEinloggen = (gcnew System::Windows::Forms::Button());
 			this->btnPasswort_Ändern = (gcnew System::Windows::Forms::Button());
 			this->btnReset = (gcnew System::Windows::Forms::Button());
+			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->panel2 = (gcnew System::Windows::Forms::Panel());
+			this->panel2->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// linkLabel2
 			// 
 			this->linkLabel2->AutoSize = true;
-			this->linkLabel2->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->linkLabel2->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
+			this->linkLabel2->LinkColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
 			this->linkLabel2->Location = System::Drawing::Point(334, 373);
 			this->linkLabel2->Name = L"linkLabel2";
-			this->linkLabel2->Size = System::Drawing::Size(83, 23);
+			this->linkLabel2->Size = System::Drawing::Size(109, 30);
 			this->linkLabel2->TabIndex = 1;
 			this->linkLabel2->TabStop = true;
 			this->linkLabel2->Text = L"zum H-F";
@@ -92,9 +99,9 @@ namespace WIFIProject {
 				static_cast<System::Byte>(0)));
 			this->label1->Location = System::Drawing::Point(83, 32);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(177, 33);
+			this->label1->Size = System::Drawing::Size(214, 41);
 			this->label1->TabIndex = 2;
-			this->label1->Text = L"Users-Login";
+			this->label1->Text = L"User: Login";
 			// 
 			// label2
 			// 
@@ -135,9 +142,9 @@ namespace WIFIProject {
 			// 
 			// btnEinloggen
 			// 
-			this->btnEinloggen->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->btnEinloggen->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnEinloggen->Location = System::Drawing::Point(36, 254);
+			this->btnEinloggen->Location = System::Drawing::Point(26, 14);
 			this->btnEinloggen->Name = L"btnEinloggen";
 			this->btnEinloggen->Size = System::Drawing::Size(135, 40);
 			this->btnEinloggen->TabIndex = 7;
@@ -147,11 +154,11 @@ namespace WIFIProject {
 			// 
 			// btnPasswort_Ändern
 			// 
-			this->btnPasswort_Ändern->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->btnPasswort_Ändern->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnPasswort_Ändern->Location = System::Drawing::Point(237, 254);
+			this->btnPasswort_Ändern->Location = System::Drawing::Point(209, 14);
 			this->btnPasswort_Ändern->Name = L"btnPasswort_Ändern";
-			this->btnPasswort_Ändern->Size = System::Drawing::Size(170, 40);
+			this->btnPasswort_Ändern->Size = System::Drawing::Size(184, 40);
 			this->btnPasswort_Ändern->TabIndex = 8;
 			this->btnPasswort_Ändern->Text = L"Passwort_ändern";
 			this->btnPasswort_Ändern->UseVisualStyleBackColor = true;
@@ -159,36 +166,55 @@ namespace WIFIProject {
 			// 
 			// btnReset
 			// 
-			this->btnReset->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->btnReset->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnReset->Location = System::Drawing::Point(163, 316);
+			this->btnReset->Location = System::Drawing::Point(140, 70);
 			this->btnReset->Name = L"btnReset";
-			this->btnReset->Size = System::Drawing::Size(85, 43);
+			this->btnReset->Size = System::Drawing::Size(99, 33);
 			this->btnReset->TabIndex = 9;
 			this->btnReset->Text = L"Reset";
 			this->btnReset->UseVisualStyleBackColor = true;
 			this->btnReset->Click += gcnew System::EventHandler(this, &UserLoginForm::btnReset_Click);
+			// 
+			// panel1
+			// 
+			this->panel1->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
+			this->panel1->Location = System::Drawing::Point(12, 96);
+			this->panel1->Name = L"panel1";
+			this->panel1->Size = System::Drawing::Size(395, 134);
+			this->panel1->TabIndex = 10;
+			// 
+			// panel2
+			// 
+			this->panel2->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
+			this->panel2->Controls->Add(this->btnReset);
+			this->panel2->Controls->Add(this->btnEinloggen);
+			this->panel2->Controls->Add(this->btnPasswort_Ändern);
+			this->panel2->Location = System::Drawing::Point(12, 254);
+			this->panel2->Name = L"panel2";
+			this->panel2->Size = System::Drawing::Size(404, 116);
+			this->panel2->TabIndex = 11;
 			// 
 			// UserLoginForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(13, 31);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(431, 416);
-			this->Controls->Add(this->btnReset);
-			this->Controls->Add(this->btnPasswort_Ändern);
-			this->Controls->Add(this->btnEinloggen);
 			this->Controls->Add(this->tbPasswort);
 			this->Controls->Add(this->tbName);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->linkLabel2);
+			this->Controls->Add(this->panel1);
+			this->Controls->Add(this->panel2);
 			this->Font = (gcnew System::Drawing::Font(L"Arial Narrow", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Margin = System::Windows::Forms::Padding(5, 6, 5, 6);
 			this->Name = L"UserLoginForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"UserLoginForm";
+			this->panel2->ResumeLayout(false);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 

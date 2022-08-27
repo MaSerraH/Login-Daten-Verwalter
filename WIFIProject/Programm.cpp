@@ -1,5 +1,6 @@
 #include "HauptFensterForm.h"
 #include "AdminLoginForm.h"
+#include "AdminPasswortanlegen.h"
 #include "AdminFensterForm.h"
 #include "UserLoginForm.h"
 #include "UserPasswortÄndernForm.h"
@@ -32,6 +33,8 @@ void main(array<String^>^ args)
 			/*wenn der Link geclicket wurde(Admin-Login), dann soll man in anderen Fenster geleitet werden (Admin Login).*/
 			WIFIProject::AdminLoginForm adminloginForm;
 			adminloginForm.ShowDialog();
+			
+			
 
 			Admin^ admin = adminloginForm.admin;
 			//Wenn das Objekt nicht leer ist, das heisst wenn die angegebene Informationen mit den vom DB überall stimmen 
@@ -49,16 +52,23 @@ void main(array<String^>^ args)
 					continue;
 				}
 			}
-			else
-			{
-				//Wenn man das Button Cancel druckt, erscheint folgende Meldung
-				MessageBox::Show("Authentifizierung annulliert", "{(L-D)-V}", MessageBoxButtons::OK);
-			}
+		
 
 			if (adminloginForm.To_Haupt_Fenster)
 			{
 				//hauptfensterForm.ShowDialog();
 				continue;
+			}
+			else if (adminloginForm.To_Passwort_anlegen)
+			{
+				WIFIProject::AdminPasswortanlegen adminpasswortanlegen;
+				adminpasswortanlegen.ShowDialog();
+				Admin^ admin = adminpasswortanlegen.admin;
+				if (adminpasswortanlegen.To_Haupt_Fenster)
+				{
+					continue;
+				}
+
 			}
 		}
 		else if (hauptfensterForm.To_Users_Login)
@@ -98,10 +108,6 @@ void main(array<String^>^ args)
 				case 10:tabelle10.ShowDialog(); if (tabelle10.To_Haupt_Fenster) { continue; }break;
 				}
 
-				if (tabelle1.To_Haupt_Fenster)
-				{
-					continue;
-				}
 			}
 			if (userloginform.To_Haupt_Fenster)
 			{

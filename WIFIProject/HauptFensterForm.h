@@ -91,11 +91,13 @@ namespace WIFIProject {
 			// linkLabel1
 			// 
 			this->linkLabel1->AutoSize = true;
-			this->linkLabel1->Font = (gcnew System::Drawing::Font(L"Arial", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+			this->linkLabel1->Font = (gcnew System::Drawing::Font(L"Arial", 13.8F, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			this->linkLabel1->LinkColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
 			this->linkLabel1->Location = System::Drawing::Point(48, 164);
 			this->linkLabel1->Name = L"linkLabel1";
-			this->linkLabel1->Size = System::Drawing::Size(125, 26);
+			this->linkLabel1->Size = System::Drawing::Size(168, 33);
 			this->linkLabel1->TabIndex = 2;
 			this->linkLabel1->TabStop = true;
 			this->linkLabel1->Text = L"User-Login";
@@ -105,7 +107,7 @@ namespace WIFIProject {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(15, 31);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(229, 298);
+			this->ClientSize = System::Drawing::Size(272, 310);
 			this->Controls->Add(this->linkLabel1);
 			this->Controls->Add(this->btnEscape);
 			this->Controls->Add(this->linkAdminLogin);

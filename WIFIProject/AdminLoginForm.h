@@ -9,7 +9,7 @@ namespace WIFIProject {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
-	using namespace System::Data::SqlClient;//ermöglcht die Verbindung 
+	using namespace MySql::Data::MySqlClient;
 
 	/// <summary>
 	/// Zusammenfassung für AdminLoginForm
@@ -46,6 +46,10 @@ namespace WIFIProject {
 
 	private: System::Windows::Forms::Button^ btnOK;
 	private: System::Windows::Forms::Button^ btnCancel;
+	private: System::Windows::Forms::Button^ btnNeuStart;
+	private: System::Windows::Forms::Button^ btnPasswortanlegen;
+	private: System::Windows::Forms::Panel^ panel1;
+	private: System::Windows::Forms::Panel^ panel2;
 
 
 	protected:
@@ -73,6 +77,11 @@ namespace WIFIProject {
 			this->tbPasswort = (gcnew System::Windows::Forms::TextBox());
 			this->btnOK = (gcnew System::Windows::Forms::Button());
 			this->btnCancel = (gcnew System::Windows::Forms::Button());
+			this->btnNeuStart = (gcnew System::Windows::Forms::Button());
+			this->btnPasswortanlegen = (gcnew System::Windows::Forms::Button());
+			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->panel2 = (gcnew System::Windows::Forms::Panel());
+			this->panel2->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// linkHauptFenster
@@ -84,7 +93,7 @@ namespace WIFIProject {
 				static_cast<System::Byte>(0)));
 			this->linkHauptFenster->LinkColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)),
 				static_cast<System::Int32>(static_cast<System::Byte>(128)), static_cast<System::Int32>(static_cast<System::Byte>(0)));
-			this->linkHauptFenster->Location = System::Drawing::Point(278, 265);
+			this->linkHauptFenster->Location = System::Drawing::Point(364, 316);
 			this->linkHauptFenster->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->linkHauptFenster->Name = L"linkHauptFenster";
 			this->linkHauptFenster->Size = System::Drawing::Size(93, 24);
@@ -97,12 +106,12 @@ namespace WIFIProject {
 			// 
 			this->label1->Font = (gcnew System::Drawing::Font(L"Arial", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(71, 34);
+			this->label1->Location = System::Drawing::Point(80, 20);
 			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(224, 32);
 			this->label1->TabIndex = 1;
-			this->label1->Text = L"Admin Login";
+			this->label1->Text = L"Admin: Login";
 			// 
 			// label2
 			// 
@@ -143,12 +152,12 @@ namespace WIFIProject {
 			// 
 			this->btnOK->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnOK->Location = System::Drawing::Point(91, 194);
+			this->btnOK->Location = System::Drawing::Point(22, 16);
 			this->btnOK->Margin = System::Windows::Forms::Padding(2);
 			this->btnOK->Name = L"btnOK";
-			this->btnOK->Size = System::Drawing::Size(88, 32);
+			this->btnOK->Size = System::Drawing::Size(121, 32);
 			this->btnOK->TabIndex = 6;
-			this->btnOK->Text = L"OK";
+			this->btnOK->Text = L"Einloggen";
 			this->btnOK->UseVisualStyleBackColor = true;
 			this->btnOK->Click += gcnew System::EventHandler(this, &AdminLoginForm::btnOK_Click);
 			// 
@@ -156,34 +165,79 @@ namespace WIFIProject {
 			// 
 			this->btnCancel->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnCancel->Location = System::Drawing::Point(239, 196);
+			this->btnCancel->Location = System::Drawing::Point(22, 65);
 			this->btnCancel->Margin = System::Windows::Forms::Padding(2);
 			this->btnCancel->Name = L"btnCancel";
-			this->btnCancel->Size = System::Drawing::Size(85, 32);
+			this->btnCancel->Size = System::Drawing::Size(121, 32);
 			this->btnCancel->TabIndex = 7;
 			this->btnCancel->Text = L"Cancel";
 			this->btnCancel->UseVisualStyleBackColor = true;
 			this->btnCancel->Click += gcnew System::EventHandler(this, &AdminLoginForm::btnCancel_Click);
 			// 
+			// btnNeuStart
+			// 
+			this->btnNeuStart->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnNeuStart->Location = System::Drawing::Point(184, 65);
+			this->btnNeuStart->Name = L"btnNeuStart";
+			this->btnNeuStart->Size = System::Drawing::Size(218, 32);
+			this->btnNeuStart->TabIndex = 8;
+			this->btnNeuStart->Text = L"Tabelle neue_starten";
+			this->btnNeuStart->UseVisualStyleBackColor = true;
+			this->btnNeuStart->Click += gcnew System::EventHandler(this, &AdminLoginForm::btnNeuStart_Click);
+			// 
+			// btnPasswortanlegen
+			// 
+			this->btnPasswortanlegen->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnPasswortanlegen->Location = System::Drawing::Point(184, 16);
+			this->btnPasswortanlegen->Name = L"btnPasswortanlegen";
+			this->btnPasswortanlegen->Size = System::Drawing::Size(218, 32);
+			this->btnPasswortanlegen->TabIndex = 9;
+			this->btnPasswortanlegen->Text = L"Passwort_anlegen";
+			this->btnPasswortanlegen->UseVisualStyleBackColor = true;
+			this->btnPasswortanlegen->Click += gcnew System::EventHandler(this, &AdminLoginForm::btnPasswortanlegen_Click);
+			// 
+			// panel1
+			// 
+			this->panel1->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
+			this->panel1->Location = System::Drawing::Point(12, 80);
+			this->panel1->Name = L"panel1";
+			this->panel1->Size = System::Drawing::Size(422, 91);
+			this->panel1->TabIndex = 10;
+			// 
+			// panel2
+			// 
+			this->panel2->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
+			this->panel2->Controls->Add(this->btnPasswortanlegen);
+			this->panel2->Controls->Add(this->btnCancel);
+			this->panel2->Controls->Add(this->btnNeuStart);
+			this->panel2->Controls->Add(this->btnOK);
+			this->panel2->Location = System::Drawing::Point(12, 193);
+			this->panel2->Name = L"panel2";
+			this->panel2->Size = System::Drawing::Size(422, 116);
+			this->panel2->TabIndex = 11;
+			// 
 			// AdminLoginForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(11, 23);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(390, 314);
-			this->Controls->Add(this->btnCancel);
-			this->Controls->Add(this->btnOK);
+			this->ClientSize = System::Drawing::Size(455, 349);
 			this->Controls->Add(this->tbPasswort);
 			this->Controls->Add(this->tbName);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->linkHauptFenster);
+			this->Controls->Add(this->panel1);
+			this->Controls->Add(this->panel2);
 			this->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"AdminLoginForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Admin_Login";
+			this->panel2->ResumeLayout(false);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -221,48 +275,79 @@ namespace WIFIProject {
 
 private: System::Void btnOK_Click(System::Object^ sender, System::EventArgs^ e) {
 
-	String^ name = this->tbName->Text;//liest den eingegebene Name ein
-	String^ passwort = this->tbPasswort->Text;//liest das eingegebne Passwort ein
 
-	if (name->Length == 0 || passwort->Length == 0)//Bedingung
+	String^ name = this->tbName->Text;
+	String^ passwort = this->tbPasswort->Text;
+
+	if (name->Length == 0 || passwort->Length == 0)
 	{
-		//wenn beide leer sind soll eine Meldung erscheinen
 		MessageBox::Show("Name und Passwort bitte eingeben", "Name oder Passwort sind leer", MessageBoxButtons::OK);
 		return;
 	}
-
 	try {
-		//Adresse des Database
-		String^ connString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-		SqlConnection sqlconn(connString);
-		sqlconn.Open();//Verbindung öffnen
+		MySqlConnection^ sqlconn = gcnew MySqlConnection();
+		sqlconn->ConnectionString = "datasource = localhost; port = 3306; username = Login Daten Verwalter; password = wifi123; database = wifi";
+		sqlconn->Open();
+		MySqlCommand^ sqlcom = gcnew MySqlCommand();
+		sqlcom->Connection = sqlconn;
 
-		String^ sqlQuery = "SELECT * FROM Admin WHERE Name=@name AND Passwort=@passwort;";//Query
-		SqlCommand command(sqlQuery, % sqlconn);
-		command.Parameters->AddWithValue("@name", name);
-		command.Parameters->AddWithValue("@passwort", passwort);
-		//AddWithValue überschreibt @name und @passwort für die eingegebene name und passwort, damit sie im DB gefunden werden können
+		MySqlCommand^ sqlcmd = gcnew MySqlCommand("select * from admin where Name = @name and  Passwort = md5(@pass);", sqlconn);
 
-		SqlDataReader^ reader = command.ExecuteReader();
+		sqlcmd->Parameters->AddWithValue("@name", name);
+		sqlcmd->Parameters->AddWithValue("@pass", passwort);
+
+		MySqlDataReader^ reader = sqlcmd->ExecuteReader();
 		if (reader->Read())
 		{
-			admin = gcnew Admin;//man erzeugt ein Objekt am Heap, "gc" bedeutet "garbage collection"-> es wird automatisch zerstört->kein Destruktor ist notwending."
-			//reader list die Daten id, name und passwort vom Database ein und speichert sie im admin.
-			admin->id = reader->GetInt32(0);
+			admin = gcnew Admin;
+			admin->id = reader->GetInt16(0);
 			admin->name = reader->GetString(1);
 			admin->passwort = reader->GetString(2);
 			this->Close();
 		}
 		else
 		{
-			//wenn beide werte, name und Passwort mit den Werten im DB nicht stimmen, soll eine Fehler-meldung erscheinen
-			MessageBox::Show("Name oder Passwort sind falsch", "Fehler", MessageBoxButtons::OK);
+			MessageBox::Show("der User: " + name + ", existiert nicht!!", "Login fehlgeschlagen!", MessageBoxButtons::OK);
+			return;
+
 		}
 	}
-	catch(Exception^ e) {
-		//Wenn die Vebindung mit dem DB unmöglicht ist, soll eine Fehler-meldung erscheinen
+	catch (Exception^ e)
+	{
 		MessageBox::Show("Verbindung mit database fehlgeschlagen", "Verbingung Fehler", MessageBoxButtons::OK);
 	}
+}
+private: System::Void btnNeuStart_Click(System::Object^ sender, System::EventArgs^ e) {
+	try {
+
+		MySqlConnection^ sqlconn = gcnew MySqlConnection();
+		sqlconn->ConnectionString = "datasource = localhost; port = 3306; username = Login Daten Verwalter; password = wifi123; database = wifi";
+		sqlconn->Open();
+		//man macht die Connection zum Server und zur Database(wifi) auf.
+		MySqlCommand^ sqlcom = gcnew MySqlCommand();
+		sqlcom->Connection = sqlconn;
+		//man verbindet sich mit der Database
+
+		//mit folgenden Befehle wird der Inhalt der Tabelle (wifi_users, users_liste und liste) der Database wifi, gelöscht
+		MySqlCommand^ sqlcmd = gcnew MySqlCommand("truncate table admin", sqlconn);
+		
+
+		sqlcmd->ExecuteNonQuery();
+		
+		MessageBox::Show("Tabelle (admin) wurde neu gestartet!", "{(L-D)-V}", MessageBoxButtons::OK, MessageBoxIcon::Asterisk);
+		sqlconn->Close();
+		//dann bekommt man eine Bestätigungsmeldung dass die Tabelle neugestartet wurden und letztendlich wird die Connection wieder zugemacht.
+	
+	}
+	catch (Exception^ e)
+	{
+		MessageBox::Show(e->Message, "{(L-D)-V}", MessageBoxButtons::YesNo, MessageBoxIcon::Information);
+	}
+}
+	   public: bool To_Passwort_anlegen = false;
+private: System::Void btnPasswortanlegen_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->To_Passwort_anlegen = true;
+	this->Close();
 }
 };
 }
