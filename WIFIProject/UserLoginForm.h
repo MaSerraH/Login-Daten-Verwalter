@@ -1,5 +1,5 @@
 #pragma once
-#include "Users.h"
+#include "Users.h"//die Klasse Users wird hinzugefügt
 
 namespace WIFIProject {
 
@@ -9,7 +9,7 @@ namespace WIFIProject {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
-	using namespace MySql::Data::MySqlClient;
+	using namespace MySql::Data::MySqlClient;//MySQLClient ermöglicht die Verbindung zum MySQL Server
 
 	/// <summary>
 	/// Zusammenfassung für UserLoginForm
@@ -220,22 +220,27 @@ namespace WIFIProject {
 
 		}
 #pragma endregion
+	//falls man zum HauptFenster wieder geleitet werden will...
 	public: bool To_Haupt_Fenster = false;
 	private: System::Void linkLabel2_LinkClicked(System::Object^ sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^ e) {
 		this->To_Haupt_Fenster = true;
 		this->Close();
 	}
 	private: System::Void btnReset_Click(System::Object^ sender, System::EventArgs^ e) {
+	//die Methode Reset leert die TextBoxes
 		tbName->Text = "";
 		tbPasswort->Text = "";
 	}
+		   //man erzeugt ein Objekt der Klasse Users und man initialisiert es mit nullptr
 	public: Users^ user = nullptr;
 private: System::Void btnEinloggen_Click(System::Object^ sender, System::EventArgs^ e) {
 	String^ name = this->tbName->Text;
 	String^ passwort = this ->tbPasswort->Text;
+	//die Varieble name und passwort werden mit den eigegebene Werte in den Textboxes initialisiert 
 
 	if (name->Length == 0 || passwort->Length == 0)
 	{
+		//falls beide textboxes leer sind, dann soll eine Meldung erscheinen
 		MessageBox::Show("Name und Passwort bitte eingeben", "Name oder Passwort sind leer", MessageBoxButtons::OK);
 		return;
 	}
@@ -245,11 +250,13 @@ private: System::Void btnEinloggen_Click(System::Object^ sender, System::EventAr
 		sqlconn->Open();
 		MySqlCommand^ sqlcom = gcnew MySqlCommand();
 		sqlcom->Connection = sqlconn;
+		//man macht die Conecction auf und man verbindet sich damit..
 
 		MySqlCommand^ sqlcmd = gcnew MySqlCommand("select * from wifi_users where Name = @name and  Passwort = MD5(@pass);", sqlconn);
 
 		sqlcmd->Parameters->AddWithValue("@name", name);
 		sqlcmd->Parameters->AddWithValue("@pass", passwort);
+		//mit dem SQL Befehl man selectiert die Information von der Tabelle wifi_users, wenn die eingegebene name uns passwort stimmen mit der gespeicherte Information. Man muss merken dass in der Fall des Passwort nur die Hash werden vergliechen
 
 		MySqlDataReader^ reader = sqlcmd->ExecuteReader();
 		if (reader->Read())
@@ -260,6 +267,7 @@ private: System::Void btnEinloggen_Click(System::Object^ sender, System::EventAr
 			user->passwort = reader->GetString(2);
 			user->liste = reader->GetInt16(3);
 			this->Close();
+			//wenn die Werte stimmen, die gelesen Information der Spalten(id, name, passwort, liste) werden in die Attribute des Objekts user gespeichert
 		}
 		else
 		{
@@ -273,6 +281,7 @@ private: System::Void btnEinloggen_Click(System::Object^ sender, System::EventAr
 		MessageBox::Show("Verbindung mit database fehlgeschlagen", "Verbingung Fehler", MessageBoxButtons::OK);
 	}
 }
+//wenn der User sein eigenes Passwort feswtlegen will, dann wird ein neue Fenster aufgemacht
 public: bool To_User_Passwort_ändern = false;
 private: System::Void btnPasswort_Ändern_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->To_User_Passwort_ändern = true;

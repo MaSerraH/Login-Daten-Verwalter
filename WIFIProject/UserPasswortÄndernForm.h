@@ -1,5 +1,5 @@
 #pragma once
-#include"Users.h"
+#include"Users.h"//die Klasse Users wird hinzugefügt
 
 namespace WIFIProject {
 
@@ -230,10 +230,12 @@ namespace WIFIProject {
 		this->Close();
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+	//der Button1 (Passwort ändern!) ermöglich den Usre sein eigenes Passwort festzulegen
 		String^ name = tbName->Text;
 		String^ altesPass = tbAltesPass->Text;
 		String^ neuesPass = tbNeuesPass->Text;
 		String^ confirmNeuesPass = tbConfNeuesPass->Text;
+		//die Variable name, altesPass, neuesPass und confirmNeuePass werden mir den Werte der zugehörigene textboxes initialisiert
 
 		if (altesPass->Length == 0 || neuesPass->Length == 0 || confirmNeuesPass->Length == 0)
 		{
@@ -243,7 +245,7 @@ namespace WIFIProject {
 		}
 		if (String::Compare(neuesPass, confirmNeuesPass) != 0)
 		{
-			//wenn beide leer sind soll eine Meldung erscheinen
+			//wenn beide Werte nicht gleich sind, soll eine Meldung erscheinen
 			MessageBox::Show("die Werte stimmen nicht! (Passwort und Confirm)", "Fehler", MessageBoxButtons::OK);
 			return;
 		}
@@ -262,6 +264,7 @@ namespace WIFIProject {
 
 		sqlcmd->Parameters->AddWithValue("@name", name);
 		sqlcmd->Parameters->AddWithValue("@pass", altesPass);
+		//man filtriert die Tabelle wifi_users und man liest ob es ein user mit dem name und das gehashte passwort gibt.
 
 		MySqlDataReader^ reader = sqlcmd->ExecuteReader();
 		if (reader->Read())
@@ -275,6 +278,7 @@ namespace WIFIProject {
 		}
 		else
 		{
+			//wenn die eingegebene Werte name und altespass mit den in der Tabelle wifi_users gespeicherte Werte nicht stimmen, dann soll eine Meldung erscheinen
 			MessageBox::Show("die Werte stimmen nicht! (Name und altes Passwort)", "Login fehlgeschlagen!", MessageBoxButtons::OK);
 			return;
 
@@ -289,19 +293,21 @@ namespace WIFIProject {
 
 			MySqlCommand^ sqlcom = gcnew MySqlCommand();
 			sqlcom->Connection = sqlconn;
+			//man verbindet sich mit der Connection
 
 			MySqlCommand^ sqlcmd1 = gcnew MySqlCommand("update wifi_users set Passwort=MD5(@pwd) where Name =@name and Passwort=md5(@pass)", sqlconn);
 			sqlcmd1->Parameters->AddWithValue("@name", name);
 			sqlcmd1->Parameters->AddWithValue("@pass", altesPass);
 			sqlcmd1->Parameters->AddWithValue("@pwd", neuesPass);
 			sqlcmd1->ExecuteNonQuery();
+			//mit dem o.g. Befehl aktualisiert man die Spalte Passwort der Tabelle wifi_users. Man speichert das neue Passwort (Hash) sofern die eingegebene Werte stimmen: name und altesPass(Hash), d.h. nur die Attribute(Passwort) des gefragten user wird aktualisiert
 
 			MessageBox::Show("Passwort aktualisiert!! ", "Meldung", MessageBoxButtons::OK);
 
 			sqlconn->Close();
 			reader->Close();
 			this->Close();
-
+			//man mcht den reader, die Connection und letzendlich den Fenster zu, aber man bekommt vorher eine Meldung dass das Passwort aktualisiert wurde
 		}
 		catch (Exception^ e) {
 			//Wenn die Vebindung mit dem DB unmöglicht ist, soll eine Fehler-meldung erscheinen

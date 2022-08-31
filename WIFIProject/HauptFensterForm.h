@@ -131,6 +131,7 @@ namespace WIFIProject {
 			if (Escape == System::Windows::Forms::DialogResult::Yes)
 			{
 				Application::Exit();
+				//wenn man den Escape button getätig hat, die Application wird zugemacht
 			}
 		}
 		catch (Exception^ e)
@@ -146,6 +147,7 @@ namespace WIFIProject {
 		this ->Close();
 
 	}
+		   //wenn man sich als User einloggen möchte...
 	public: bool To_Users_Login = false;
 	private: System::Void linkLabel1_LinkClicked(System::Object^ sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^ e) {
 		this->To_Users_Login = true;

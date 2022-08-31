@@ -1,5 +1,5 @@
 #pragma once
-#include"Admin.h"
+#include"Admin.h"//HeaderFile der Klasse Admin
 
 namespace WIFIProject {
 
@@ -229,6 +229,7 @@ namespace WIFIProject {
 	private: System::Void linkLabel1_LinkClicked(System::Object^ sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^ e) {
 		this->To_Haupt_Fenster = true;
 		this->Close();
+		//falls man zum HauptFenster zurückgebracht werden möchte
 	}
 	private: System::Void btnPasswortanlegen_Click(System::Object^ sender, System::EventArgs^ e) {
 		String^ name = tbName->Text;
@@ -236,6 +237,7 @@ namespace WIFIProject {
 		
 		String^ neuesPass = tbNeuesPass->Text;
 		String^ confirmNeuesPass = tbConfNeuesPass->Text;
+		//man schreibt die angefordete Information ein
 
 		if (name->Length == 0 || altesPass->Length == 0|| neuesPass->Length == 0 || confirmNeuesPass->Length == 0)
 		{
@@ -245,7 +247,7 @@ namespace WIFIProject {
 		}
 		if (String::Compare(neuesPass, confirmNeuesPass) != 0)
 		{
-			//wenn beide leer sind soll eine Meldung erscheinen
+			//wenn beide Werte nicht gleich sind soll eine Meldung erscheinen
 			MessageBox::Show("die Werte stimmen nicht! (Passwort und Confirm)", "Fehler", MessageBoxButtons::OK);
 			return;
 		}
@@ -264,7 +266,7 @@ namespace WIFIProject {
 
 		sqlcmd->Parameters->AddWithValue("@name", name);
 		sqlcmd->Parameters->AddWithValue("@pass", altesPass);
-
+		//man filtert von der Tabelle admin die information das mit dem gegebene name und gegebene Passwort stimmt. Man vergleich das Wert altes Passwort mir das erste gegebene Passwort
 
 		MySqlDataReader^ reader = sqlcmd->ExecuteReader();
 		if (reader->Read())
@@ -277,7 +279,7 @@ namespace WIFIProject {
 		}
 		else
 		{
-			MessageBox::Show("Die Daten existieren nicht!", "Login fehlgeschlagen!", MessageBoxButtons::OK);
+			MessageBox::Show("der User:" + name +" existiert nicht!", "Login fehlgeschlagen!", MessageBoxButtons::OK);
 			return;
 
 		}
@@ -297,12 +299,14 @@ namespace WIFIProject {
 			sqlcmd1->Parameters->AddWithValue("@pass", altesPass);
 			sqlcmd1->Parameters->AddWithValue("@pwd", neuesPass);
 			sqlcmd1->ExecuteNonQuery();
+			//hier will man ein neues Passwort anlegen aber es soll zuerst gehashed und dann in der Tabelle admin gespeichert werden. alldies soll geschehen wenn der admin existiert
 
 			MessageBox::Show("Passwort gespeichert!! ", "Meldung", MessageBoxButtons::OK);
 
 			sqlconn->Close();
 			reader->Close();
 			this->Close();
+			//man macht den leser, die connection und den Fenster zu
 
 		}
 		catch (Exception^ e) {

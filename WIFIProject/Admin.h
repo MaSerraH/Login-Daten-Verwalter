@@ -1,5 +1,5 @@
 #pragma once
-
+//Klasse Admin, mit den Attribute: id, name und password
 
 using namespace System;
 //Klasse Administrator(Admin)

@@ -277,11 +277,11 @@ namespace WIFIProject {
 			// 
 			this->btnNeuStart->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnNeuStart->Location = System::Drawing::Point(44, 161);
+			this->btnNeuStart->Location = System::Drawing::Point(21, 161);
 			this->btnNeuStart->Name = L"btnNeuStart";
-			this->btnNeuStart->Size = System::Drawing::Size(137, 59);
+			this->btnNeuStart->Size = System::Drawing::Size(179, 59);
 			this->btnNeuStart->TabIndex = 17;
-			this->btnNeuStart->Text = L"Tabelle neu starten";
+			this->btnNeuStart->Text = L"Tabelle (users) neu starten";
 			this->btnNeuStart->UseVisualStyleBackColor = true;
 			this->btnNeuStart->Click += gcnew System::EventHandler(this, &AdminFensterForm::btnNeuStart_Click);
 			// 
@@ -355,8 +355,7 @@ namespace WIFIProject {
 			sqldt->Load(sqlrd);
 			//man ladet den gelesenen Inhalt in einer Table auf
 			sqlrd->Close();
-			
-			//man macht den Reader und die Connection wieder zu
+			//man macht den Reader  wieder zu
 			dataGridView1->DataSource = sqldt;
 			//man setzt die Table mit dem gelesenen Inhalt als Informationsquelle für den DataGridView, damit der User des {(L-D)-V} sie lesen kann.
 			try {
@@ -371,7 +370,6 @@ namespace WIFIProject {
 				cbListe->DisplayMember = "Liste";
 				//inhalt der Spalte
 				cbListe->DataSource = sqldta;
-
 				sqlread->Close();
 				sqlconn->Close();
 				//macht die Connection und der Reader wieder zu
@@ -469,7 +467,7 @@ private: System::Void btnU_loeschen_Click(System::Object^ sender, System::EventA
 
 		sqlcmd2->ExecuteNonQuery();
 		sqlcmd->ExecuteNonQuery();
-
+//mit folgende Befehle erreicht man dass je nach gelöschte User, seine Konto neugestartet wird
 		int l = 'lis';
 
 		if (lis == "1") { sqlcom->CommandText = "truncate table t_1"; sqlcom->ExecuteNonQuery(); }
@@ -482,6 +480,7 @@ private: System::Void btnU_loeschen_Click(System::Object^ sender, System::EventA
 		else if (lis == "8") { sqlcom->CommandText = "truncate table t_8"; sqlcom->ExecuteNonQuery(); }
 		else if (lis == "9") { sqlcom->CommandText = "truncate table t_9"; sqlcom->ExecuteNonQuery(); }
 		else if (lis == "10") { sqlcom->CommandText = "truncate table t_10"; sqlcom->ExecuteNonQuery(); }
+		
 		
 		
 		
@@ -512,15 +511,22 @@ private: System::Void btnNeuStart_Click(System::Object^ sender, System::EventArg
 		sqlcom->Connection = sqlconn;
 		//man verbindet sich mit der Database
 
-		//mit folgenden Befehle wird der Inhalt der Tabelle (wifi_users, users_liste und liste) der Database wifi, gelöscht
-		MySqlCommand^ sqlcmd = gcnew MySqlCommand("truncate table wifi_users", sqlconn);
-		MySqlCommand^ sqlcomd = gcnew MySqlCommand("truncate table liste", sqlconn);
+		//mit folgenden Befehle wird der Inhalt der Tabelle (wifi_users und liste) der Database wifi, gelöscht
+		MySqlCommand^ sqlcmd = gcnew MySqlCommand("truncate table wifi_users", sqlconn);sqlcmd->ExecuteNonQuery();
+		MySqlCommand^ sqlcomd = gcnew MySqlCommand("truncate table liste", sqlconn);sqlcomd->ExecuteNonQuery();
+		//mit folgenden Befehle löscht man den Inhalt aller users:Konto
+		MySqlCommand^ sqlcomd1 = gcnew MySqlCommand("truncate table t_1", sqlconn); sqlcomd1->ExecuteNonQuery();
+		MySqlCommand^ sqlcomd2 = gcnew MySqlCommand("truncate table t_2", sqlconn); sqlcomd2->ExecuteNonQuery();
+		MySqlCommand^ sqlcomd3 = gcnew MySqlCommand("truncate table t_3", sqlconn); sqlcomd3->ExecuteNonQuery();
+		MySqlCommand^ sqlcomd4 = gcnew MySqlCommand("truncate table t_4", sqlconn); sqlcomd4->ExecuteNonQuery();
+		MySqlCommand^ sqlcomd5 = gcnew MySqlCommand("truncate table t_5", sqlconn); sqlcomd5->ExecuteNonQuery();
+		MySqlCommand^ sqlcomd6 = gcnew MySqlCommand("truncate table t_6", sqlconn); sqlcomd6->ExecuteNonQuery();
+		MySqlCommand^ sqlcomd7 = gcnew MySqlCommand("truncate table t_7", sqlconn); sqlcomd7->ExecuteNonQuery();
+		MySqlCommand^ sqlcomd8 = gcnew MySqlCommand("truncate table t_8", sqlconn); sqlcomd8->ExecuteNonQuery();
+		MySqlCommand^ sqlcomd9 = gcnew MySqlCommand("truncate table t_9", sqlconn); sqlcomd9->ExecuteNonQuery();
+		MySqlCommand^ sqlcomd10 = gcnew MySqlCommand("truncate table t_10", sqlconn); sqlcomd10->ExecuteNonQuery();
 
-		sqlcmd->ExecuteNonQuery();
-		sqlcomd->ExecuteNonQuery();
-		
-
-		//mit folgenden Befehle werden wieder die vorher gelöschte Zahlen in der Tabelle liste hinzugefügt
+		//mit folgenden Befehle werden wieder die vorher gelöschte Zahlen in der Tabelle liste hinzugefügt und werden automatisch im ComboBox gezeigt
 		MySqlCommand^ sqlcomand1 = gcnew MySqlCommand("insert into liste(Liste)" + "values('" + 1 + "')", sqlconn);
 		MySqlCommand^ sqlcomand2 = gcnew MySqlCommand("insert into liste(Liste)" + "values('" + 2 + "')", sqlconn);
 		MySqlCommand^ sqlcomand3 = gcnew MySqlCommand("insert into liste(Liste)" + "values('" + 3 + "')", sqlconn);

@@ -9,7 +9,7 @@ namespace WIFIProject {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
-	using namespace MySql::Data::MySqlClient;
+	using namespace MySql::Data::MySqlClient;//MySqlClient ermöglicht die Verbindung mit dem DB
 
 	/// <summary>
 	/// Zusammenfassung für AdminLoginForm
@@ -157,7 +157,7 @@ namespace WIFIProject {
 			this->btnOK->Name = L"btnOK";
 			this->btnOK->Size = System::Drawing::Size(121, 32);
 			this->btnOK->TabIndex = 6;
-			this->btnOK->Text = L"Einloggen";
+			this->btnOK->Text = L"einloggen";
 			this->btnOK->UseVisualStyleBackColor = true;
 			this->btnOK->Click += gcnew System::EventHandler(this, &AdminLoginForm::btnOK_Click);
 			// 
@@ -168,7 +168,7 @@ namespace WIFIProject {
 			this->btnCancel->Location = System::Drawing::Point(22, 65);
 			this->btnCancel->Margin = System::Windows::Forms::Padding(2);
 			this->btnCancel->Name = L"btnCancel";
-			this->btnCancel->Size = System::Drawing::Size(121, 32);
+			this->btnCancel->Size = System::Drawing::Size(82, 32);
 			this->btnCancel->TabIndex = 7;
 			this->btnCancel->Text = L"Cancel";
 			this->btnCancel->UseVisualStyleBackColor = true;
@@ -178,11 +178,11 @@ namespace WIFIProject {
 			// 
 			this->btnNeuStart->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnNeuStart->Location = System::Drawing::Point(184, 65);
+			this->btnNeuStart->Location = System::Drawing::Point(119, 65);
 			this->btnNeuStart->Name = L"btnNeuStart";
-			this->btnNeuStart->Size = System::Drawing::Size(218, 32);
+			this->btnNeuStart->Size = System::Drawing::Size(283, 32);
 			this->btnNeuStart->TabIndex = 8;
-			this->btnNeuStart->Text = L"Tabelle neue_starten";
+			this->btnNeuStart->Text = L"Tabelle (admin) neu_starten";
 			this->btnNeuStart->UseVisualStyleBackColor = true;
 			this->btnNeuStart->Click += gcnew System::EventHandler(this, &AdminLoginForm::btnNeuStart_Click);
 			// 
@@ -253,7 +253,6 @@ namespace WIFIProject {
 	}
 
 	private: System::Void btnCancel_Click(System::Object^ sender, System::EventArgs^ e) {
-	//this->Close();//macht den Fenster zu
 		System::Windows::Forms::DialogResult Cancel;
 		//Dialog um zu beenden
 
@@ -262,6 +261,7 @@ namespace WIFIProject {
 
 			if (Cancel == System::Windows::Forms::DialogResult::Yes)
 			{
+				//wenn man die Application beenden will..
 				Application::Exit();
 			}
 		}
@@ -271,11 +271,11 @@ namespace WIFIProject {
 		}
 	}
 
-	public: Admin^ admin=nullptr;//Variable der Klasse Admin, man initialisiert es auf null
+	public: Admin^ admin=nullptr;//Objekt der Klasse Admin, man initialisiert es auf null
 
 private: System::Void btnOK_Click(System::Object^ sender, System::EventArgs^ e) {
-
-
+	//Methode einloggen
+	//man liest von den TextBoxes die geschriebene Information
 	String^ name = this->tbName->Text;
 	String^ passwort = this->tbPasswort->Text;
 
@@ -288,13 +288,16 @@ private: System::Void btnOK_Click(System::Object^ sender, System::EventArgs^ e) 
 		MySqlConnection^ sqlconn = gcnew MySqlConnection();
 		sqlconn->ConnectionString = "datasource = localhost; port = 3306; username = Login Daten Verwalter; password = wifi123; database = wifi";
 		sqlconn->Open();
+		//man öffnet die Connection mit Server
 		MySqlCommand^ sqlcom = gcnew MySqlCommand();
 		sqlcom->Connection = sqlconn;
+		//man verbindet sich mit der Connection
 
 		MySqlCommand^ sqlcmd = gcnew MySqlCommand("select * from admin where Name = @name and  Passwort = md5(@pass);", sqlconn);
 
 		sqlcmd->Parameters->AddWithValue("@name", name);
 		sqlcmd->Parameters->AddWithValue("@pass", passwort);
+//man filtert von der Tabelle admin die information das mit dem gegebene name und gegebene Passwort stimmt. Das gegebene Passswort wird gehashed und man vergleich ihn dann mit dem zuvor gespeicherten Hash
 
 		MySqlDataReader^ reader = sqlcmd->ExecuteReader();
 		if (reader->Read())
@@ -304,12 +307,13 @@ private: System::Void btnOK_Click(System::Object^ sender, System::EventArgs^ e) 
 			admin->name = reader->GetString(1);
 			admin->passwort = reader->GetString(2);
 			this->Close();
+			//wenn ein objekt vom interesse in der Tabelle existiert, d.h. wenn die eingegebene Werte richtig sind, man ruft dann ein leser auf, der diese Information extrahiert und speichert gleich in das zuvor erzeugte Objekt admin. Dann man macht den Fenster zu.
 		}
 		else
 		{
 			MessageBox::Show("der User: " + name + ", existiert nicht!!", "Login fehlgeschlagen!", MessageBoxButtons::OK);
 			return;
-
+		//falls die eingegebene Daten mit denen von der Tabelle nicht stimmen, d.h. der User existiert nicht, dann soll eine Meldung erscheinen
 		}
 	}
 	catch (Exception^ e)
@@ -328,15 +332,14 @@ private: System::Void btnNeuStart_Click(System::Object^ sender, System::EventArg
 		sqlcom->Connection = sqlconn;
 		//man verbindet sich mit der Database
 
-		//mit folgenden Befehle wird der Inhalt der Tabelle (wifi_users, users_liste und liste) der Database wifi, gelöscht
+		//mit folgenden Befehle wird der Inhalt der Tabelle admin der Database wifi, gelöscht
 		MySqlCommand^ sqlcmd = gcnew MySqlCommand("truncate table admin", sqlconn);
 		
-
 		sqlcmd->ExecuteNonQuery();
 		
 		MessageBox::Show("Tabelle (admin) wurde neu gestartet!", "{(L-D)-V}", MessageBoxButtons::OK, MessageBoxIcon::Asterisk);
 		sqlconn->Close();
-		//dann bekommt man eine Bestätigungsmeldung dass die Tabelle neugestartet wurden und letztendlich wird die Connection wieder zugemacht.
+		//dann bekommt man eine Bestätigungsmeldung dass die Tabelle neugestartet wurde und letztendlich wird die Connection wieder zugemacht.
 	
 	}
 	catch (Exception^ e)
@@ -344,7 +347,7 @@ private: System::Void btnNeuStart_Click(System::Object^ sender, System::EventArg
 		MessageBox::Show(e->Message, "{(L-D)-V}", MessageBoxButtons::YesNo, MessageBoxIcon::Information);
 	}
 }
-	   public: bool To_Passwort_anlegen = false;
+public: bool To_Passwort_anlegen = false;//wenn der admin sein Passwort selbtst anlegen will...
 private: System::Void btnPasswortanlegen_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->To_Passwort_anlegen = true;
 	this->Close();
