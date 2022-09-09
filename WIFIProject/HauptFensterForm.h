@@ -39,6 +39,7 @@ namespace WIFIProject {
 
 	private: System::Windows::Forms::Button^ btnEscape;
 	private: System::Windows::Forms::LinkLabel^ linkLabel1;
+	private: System::Windows::Forms::Panel^ panel1;
 	protected:
 
 	protected:
@@ -59,6 +60,8 @@ namespace WIFIProject {
 			this->linkAdminLogin = (gcnew System::Windows::Forms::LinkLabel());
 			this->btnEscape = (gcnew System::Windows::Forms::Button());
 			this->linkLabel1 = (gcnew System::Windows::Forms::LinkLabel());
+			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->panel1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// linkAdminLogin
@@ -68,7 +71,7 @@ namespace WIFIProject {
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->linkAdminLogin->LinkColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
 				static_cast<System::Int32>(static_cast<System::Byte>(0)));
-			this->linkAdminLogin->Location = System::Drawing::Point(48, 85);
+			this->linkAdminLogin->Location = System::Drawing::Point(21, 32);
 			this->linkAdminLogin->Name = L"linkAdminLogin";
 			this->linkAdminLogin->Size = System::Drawing::Size(153, 26);
 			this->linkAdminLogin->TabIndex = 0;
@@ -78,6 +81,7 @@ namespace WIFIProject {
 			// 
 			// btnEscape
 			// 
+			this->btnEscape->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
 			this->btnEscape->Font = (gcnew System::Drawing::Font(L"Arial", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnEscape->Location = System::Drawing::Point(72, 230);
@@ -85,7 +89,7 @@ namespace WIFIProject {
 			this->btnEscape->Size = System::Drawing::Size(101, 48);
 			this->btnEscape->TabIndex = 1;
 			this->btnEscape->Text = L"Escape";
-			this->btnEscape->UseVisualStyleBackColor = true;
+			this->btnEscape->UseVisualStyleBackColor = false;
 			this->btnEscape->Click += gcnew System::EventHandler(this, &HauptFensterForm::btnEscape_Click);
 			// 
 			// linkLabel1
@@ -95,30 +99,41 @@ namespace WIFIProject {
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->linkLabel1->LinkColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
 				static_cast<System::Int32>(static_cast<System::Byte>(0)));
-			this->linkLabel1->Location = System::Drawing::Point(48, 164);
+			this->linkLabel1->Location = System::Drawing::Point(21, 92);
 			this->linkLabel1->Name = L"linkLabel1";
-			this->linkLabel1->Size = System::Drawing::Size(168, 33);
+			this->linkLabel1->Size = System::Drawing::Size(134, 26);
 			this->linkLabel1->TabIndex = 2;
 			this->linkLabel1->TabStop = true;
 			this->linkLabel1->Text = L"User-Login";
 			this->linkLabel1->LinkClicked += gcnew System::Windows::Forms::LinkLabelLinkClickedEventHandler(this, &HauptFensterForm::linkLabel1_LinkClicked);
+			// 
+			// panel1
+			// 
+			this->panel1->BackColor = System::Drawing::Color::Azure;
+			this->panel1->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
+			this->panel1->Controls->Add(this->linkLabel1);
+			this->panel1->Controls->Add(this->linkAdminLogin);
+			this->panel1->Location = System::Drawing::Point(31, 53);
+			this->panel1->Name = L"panel1";
+			this->panel1->Size = System::Drawing::Size(186, 152);
+			this->panel1->TabIndex = 3;
 			// 
 			// HauptFensterForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(15, 31);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(272, 310);
-			this->Controls->Add(this->linkLabel1);
+			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->btnEscape);
-			this->Controls->Add(this->linkAdminLogin);
 			this->Font = (gcnew System::Drawing::Font(L"Arial", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Margin = System::Windows::Forms::Padding(6);
 			this->Name = L"HauptFensterForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Haupt Fenster";
+			this->panel1->ResumeLayout(false);
+			this->panel1->PerformLayout();
 			this->ResumeLayout(false);
-			this->PerformLayout();
 
 		}
 #pragma endregion

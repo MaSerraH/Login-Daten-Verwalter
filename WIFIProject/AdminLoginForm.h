@@ -1,5 +1,5 @@
 #pragma once
-#include "Admin.h"//klasse des Admins
+#include "Admin.h"//klasse Admin
 
 namespace WIFIProject {
 
@@ -115,7 +115,7 @@ namespace WIFIProject {
 			// 
 			// label2
 			// 
-			this->label2->Location = System::Drawing::Point(32, 91);
+			this->label2->Location = System::Drawing::Point(73, 98);
 			this->label2->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(86, 22);
@@ -124,7 +124,7 @@ namespace WIFIProject {
 			// 
 			// label3
 			// 
-			this->label3->Location = System::Drawing::Point(22, 134);
+			this->label3->Location = System::Drawing::Point(63, 142);
 			this->label3->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(96, 22);
@@ -133,7 +133,7 @@ namespace WIFIProject {
 			// 
 			// tbName
 			// 
-			this->tbName->Location = System::Drawing::Point(133, 91);
+			this->tbName->Location = System::Drawing::Point(174, 95);
 			this->tbName->Margin = System::Windows::Forms::Padding(2);
 			this->tbName->Name = L"tbName";
 			this->tbName->Size = System::Drawing::Size(175, 30);
@@ -141,7 +141,7 @@ namespace WIFIProject {
 			// 
 			// tbPasswort
 			// 
-			this->tbPasswort->Location = System::Drawing::Point(134, 132);
+			this->tbPasswort->Location = System::Drawing::Point(175, 135);
 			this->tbPasswort->Margin = System::Windows::Forms::Padding(2);
 			this->tbPasswort->Name = L"tbPasswort";
 			this->tbPasswort->PasswordChar = '$';
@@ -150,6 +150,7 @@ namespace WIFIProject {
 			// 
 			// btnOK
 			// 
+			this->btnOK->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
 			this->btnOK->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnOK->Location = System::Drawing::Point(22, 16);
@@ -158,11 +159,12 @@ namespace WIFIProject {
 			this->btnOK->Size = System::Drawing::Size(121, 32);
 			this->btnOK->TabIndex = 6;
 			this->btnOK->Text = L"einloggen";
-			this->btnOK->UseVisualStyleBackColor = true;
+			this->btnOK->UseVisualStyleBackColor = false;
 			this->btnOK->Click += gcnew System::EventHandler(this, &AdminLoginForm::btnOK_Click);
 			// 
 			// btnCancel
 			// 
+			this->btnCancel->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
 			this->btnCancel->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnCancel->Location = System::Drawing::Point(22, 65);
@@ -171,11 +173,12 @@ namespace WIFIProject {
 			this->btnCancel->Size = System::Drawing::Size(82, 32);
 			this->btnCancel->TabIndex = 7;
 			this->btnCancel->Text = L"Cancel";
-			this->btnCancel->UseVisualStyleBackColor = true;
+			this->btnCancel->UseVisualStyleBackColor = false;
 			this->btnCancel->Click += gcnew System::EventHandler(this, &AdminLoginForm::btnCancel_Click);
 			// 
 			// btnNeuStart
 			// 
+			this->btnNeuStart->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
 			this->btnNeuStart->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnNeuStart->Location = System::Drawing::Point(119, 65);
@@ -183,11 +186,12 @@ namespace WIFIProject {
 			this->btnNeuStart->Size = System::Drawing::Size(283, 32);
 			this->btnNeuStart->TabIndex = 8;
 			this->btnNeuStart->Text = L"Tabelle (admin) neu_starten";
-			this->btnNeuStart->UseVisualStyleBackColor = true;
+			this->btnNeuStart->UseVisualStyleBackColor = false;
 			this->btnNeuStart->Click += gcnew System::EventHandler(this, &AdminLoginForm::btnNeuStart_Click);
 			// 
 			// btnPasswortanlegen
 			// 
+			this->btnPasswortanlegen->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
 			this->btnPasswortanlegen->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnPasswortanlegen->Location = System::Drawing::Point(184, 16);
@@ -195,19 +199,21 @@ namespace WIFIProject {
 			this->btnPasswortanlegen->Size = System::Drawing::Size(218, 32);
 			this->btnPasswortanlegen->TabIndex = 9;
 			this->btnPasswortanlegen->Text = L"Passwort_anlegen";
-			this->btnPasswortanlegen->UseVisualStyleBackColor = true;
+			this->btnPasswortanlegen->UseVisualStyleBackColor = false;
 			this->btnPasswortanlegen->Click += gcnew System::EventHandler(this, &AdminLoginForm::btnPasswortanlegen_Click);
 			// 
 			// panel1
 			// 
+			this->panel1->BackColor = System::Drawing::Color::Azure;
 			this->panel1->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
-			this->panel1->Location = System::Drawing::Point(12, 80);
+			this->panel1->Location = System::Drawing::Point(53, 81);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(422, 91);
+			this->panel1->Size = System::Drawing::Size(334, 91);
 			this->panel1->TabIndex = 10;
 			// 
 			// panel2
 			// 
+			this->panel2->BackColor = System::Drawing::Color::LightCyan;
 			this->panel2->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
 			this->panel2->Controls->Add(this->btnPasswortanlegen);
 			this->panel2->Controls->Add(this->btnCancel);
@@ -244,7 +250,7 @@ namespace WIFIProject {
 		}
 #pragma endregion
 		
-	public: bool To_Haupt_Fenster = false;//Verbindung zum Haupt_Fenster
+	public: bool To_Haupt_Fenster = false;//link zum Haupt_Fenster
 
 	private: System::Void linkHauptFenster_LinkClicked(System::Object^ sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^ e) {
 
@@ -293,17 +299,17 @@ private: System::Void btnOK_Click(System::Object^ sender, System::EventArgs^ e) 
 		sqlcom->Connection = sqlconn;
 		//man verbindet sich mit der Connection
 
-		MySqlCommand^ sqlcmd = gcnew MySqlCommand("select * from admin where Name = @name and  Passwort = md5(@pass);", sqlconn);
+		MySqlCommand^ sqlcmd = gcnew MySqlCommand("select * from admin where Name = @name and  Passwort = md5(md5(@pass));", sqlconn);
 
 		sqlcmd->Parameters->AddWithValue("@name", name);
 		sqlcmd->Parameters->AddWithValue("@pass", passwort);
-//man filtert von der Tabelle admin die information das mit dem gegebene name und gegebene Passwort stimmt. Das gegebene Passswort wird gehashed und man vergleich ihn dann mit dem zuvor gespeicherten Hash
+//man filtert von der Tabelle admin die information dass mit dem gegebene name und gegebene Passwort stimmt. Das gegebene Passswort wird gehashed und man vergleich ihn dann mit dem zuvor gespeicherten Hash
 
 		MySqlDataReader^ reader = sqlcmd->ExecuteReader();
 		if (reader->Read())
 		{
 			admin = gcnew Admin;
-			admin->id = reader->GetInt16(0);
+			//admin->id = reader->GetInt16(0);
 			admin->name = reader->GetString(1);
 			admin->passwort = reader->GetString(2);
 			this->Close();

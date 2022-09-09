@@ -137,7 +137,7 @@ namespace WIFIProject {
 			// 
 			this->label1->Font = (gcnew System::Drawing::Font(L"Arial", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(60, 35);
+			this->label1->Location = System::Drawing::Point(61, 22);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(373, 44);
 			this->label1->TabIndex = 10;
@@ -145,7 +145,7 @@ namespace WIFIProject {
 			// 
 			// button1
 			// 
-			this->button1->BackColor = System::Drawing::SystemColors::Info;
+			this->button1->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
 			this->button1->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button1->Location = System::Drawing::Point(135, 363);
@@ -189,6 +189,7 @@ namespace WIFIProject {
 			// 
 			// panel1
 			// 
+			this->panel1->BackColor = System::Drawing::Color::LightCyan;
 			this->panel1->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
 			this->panel1->Location = System::Drawing::Point(12, 82);
 			this->panel1->Name = L"panel1";
@@ -230,7 +231,7 @@ namespace WIFIProject {
 		this->Close();
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-	//der Button1 (Passwort ändern!) ermöglich den Usre sein eigenes Passwort festzulegen
+	//der Button1 (Passwort ändern!) ermöglich den User sein eigenes Passwort festzulegen
 		String^ name = tbName->Text;
 		String^ altesPass = tbAltesPass->Text;
 		String^ neuesPass = tbNeuesPass->Text;
@@ -239,7 +240,7 @@ namespace WIFIProject {
 
 		if (altesPass->Length == 0 || neuesPass->Length == 0 || confirmNeuesPass->Length == 0)
 		{
-			//wenn beide leer sind soll eine Meldung erscheinen
+			//wenn die Werte leer sind soll eine Meldung erscheinen
 			MessageBox::Show("Daten bitte eingeben", "die Passwörter sind leer", MessageBoxButtons::OK);
 			return;
 		}
@@ -260,7 +261,7 @@ namespace WIFIProject {
 		sqlcom->Connection = sqlconn;
 
 
-		MySqlCommand^ sqlcmd = gcnew MySqlCommand("select * from wifi_users where Name = @name and  Passwort = MD5(@pass);", sqlconn);
+		MySqlCommand^ sqlcmd = gcnew MySqlCommand("select * from wifi_users where Name = @name and  Passwort = md5(MD5(@pass));", sqlconn);
 
 		sqlcmd->Parameters->AddWithValue("@name", name);
 		sqlcmd->Parameters->AddWithValue("@pass", altesPass);
@@ -270,16 +271,16 @@ namespace WIFIProject {
 		if (reader->Read())
 		{
 			user = gcnew Users;
-			user->id = reader->GetInt16(0);
+			//user->id = reader->GetInt16(0);
 			user->name = reader->GetString(1);
 			user->passwort = reader->GetString(2);
 			user->liste = reader->GetInt16(3);
-
+			//man speichert die gelesene Daten, in den zugehörigen Attribute des Objekts user
 		}
 		else
 		{
 			//wenn die eingegebene Werte name und altespass mit den in der Tabelle wifi_users gespeicherte Werte nicht stimmen, dann soll eine Meldung erscheinen
-			MessageBox::Show("die Werte stimmen nicht! (Name und altes Passwort)", "Login fehlgeschlagen!", MessageBoxButtons::OK);
+			MessageBox::Show("der User:" + name + " existiert nicht!", "Login fehlgeschlagen!", MessageBoxButtons::OK);
 			return;
 
 		}
@@ -295,7 +296,7 @@ namespace WIFIProject {
 			sqlcom->Connection = sqlconn;
 			//man verbindet sich mit der Connection
 
-			MySqlCommand^ sqlcmd1 = gcnew MySqlCommand("update wifi_users set Passwort=MD5(@pwd) where Name =@name and Passwort=md5(@pass)", sqlconn);
+			MySqlCommand^ sqlcmd1 = gcnew MySqlCommand("update wifi_users set Passwort=md5(MD5(@pwd)) where Name =@name and Passwort=md5(md5(@pass))", sqlconn);
 			sqlcmd1->Parameters->AddWithValue("@name", name);
 			sqlcmd1->Parameters->AddWithValue("@pass", altesPass);
 			sqlcmd1->Parameters->AddWithValue("@pwd", neuesPass);

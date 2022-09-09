@@ -59,6 +59,7 @@ namespace WIFIProject {
 	private: System::Windows::Forms::TextBox^ tbName;
 	private: System::Windows::Forms::TextBox^ tbNameIn;
 	private: System::Windows::Forms::Label^ label2;
+	private: System::Windows::Forms::Panel^ panel4;
 
 	private:
 		/// <summary>
@@ -95,6 +96,7 @@ namespace WIFIProject {
 			this->tbName = (gcnew System::Windows::Forms::TextBox());
 			this->tbNameIn = (gcnew System::Windows::Forms::TextBox());
 			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->panel4 = (gcnew System::Windows::Forms::Panel());
 			this->panel1->SuspendLayout();
 			this->panel2->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
@@ -105,7 +107,7 @@ namespace WIFIProject {
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Arial", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(321, 40);
+			this->label1->Location = System::Drawing::Point(319, 20);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(214, 33);
 			this->label1->TabIndex = 3;
@@ -115,6 +117,8 @@ namespace WIFIProject {
 			// 
 			this->linkLabel1->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
+			this->linkLabel1->LinkColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
 			this->linkLabel1->Location = System::Drawing::Point(834, 712);
 			this->linkLabel1->Name = L"linkLabel1";
 			this->linkLabel1->Size = System::Drawing::Size(115, 29);
@@ -163,6 +167,7 @@ namespace WIFIProject {
 			// 
 			// panel1
 			// 
+			this->panel1->BackColor = System::Drawing::Color::DarkSlateGray;
 			this->panel1->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
 			this->panel1->Controls->Add(this->btnTabzeigen);
 			this->panel1->Controls->Add(this->btnNeuSt);
@@ -187,6 +192,7 @@ namespace WIFIProject {
 			// 
 			// panel2
 			// 
+			this->panel2->BackColor = System::Drawing::Color::DarkSlateGray;
 			this->panel2->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
 			this->panel2->Controls->Add(this->btnAnlegen);
 			this->panel2->Controls->Add(this->btnLöschen);
@@ -246,6 +252,7 @@ namespace WIFIProject {
 			// 
 			// panel3
 			// 
+			this->panel3->BackColor = System::Drawing::Color::DarkSlateGray;
 			this->panel3->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
 			this->panel3->Location = System::Drawing::Point(27, 393);
 			this->panel3->Name = L"panel3";
@@ -267,7 +274,7 @@ namespace WIFIProject {
 			// 
 			this->btnSuchen->Font = (gcnew System::Drawing::Font(L"Arial", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnSuchen->Location = System::Drawing::Point(589, 98);
+			this->btnSuchen->Location = System::Drawing::Point(636, 123);
 			this->btnSuchen->Name = L"btnSuchen";
 			this->btnSuchen->Size = System::Drawing::Size(99, 39);
 			this->btnSuchen->TabIndex = 149;
@@ -279,7 +286,7 @@ namespace WIFIProject {
 			// 
 			this->labelID->Font = (gcnew System::Drawing::Font(L"Arial", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->labelID->Location = System::Drawing::Point(823, 38);
+			this->labelID->Location = System::Drawing::Point(632, 218);
 			this->labelID->Name = L"labelID";
 			this->labelID->Size = System::Drawing::Size(76, 29);
 			this->labelID->TabIndex = 153;
@@ -290,7 +297,7 @@ namespace WIFIProject {
 			this->tbSuchen->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->tbSuchen->Font = (gcnew System::Drawing::Font(L"Arial", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->tbSuchen->Location = System::Drawing::Point(719, 98);
+			this->tbSuchen->Location = System::Drawing::Point(570, 168);
 			this->tbSuchen->Name = L"tbSuchen";
 			this->tbSuchen->Size = System::Drawing::Size(221, 34);
 			this->tbSuchen->TabIndex = 148;
@@ -338,6 +345,15 @@ namespace WIFIProject {
 			this->label2->TabIndex = 142;
 			this->label2->Text = L"Name der Internet Seite:";
 			// 
+			// panel4
+			// 
+			this->panel4->BackColor = System::Drawing::Color::DarkSlateGray;
+			this->panel4->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
+			this->panel4->Location = System::Drawing::Point(12, 79);
+			this->panel4->Name = L"panel4";
+			this->panel4->Size = System::Drawing::Size(916, 228);
+			this->panel4->TabIndex = 155;
+			// 
 			// Tabelle9
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(13, 26);
@@ -358,6 +374,7 @@ namespace WIFIProject {
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->linkLabel1);
+			this->Controls->Add(this->panel4);
 			this->Font = (gcnew System::Drawing::Font(L"Arial", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Margin = System::Windows::Forms::Padding(5);

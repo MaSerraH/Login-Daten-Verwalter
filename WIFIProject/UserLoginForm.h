@@ -86,7 +86,7 @@ namespace WIFIProject {
 				static_cast<System::Int32>(static_cast<System::Byte>(0)));
 			this->linkLabel2->Location = System::Drawing::Point(334, 373);
 			this->linkLabel2->Name = L"linkLabel2";
-			this->linkLabel2->Size = System::Drawing::Size(109, 30);
+			this->linkLabel2->Size = System::Drawing::Size(87, 24);
 			this->linkLabel2->TabIndex = 1;
 			this->linkLabel2->TabStop = true;
 			this->linkLabel2->Text = L"zum H-F";
@@ -99,7 +99,7 @@ namespace WIFIProject {
 				static_cast<System::Byte>(0)));
 			this->label1->Location = System::Drawing::Point(83, 32);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(214, 41);
+			this->label1->Size = System::Drawing::Size(171, 33);
 			this->label1->TabIndex = 2;
 			this->label1->Text = L"User: Login";
 			// 
@@ -108,7 +108,7 @@ namespace WIFIProject {
 			this->label2->AutoSize = true;
 			this->label2->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label2->Location = System::Drawing::Point(49, 122);
+			this->label2->Location = System::Drawing::Point(66, 123);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(67, 23);
 			this->label2->TabIndex = 3;
@@ -119,7 +119,7 @@ namespace WIFIProject {
 			this->label3->AutoSize = true;
 			this->label3->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label3->Location = System::Drawing::Point(36, 184);
+			this->label3->Location = System::Drawing::Point(53, 185);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(99, 23);
 			this->label3->TabIndex = 4;
@@ -127,14 +127,14 @@ namespace WIFIProject {
 			// 
 			// tbName
 			// 
-			this->tbName->Location = System::Drawing::Point(139, 113);
+			this->tbName->Location = System::Drawing::Point(156, 114);
 			this->tbName->Name = L"tbName";
 			this->tbName->Size = System::Drawing::Size(205, 38);
 			this->tbName->TabIndex = 5;
 			// 
 			// tbPasswort
 			// 
-			this->tbPasswort->Location = System::Drawing::Point(141, 173);
+			this->tbPasswort->Location = System::Drawing::Point(158, 174);
 			this->tbPasswort->Name = L"tbPasswort";
 			this->tbPasswort->PasswordChar = '&';
 			this->tbPasswort->Size = System::Drawing::Size(203, 38);
@@ -142,6 +142,7 @@ namespace WIFIProject {
 			// 
 			// btnEinloggen
 			// 
+			this->btnEinloggen->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
 			this->btnEinloggen->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnEinloggen->Location = System::Drawing::Point(26, 14);
@@ -149,11 +150,12 @@ namespace WIFIProject {
 			this->btnEinloggen->Size = System::Drawing::Size(135, 40);
 			this->btnEinloggen->TabIndex = 7;
 			this->btnEinloggen->Text = L"Einloggen";
-			this->btnEinloggen->UseVisualStyleBackColor = true;
+			this->btnEinloggen->UseVisualStyleBackColor = false;
 			this->btnEinloggen->Click += gcnew System::EventHandler(this, &UserLoginForm::btnEinloggen_Click);
 			// 
 			// btnPasswort_Ändern
 			// 
+			this->btnPasswort_Ändern->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
 			this->btnPasswort_Ändern->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnPasswort_Ändern->Location = System::Drawing::Point(209, 14);
@@ -161,11 +163,12 @@ namespace WIFIProject {
 			this->btnPasswort_Ändern->Size = System::Drawing::Size(184, 40);
 			this->btnPasswort_Ändern->TabIndex = 8;
 			this->btnPasswort_Ändern->Text = L"Passwort_ändern";
-			this->btnPasswort_Ändern->UseVisualStyleBackColor = true;
+			this->btnPasswort_Ändern->UseVisualStyleBackColor = false;
 			this->btnPasswort_Ändern->Click += gcnew System::EventHandler(this, &UserLoginForm::btnPasswort_Ändern_Click);
 			// 
 			// btnReset
 			// 
+			this->btnReset->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
 			this->btnReset->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnReset->Location = System::Drawing::Point(140, 70);
@@ -173,19 +176,21 @@ namespace WIFIProject {
 			this->btnReset->Size = System::Drawing::Size(99, 33);
 			this->btnReset->TabIndex = 9;
 			this->btnReset->Text = L"Reset";
-			this->btnReset->UseVisualStyleBackColor = true;
+			this->btnReset->UseVisualStyleBackColor = false;
 			this->btnReset->Click += gcnew System::EventHandler(this, &UserLoginForm::btnReset_Click);
 			// 
 			// panel1
 			// 
+			this->panel1->BackColor = System::Drawing::Color::Azure;
 			this->panel1->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
-			this->panel1->Location = System::Drawing::Point(12, 96);
+			this->panel1->Location = System::Drawing::Point(40, 97);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(395, 134);
+			this->panel1->Size = System::Drawing::Size(349, 134);
 			this->panel1->TabIndex = 10;
 			// 
 			// panel2
 			// 
+			this->panel2->BackColor = System::Drawing::Color::LightCyan;
 			this->panel2->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
 			this->panel2->Controls->Add(this->btnReset);
 			this->panel2->Controls->Add(this->btnEinloggen);
@@ -252,7 +257,7 @@ private: System::Void btnEinloggen_Click(System::Object^ sender, System::EventAr
 		sqlcom->Connection = sqlconn;
 		//man macht die Conecction auf und man verbindet sich damit..
 
-		MySqlCommand^ sqlcmd = gcnew MySqlCommand("select * from wifi_users where Name = @name and  Passwort = MD5(@pass);", sqlconn);
+		MySqlCommand^ sqlcmd = gcnew MySqlCommand("select * from wifi_users where Name = @name and  Passwort = md5(MD5(@pass));", sqlconn);
 
 		sqlcmd->Parameters->AddWithValue("@name", name);
 		sqlcmd->Parameters->AddWithValue("@pass", passwort);
@@ -262,7 +267,7 @@ private: System::Void btnEinloggen_Click(System::Object^ sender, System::EventAr
 		if (reader->Read())
 		{
 			user = gcnew Users;
-			user->id = reader->GetInt16(0);
+			//user->id = reader->GetInt16(0);
 			user->name = reader->GetString(1);
 			user->passwort = reader->GetString(2);
 			user->liste = reader->GetInt16(3);

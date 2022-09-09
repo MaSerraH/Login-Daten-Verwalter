@@ -20,7 +20,7 @@ namespace WIFIProject {
 		AdminFensterForm(void)
 		{
 			InitializeComponent();
-			wifi_users();
+			wifi_users();//damit erreicht dass die zuvor gespeicherte Information in der Tabelle wifi_users im DataGridView gezeigt wird.
 		}
 
 	protected:
@@ -54,6 +54,7 @@ namespace WIFIProject {
 	private: System::Windows::Forms::Label^ labelListe;
 	private: System::Windows::Forms::Button^ btnNeuStart;
 	private: System::Windows::Forms::Label^ label6;
+	private: System::Windows::Forms::Panel^ panel3;
 
 	protected:
 
@@ -91,9 +92,11 @@ namespace WIFIProject {
 			this->btnNeuStart = (gcnew System::Windows::Forms::Button());
 			this->labelListe = (gcnew System::Windows::Forms::Label());
 			this->label6 = (gcnew System::Windows::Forms::Label());
+			this->panel3 = (gcnew System::Windows::Forms::Panel());
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->panel2->SuspendLayout();
+			this->panel3->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// linkHauptFenster
@@ -105,7 +108,7 @@ namespace WIFIProject {
 				static_cast<System::Byte>(0)));
 			this->linkHauptFenster->LinkColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)),
 				static_cast<System::Int32>(static_cast<System::Byte>(128)), static_cast<System::Int32>(static_cast<System::Byte>(0)));
-			this->linkHauptFenster->Location = System::Drawing::Point(595, 464);
+			this->linkHauptFenster->Location = System::Drawing::Point(622, 560);
 			this->linkHauptFenster->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->linkHauptFenster->Name = L"linkHauptFenster";
 			this->linkHauptFenster->Size = System::Drawing::Size(91, 24);
@@ -118,16 +121,16 @@ namespace WIFIProject {
 			// 
 			this->label1->Font = (gcnew System::Drawing::Font(L"Arial", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(96, 9);
+			this->label1->Location = System::Drawing::Point(215, 18);
 			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(238, 39);
 			this->label1->TabIndex = 1;
-			this->label1->Text = L"Admin Fenster";
+			this->label1->Text = L"Admin: Fenster";
 			// 
 			// label2
 			// 
-			this->label2->Location = System::Drawing::Point(31, 87);
+			this->label2->Location = System::Drawing::Point(24, 58);
 			this->label2->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(70, 22);
@@ -136,7 +139,7 @@ namespace WIFIProject {
 			// 
 			// label3
 			// 
-			this->label3->Location = System::Drawing::Point(31, 137);
+			this->label3->Location = System::Drawing::Point(7, 106);
 			this->label3->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(103, 23);
@@ -145,16 +148,16 @@ namespace WIFIProject {
 			// 
 			// label4
 			// 
-			this->label4->Location = System::Drawing::Point(44, 184);
+			this->label4->Location = System::Drawing::Point(35, 152);
 			this->label4->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(56, 23);
+			this->label4->Size = System::Drawing::Size(75, 23);
 			this->label4->TabIndex = 4;
-			this->label4->Text = L"Liste:";
+			this->label4->Text = L"Konto:";
 			// 
 			// tbName
 			// 
-			this->tbName->Location = System::Drawing::Point(157, 91);
+			this->tbName->Location = System::Drawing::Point(129, 58);
 			this->tbName->Margin = System::Windows::Forms::Padding(2);
 			this->tbName->Name = L"tbName";
 			this->tbName->Size = System::Drawing::Size(158, 30);
@@ -162,7 +165,7 @@ namespace WIFIProject {
 			// 
 			// tbPasswort
 			// 
-			this->tbPasswort->Location = System::Drawing::Point(157, 137);
+			this->tbPasswort->Location = System::Drawing::Point(129, 106);
 			this->tbPasswort->Margin = System::Windows::Forms::Padding(2);
 			this->tbPasswort->Name = L"tbPasswort";
 			this->tbPasswort->PasswordChar = '\"';
@@ -176,7 +179,7 @@ namespace WIFIProject {
 				L"1", L"2", L"3", L"4", L"5", L"6", L"7", L"8", L"9",
 					L"10"
 			});
-			this->cbListe->Location = System::Drawing::Point(126, 184);
+			this->cbListe->Location = System::Drawing::Point(129, 152);
 			this->cbListe->Margin = System::Windows::Forms::Padding(2);
 			this->cbListe->Name = L"cbListe";
 			this->cbListe->Size = System::Drawing::Size(92, 31);
@@ -184,12 +187,13 @@ namespace WIFIProject {
 			// 
 			// panel1
 			// 
+			this->panel1->BackColor = System::Drawing::Color::Azure;
 			this->panel1->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
 			this->panel1->Controls->Add(this->dataGridView1);
-			this->panel1->Location = System::Drawing::Point(34, 229);
+			this->panel1->Location = System::Drawing::Point(35, 294);
 			this->panel1->Margin = System::Windows::Forms::Padding(2);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(405, 218);
+			this->panel1->Size = System::Drawing::Size(405, 246);
 			this->panel1->TabIndex = 8;
 			// 
 			// dataGridView1
@@ -201,12 +205,13 @@ namespace WIFIProject {
 			this->dataGridView1->Margin = System::Windows::Forms::Padding(2);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersWidth = 51;
-			this->dataGridView1->Size = System::Drawing::Size(376, 200);
+			this->dataGridView1->Size = System::Drawing::Size(376, 218);
 			this->dataGridView1->TabIndex = 0;
 			this->dataGridView1->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &AdminFensterForm::dataGridView1_CellClick);
 			// 
 			// btnU_anlegen
 			// 
+			this->btnU_anlegen->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
 			this->btnU_anlegen->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnU_anlegen->Location = System::Drawing::Point(19, 66);
@@ -215,11 +220,12 @@ namespace WIFIProject {
 			this->btnU_anlegen->Size = System::Drawing::Size(181, 36);
 			this->btnU_anlegen->TabIndex = 9;
 			this->btnU_anlegen->Text = L"User anlegen";
-			this->btnU_anlegen->UseVisualStyleBackColor = true;
+			this->btnU_anlegen->UseVisualStyleBackColor = false;
 			this->btnU_anlegen->Click += gcnew System::EventHandler(this, &AdminFensterForm::btnU_anlegen_Click);
 			// 
 			// btnU_loeschen
 			// 
+			this->btnU_loeschen->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
 			this->btnU_loeschen->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnU_loeschen->Location = System::Drawing::Point(21, 106);
@@ -228,11 +234,12 @@ namespace WIFIProject {
 			this->btnU_loeschen->Size = System::Drawing::Size(181, 33);
 			this->btnU_loeschen->TabIndex = 10;
 			this->btnU_loeschen->Text = L"User löschen";
-			this->btnU_loeschen->UseVisualStyleBackColor = true;
+			this->btnU_loeschen->UseVisualStyleBackColor = false;
 			this->btnU_loeschen->Click += gcnew System::EventHandler(this, &AdminFensterForm::btnU_loeschen_Click);
 			// 
 			// btnReset
 			// 
+			this->btnReset->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
 			this->btnReset->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnReset->Location = System::Drawing::Point(67, 9);
@@ -241,13 +248,13 @@ namespace WIFIProject {
 			this->btnReset->Size = System::Drawing::Size(96, 34);
 			this->btnReset->TabIndex = 11;
 			this->btnReset->Text = L"Reset";
-			this->btnReset->UseVisualStyleBackColor = true;
+			this->btnReset->UseVisualStyleBackColor = false;
 			this->btnReset->Click += gcnew System::EventHandler(this, &AdminFensterForm::btnReset_Click);
 			// 
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(370, 94);
+			this->label5->Location = System::Drawing::Point(351, 58);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(36, 23);
 			this->label5->TabIndex = 12;
@@ -256,25 +263,27 @@ namespace WIFIProject {
 			// 
 			// tbID
 			// 
-			this->tbID->Location = System::Drawing::Point(422, 87);
+			this->tbID->Location = System::Drawing::Point(404, 55);
 			this->tbID->Name = L"tbID";
 			this->tbID->Size = System::Drawing::Size(50, 30);
 			this->tbID->TabIndex = 13;
 			// 
 			// panel2
 			// 
+			this->panel2->BackColor = System::Drawing::Color::LightCyan;
 			this->panel2->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
 			this->panel2->Controls->Add(this->btnNeuStart);
 			this->panel2->Controls->Add(this->btnReset);
 			this->panel2->Controls->Add(this->btnU_loeschen);
 			this->panel2->Controls->Add(this->btnU_anlegen);
-			this->panel2->Location = System::Drawing::Point(482, 203);
+			this->panel2->Location = System::Drawing::Point(491, 294);
 			this->panel2->Name = L"panel2";
 			this->panel2->Size = System::Drawing::Size(222, 244);
 			this->panel2->TabIndex = 15;
 			// 
 			// btnNeuStart
 			// 
+			this->btnNeuStart->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
 			this->btnNeuStart->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnNeuStart->Location = System::Drawing::Point(21, 161);
@@ -282,44 +291,54 @@ namespace WIFIProject {
 			this->btnNeuStart->Size = System::Drawing::Size(179, 59);
 			this->btnNeuStart->TabIndex = 17;
 			this->btnNeuStart->Text = L"Tabelle (users) neu starten";
-			this->btnNeuStart->UseVisualStyleBackColor = true;
+			this->btnNeuStart->UseVisualStyleBackColor = false;
 			this->btnNeuStart->Click += gcnew System::EventHandler(this, &AdminFensterForm::btnNeuStart_Click);
 			// 
 			// labelListe
 			// 
-			this->labelListe->Location = System::Drawing::Point(639, 33);
+			this->labelListe->Location = System::Drawing::Point(519, 29);
 			this->labelListe->Name = L"labelListe";
-			this->labelListe->Size = System::Drawing::Size(96, 30);
+			this->labelListe->Size = System::Drawing::Size(44, 30);
 			this->labelListe->TabIndex = 16;
 			this->labelListe->Text = L"...";
 			// 
 			// label6
 			// 
-			this->label6->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label6->Font = (gcnew System::Drawing::Font(L"Arial", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label6->Location = System::Drawing::Point(331, 48);
+			this->label6->Location = System::Drawing::Point(224, 13);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(171, 25);
+			this->label6->Size = System::Drawing::Size(203, 33);
 			this->label6->TabIndex = 17;
 			this->label6->Text = L"User-Verwaltung";
+			// 
+			// panel3
+			// 
+			this->panel3->BackColor = System::Drawing::Color::AliceBlue;
+			this->panel3->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
+			this->panel3->Controls->Add(this->label6);
+			this->panel3->Controls->Add(this->tbID);
+			this->panel3->Controls->Add(this->labelListe);
+			this->panel3->Controls->Add(this->label5);
+			this->panel3->Controls->Add(this->cbListe);
+			this->panel3->Controls->Add(this->tbPasswort);
+			this->panel3->Controls->Add(this->tbName);
+			this->panel3->Controls->Add(this->label4);
+			this->panel3->Controls->Add(this->label3);
+			this->panel3->Controls->Add(this->label2);
+			this->panel3->Location = System::Drawing::Point(82, 78);
+			this->panel3->Name = L"panel3";
+			this->panel3->Size = System::Drawing::Size(574, 198);
+			this->panel3->TabIndex = 18;
 			// 
 			// AdminFensterForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(11, 23);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(739, 519);
+			this->ClientSize = System::Drawing::Size(739, 593);
+			this->Controls->Add(this->panel3);
 			this->Controls->Add(this->linkHauptFenster);
-			this->Controls->Add(this->label6);
-			this->Controls->Add(this->labelListe);
-			this->Controls->Add(this->tbID);
-			this->Controls->Add(this->label5);
 			this->Controls->Add(this->panel1);
-			this->Controls->Add(this->cbListe);
-			this->Controls->Add(this->tbPasswort);
-			this->Controls->Add(this->tbName);
-			this->Controls->Add(this->label4);
-			this->Controls->Add(this->label3);
-			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->panel2);
 			this->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
@@ -331,6 +350,8 @@ namespace WIFIProject {
 			this->panel1->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->panel2->ResumeLayout(false);
+			this->panel3->ResumeLayout(false);
+			this->panel3->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -361,11 +382,11 @@ namespace WIFIProject {
 			try {
 				//man wählt alle Inhalt der Tabelle liste(Zahlen)
 				sqlcom->CommandText = "select * from liste";
-				//man liest deren Inhalt und man speichert sie in einem reader
+				//man liest deren Inhalt
 				MySqlDataReader^ sqlread = sqlcom->ExecuteReader();
 				DataTable^ sqldta = gcnew DataTable();
-				//eine tabelle ist erzeugt und wird mit dem Inhalt des readers gefüllt
 				sqldta->Load(sqlread);
+				//eine tabelle ist erzeugt und wird mit dem Inhalt dass der reader gelesen hat, gefüllt
 				//nur die Spalte Liste der Tabelle liste wird gezeigt(Zahlen)
 				cbListe->DisplayMember = "Liste";
 				//inhalt der Spalte
@@ -397,7 +418,7 @@ namespace WIFIProject {
 
 	}
 private: System::Void dataGridView1_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-	//damit erreicht man dass wenn der User des {(L-D)-V} einen bestimmte user in der Tabelle auswählt, desen Information (ID, Name, Passwort, liste) in den zugehörigen Textbox oder combobox gezeigt wird.
+	//damit erreicht man dass wenn der User des {(L-D)-V} einen bestimmte user in der Tabelle auswählt, desen Information (ID, Name, Passwort, liste) in den zugehörigen Textbox oder Textlabel gezeigt wird.
 	try {
 		tbID->Text = dataGridView1->SelectedRows[0]->Cells[0]->Value->ToString();
 		tbName->Text = dataGridView1->SelectedRows[0]->Cells[1]->Value->ToString();
@@ -426,7 +447,8 @@ private: System::Void btnU_anlegen_Click(System::Object^ sender, System::EventAr
 	String^ passwort = tbPasswort->Text;
 	String^ lis = cbListe->Text;
 	//mittels den Command Insert, fügt man den gelesene Inhalt von den Variablen (name, passwort und lis) in der zugehörigen Spalte der Tabelle(wifi_users) hinzu
-	sqlcom->CommandText = "insert into wifi_users(Name, Passwort, liste)" + "values('" + name + "',md5('" + passwort + "'), '" + lis + "')";
+	//das Passwort wird als Hash gespeichert
+	sqlcom->CommandText = "insert into wifi_users(Name, Passwort, liste)" + "values('" + name + "',md5(md5('" + passwort + "')), '" + lis + "')";
 	sqlcom->ExecuteNonQuery();
 
 	
@@ -514,6 +536,7 @@ private: System::Void btnNeuStart_Click(System::Object^ sender, System::EventArg
 		//mit folgenden Befehle wird der Inhalt der Tabelle (wifi_users und liste) der Database wifi, gelöscht
 		MySqlCommand^ sqlcmd = gcnew MySqlCommand("truncate table wifi_users", sqlconn);sqlcmd->ExecuteNonQuery();
 		MySqlCommand^ sqlcomd = gcnew MySqlCommand("truncate table liste", sqlconn);sqlcomd->ExecuteNonQuery();
+		
 		//mit folgenden Befehle löscht man den Inhalt aller users:Konto
 		MySqlCommand^ sqlcomd1 = gcnew MySqlCommand("truncate table t_1", sqlconn); sqlcomd1->ExecuteNonQuery();
 		MySqlCommand^ sqlcomd2 = gcnew MySqlCommand("truncate table t_2", sqlconn); sqlcomd2->ExecuteNonQuery();

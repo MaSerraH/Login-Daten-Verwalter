@@ -136,7 +136,7 @@ namespace WIFIProject {
 			// 
 			// btnPasswortanlegen
 			// 
-			this->btnPasswortanlegen->BackColor = System::Drawing::SystemColors::Info;
+			this->btnPasswortanlegen->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
 			this->btnPasswortanlegen->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnPasswortanlegen->Location = System::Drawing::Point(174, 349);
@@ -190,6 +190,7 @@ namespace WIFIProject {
 			// 
 			// panel1
 			// 
+			this->panel1->BackColor = System::Drawing::Color::LightCyan;
 			this->panel1->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
 			this->panel1->Location = System::Drawing::Point(12, 99);
 			this->panel1->Name = L"panel1";
@@ -266,13 +267,13 @@ namespace WIFIProject {
 
 		sqlcmd->Parameters->AddWithValue("@name", name);
 		sqlcmd->Parameters->AddWithValue("@pass", altesPass);
-		//man filtert von der Tabelle admin die information das mit dem gegebene name und gegebene Passwort stimmt. Man vergleich das Wert altes Passwort mir das erste gegebene Passwort
+		//man filtert von der Tabelle admin die information dass mit dem gegebene name und gegebene Passwort stimmt. Man vergleich das Wert altes Passwort mir das erste gegebene Passwort(plaintext)
 
 		MySqlDataReader^ reader = sqlcmd->ExecuteReader();
 		if (reader->Read())
 		{
 			admin = gcnew Admin;
-			admin->id = reader->GetInt16(0);
+			//admin->id = reader->GetInt16(0);
 			admin->name = reader->GetString(1);
 			admin->passwort = reader->GetString(2);
 
@@ -294,7 +295,7 @@ namespace WIFIProject {
 			MySqlCommand^ sqlcom = gcnew MySqlCommand();
 			sqlcom->Connection = sqlconn;
 
-			MySqlCommand^ sqlcmd1 = gcnew MySqlCommand("update admin set Passwort=MD5(@pwd) where Name =@name and Passwort=@pass", sqlconn);
+			MySqlCommand^ sqlcmd1 = gcnew MySqlCommand("update admin set Passwort=md5(MD5(@pwd)) where Name =@name and Passwort=@pass", sqlconn);
 			sqlcmd1->Parameters->AddWithValue("@name", name);
 			sqlcmd1->Parameters->AddWithValue("@pass", altesPass);
 			sqlcmd1->Parameters->AddWithValue("@pwd", neuesPass);
@@ -307,7 +308,7 @@ namespace WIFIProject {
 			reader->Close();
 			this->Close();
 			//man macht den leser, die connection und den Fenster zu
-
+			//diese Methode liest und vergleicht das erste gegebene Passwort(plaintext) und dann speichert das gewünschte im DB als Hash ein, daher man kann diese Methode nur einmal aufrufen
 		}
 		catch (Exception^ e) {
 			//Wenn die Vebindung mit dem DB unmöglicht ist, soll eine Fehler-meldung erscheinen

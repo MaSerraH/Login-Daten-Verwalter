@@ -70,7 +70,7 @@ void main(array<String^>^ args)
 		else if (hauptfensterForm.To_Users_Login)
 		{//wenn man sich vom HauptFenster als user einloggen will, dann muss man den demetsprechender Link anklicken, wenn dass geschiet dann wird man zum UserLoginForm weitergeleitet
 			WIFIProject::UserLoginForm userloginform;//man erzeugt ein Objekt der Klasse UserLoginForm, das wird dann der Form sein wo man weitergeleitet sein wird
-			WIFIProject::Tabelle1 tabelle1;//man erzeugt ein Objekt der Klasse Tabelle1, das wird dann der Form sein wo man weitergeleitet sein wird, wenn sich der dementsprechender user einloggt und ihn aufruft.
+			WIFIProject::Tabelle1 tabelle1;//man erzeugt ein Objekt der Klasse Tabelle1, das wird dann der Form sein wo man weitergeleitet sein wird, wenn sich der dementsprechender user einloggt und ihn aufgeruft hat.
 			WIFIProject::Tabelle2 tabelle2;//...
 			WIFIProject::Tabelle3 tabelle3;//...
 			WIFIProject::Tabelle4 tabelle4;//...
@@ -89,7 +89,7 @@ void main(array<String^>^ args)
 				int l = user->liste;
 
 				MessageBox::Show("Willkommen " + user->name + "!. Sie dürfen die Konto: " + user->liste + " jetzt verwalten", "{(L-D)-V}", MessageBoxButtons::OK);
-				// man deklariert eine integer Variable die wird mit dem gelesene Wert user->liste initialisiert.
+				// man deklariert eine integer Variable sie wird mit dem gelesene Wert user->liste initialisiert.
 				//mit der switch Anweisung erreicht man dass je nach zugewiesene liste bzw. Konto nummer, durch der Befehl ...ShowDialog() wird der dementsprechende Form aufgerufen
 				switch (l)
 				{
