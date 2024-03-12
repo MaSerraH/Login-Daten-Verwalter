@@ -1,4 +1,5 @@
 #pragma once
+#include "Users.h"
 
 namespace WIFIProject {
 
@@ -11,15 +12,15 @@ namespace WIFIProject {
 	using namespace MySql::Data::MySqlClient;
 
 	/// <summary>
-	/// Zusammenfassung für Tabelle1
+	/// Zusammenfassung für Tabelle
 	/// </summary>
-	public ref class Tabelle1 : public System::Windows::Forms::Form
+	public ref class Tabelle : public System::Windows::Forms::Form
 	{
 	public:
-		Tabelle1(void)
+		Tabelle(void)
 		{
 			InitializeComponent();
-			t_1();
+			//t_1();
 			//
 			//TODO: Konstruktorcode hier hinzufügen.
 			//
@@ -29,37 +30,49 @@ namespace WIFIProject {
 		/// <summary>
 		/// Verwendete Ressourcen bereinigen.
 		/// </summary>
-		~Tabelle1()
+		~Tabelle()
 		{
 			if (components)
 			{
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::LinkLabel^ linkLabel1;
+	private: System::Windows::Forms::Panel^ panel4;
 	protected:
+	private: System::Windows::Forms::Button^ btnSuchen;
+	private: System::Windows::Forms::TextBox^ tbSuchen;
+	private: System::Windows::Forms::Label^ labelID;
+	private: System::Windows::Forms::Label^ label4;
+	private: System::Windows::Forms::TextBox^ tbPass;
+	private: System::Windows::Forms::TextBox^ tbName;
+	private: System::Windows::Forms::TextBox^ tbNameIn;
+	private: System::Windows::Forms::Label^ label3;
+	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label1;
-	private: System::Windows::Forms::Panel^ panel1;
-	private: System::Windows::Forms::Button^ btnTabzeigen;
-	private: System::Windows::Forms::Button^ btnNeuSt;
-	private: System::Windows::Forms::Button^ btnUpdate;
-	private: System::Windows::Forms::Button^ btnExport;
 	private: System::Windows::Forms::Panel^ panel2;
 	private: System::Windows::Forms::Button^ btnAnlegen;
 	private: System::Windows::Forms::Button^ btnLöschen;
 	private: System::Windows::Forms::Button^ btnReset;
 	private: System::Windows::Forms::DataGridView^ dataGridView1;
-	private: System::Windows::Forms::Label^ label4;
-	private: System::Windows::Forms::TextBox^ tbPass;
-	private: System::Windows::Forms::Label^ labelID;
-	private: System::Windows::Forms::TextBox^ tbName;
-	private: System::Windows::Forms::TextBox^ tbNameIn;
-	private: System::Windows::Forms::Label^ label3;
-	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Panel^ panel3;
-	private: System::Windows::Forms::TextBox^ tbSuchen;
-	private: System::Windows::Forms::Button^ btnSuchen;
-	private: System::Windows::Forms::Panel^ panel4;
+	private: System::Windows::Forms::Button^ btnTabzeigen;
+	private: System::Windows::Forms::Button^ btnNeuSt;
+	private: System::Windows::Forms::Button^ btnUpdate;
+	private: System::Windows::Forms::Button^ btnExport;
+	private: System::Windows::Forms::Panel^ panel1;
+	private: System::Windows::Forms::LinkLabel^ linkLabel1;
+
+	protected:
+
+
+
+
+
+
+
+
+
+
 
 	private:
 		/// <summary>
@@ -74,72 +87,219 @@ namespace WIFIProject {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->linkLabel1 = (gcnew System::Windows::Forms::LinkLabel());
+			this->panel4 = (gcnew System::Windows::Forms::Panel());
+			this->btnSuchen = (gcnew System::Windows::Forms::Button());
+			this->tbSuchen = (gcnew System::Windows::Forms::TextBox());
+			this->labelID = (gcnew System::Windows::Forms::Label());
+			this->label4 = (gcnew System::Windows::Forms::Label());
+			this->tbPass = (gcnew System::Windows::Forms::TextBox());
+			this->tbName = (gcnew System::Windows::Forms::TextBox());
+			this->tbNameIn = (gcnew System::Windows::Forms::TextBox());
+			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->panel1 = (gcnew System::Windows::Forms::Panel());
-			this->btnTabzeigen = (gcnew System::Windows::Forms::Button());
-			this->btnNeuSt = (gcnew System::Windows::Forms::Button());
-			this->btnUpdate = (gcnew System::Windows::Forms::Button());
-			this->btnExport = (gcnew System::Windows::Forms::Button());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			this->btnAnlegen = (gcnew System::Windows::Forms::Button());
 			this->btnLöschen = (gcnew System::Windows::Forms::Button());
 			this->btnReset = (gcnew System::Windows::Forms::Button());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
-			this->label4 = (gcnew System::Windows::Forms::Label());
-			this->tbPass = (gcnew System::Windows::Forms::TextBox());
-			this->labelID = (gcnew System::Windows::Forms::Label());
-			this->tbName = (gcnew System::Windows::Forms::TextBox());
-			this->tbNameIn = (gcnew System::Windows::Forms::TextBox());
-			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->panel3 = (gcnew System::Windows::Forms::Panel());
-			this->tbSuchen = (gcnew System::Windows::Forms::TextBox());
-			this->btnSuchen = (gcnew System::Windows::Forms::Button());
-			this->panel4 = (gcnew System::Windows::Forms::Panel());
-			this->panel1->SuspendLayout();
+			this->btnTabzeigen = (gcnew System::Windows::Forms::Button());
+			this->btnNeuSt = (gcnew System::Windows::Forms::Button());
+			this->btnUpdate = (gcnew System::Windows::Forms::Button());
+			this->btnExport = (gcnew System::Windows::Forms::Button());
+			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->linkLabel1 = (gcnew System::Windows::Forms::LinkLabel());
+			this->panel4->SuspendLayout();
 			this->panel2->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
-			this->panel4->SuspendLayout();
+			this->panel1->SuspendLayout();
 			this->SuspendLayout();
 			// 
-			// linkLabel1
+			// panel4
 			// 
-			this->linkLabel1->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
+			this->panel4->BackColor = System::Drawing::Color::Azure;
+			this->panel4->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
+			this->panel4->Controls->Add(this->btnSuchen);
+			this->panel4->Controls->Add(this->tbSuchen);
+			this->panel4->Controls->Add(this->labelID);
+			this->panel4->Location = System::Drawing::Point(20, 89);
+			this->panel4->Name = L"panel4";
+			this->panel4->Size = System::Drawing::Size(920, 208);
+			this->panel4->TabIndex = 59;
+			// 
+			// btnSuchen
+			// 
+			this->btnSuchen->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->btnSuchen->BackColor = System::Drawing::SystemColors::Info;
+			this->btnSuchen->Font = (gcnew System::Drawing::Font(L"Arial", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->linkLabel1->LinkColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
-				static_cast<System::Int32>(static_cast<System::Byte>(0)));
-			this->linkLabel1->Location = System::Drawing::Point(826, 705);
-			this->linkLabel1->Name = L"linkLabel1";
-			this->linkLabel1->Size = System::Drawing::Size(115, 29);
-			this->linkLabel1->TabIndex = 0;
-			this->linkLabel1->TabStop = true;
-			this->linkLabel1->Text = L"zum H-F";
-			this->linkLabel1->LinkClicked += gcnew System::Windows::Forms::LinkLabelLinkClickedEventHandler(this, &Tabelle1::linkLabel1_LinkClicked);
+			this->btnSuchen->Location = System::Drawing::Point(566, 20);
+			this->btnSuchen->Name = L"btnSuchen";
+			this->btnSuchen->Size = System::Drawing::Size(99, 39);
+			this->btnSuchen->TabIndex = 45;
+			this->btnSuchen->Text = L"Suchen";
+			this->btnSuchen->UseVisualStyleBackColor = false;
+			this->btnSuchen->Click += gcnew System::EventHandler(this, &Tabelle::btnSuchen_Click);
+			// 
+			// tbSuchen
+			// 
+			this->tbSuchen->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->tbSuchen->Font = (gcnew System::Drawing::Font(L"Arial", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->tbSuchen->Location = System::Drawing::Point(671, 23);
+			this->tbSuchen->Name = L"tbSuchen";
+			this->tbSuchen->Size = System::Drawing::Size(221, 34);
+			this->tbSuchen->TabIndex = 44;
+			// 
+			// labelID
+			// 
+			this->labelID->Font = (gcnew System::Drawing::Font(L"Arial", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->labelID->Location = System::Drawing::Point(772, 151);
+			this->labelID->Name = L"labelID";
+			this->labelID->Size = System::Drawing::Size(43, 29);
+			this->labelID->TabIndex = 49;
+			this->labelID->Text = L"...";
+			// 
+			// label4
+			// 
+			this->label4->AutoSize = true;
+			this->label4->Font = (gcnew System::Drawing::Font(L"Arial", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label4->Location = System::Drawing::Point(55, 248);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(180, 26);
+			this->label4->TabIndex = 55;
+			this->label4->Text = L"Login_Passwort:";
+			// 
+			// tbPass
+			// 
+			this->tbPass->Location = System::Drawing::Point(307, 235);
+			this->tbPass->Name = L"tbPass";
+			this->tbPass->Size = System::Drawing::Size(237, 34);
+			this->tbPass->TabIndex = 58;
+			// 
+			// tbName
+			// 
+			this->tbName->Location = System::Drawing::Point(307, 174);
+			this->tbName->Name = L"tbName";
+			this->tbName->Size = System::Drawing::Size(237, 34);
+			this->tbName->TabIndex = 57;
+			// 
+			// tbNameIn
+			// 
+			this->tbNameIn->Location = System::Drawing::Point(307, 119);
+			this->tbNameIn->Name = L"tbNameIn";
+			this->tbNameIn->Size = System::Drawing::Size(237, 34);
+			this->tbNameIn->TabIndex = 56;
+			// 
+			// label3
+			// 
+			this->label3->AutoSize = true;
+			this->label3->Font = (gcnew System::Drawing::Font(L"Arial", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label3->Location = System::Drawing::Point(67, 182);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(142, 26);
+			this->label3->TabIndex = 54;
+			this->label3->Text = L"Login_name:";
+			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->Font = (gcnew System::Drawing::Font(L"Arial", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label2->Location = System::Drawing::Point(32, 127);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(258, 26);
+			this->label2->TabIndex = 53;
+			this->label2->Text = L"Name der Internet Seite:";
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Arial", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(251, 22);
+			this->label1->Location = System::Drawing::Point(259, 34);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(214, 33);
-			this->label1->TabIndex = 1;
-			this->label1->Text = L"Users: Konto 1";
+			this->label1->Size = System::Drawing::Size(198, 33);
+			this->label1->TabIndex = 52;
+			this->label1->Text = L"Users: Konto ";
 			// 
-			// panel1
+			// panel2
 			// 
-			this->panel1->BackColor = System::Drawing::Color::LightCyan;
-			this->panel1->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
-			this->panel1->Controls->Add(this->btnTabzeigen);
-			this->panel1->Controls->Add(this->btnNeuSt);
-			this->panel1->Controls->Add(this->btnUpdate);
-			this->panel1->Controls->Add(this->btnExport);
-			this->panel1->Location = System::Drawing::Point(694, 405);
-			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(238, 234);
-			this->panel1->TabIndex = 47;
+			this->panel2->BackColor = System::Drawing::Color::LightCyan;
+			this->panel2->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
+			this->panel2->Controls->Add(this->btnAnlegen);
+			this->panel2->Controls->Add(this->btnLöschen);
+			this->panel2->Controls->Add(this->btnReset);
+			this->panel2->Location = System::Drawing::Point(47, 325);
+			this->panel2->Name = L"panel2";
+			this->panel2->Size = System::Drawing::Size(396, 54);
+			this->panel2->TabIndex = 63;
+			// 
+			// btnAnlegen
+			// 
+			this->btnAnlegen->BackColor = System::Drawing::SystemColors::Info;
+			this->btnAnlegen->Font = (gcnew System::Drawing::Font(L"Arial", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnAnlegen->Location = System::Drawing::Point(3, 3);
+			this->btnAnlegen->Name = L"btnAnlegen";
+			this->btnAnlegen->Size = System::Drawing::Size(101, 36);
+			this->btnAnlegen->TabIndex = 28;
+			this->btnAnlegen->Text = L"anlegen";
+			this->btnAnlegen->UseVisualStyleBackColor = false;
+			this->btnAnlegen->Click += gcnew System::EventHandler(this, &Tabelle::btnAnlegen_Click);
+			// 
+			// btnLöschen
+			// 
+			this->btnLöschen->BackColor = System::Drawing::SystemColors::Info;
+			this->btnLöschen->Font = (gcnew System::Drawing::Font(L"Arial", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnLöschen->Location = System::Drawing::Point(128, 3);
+			this->btnLöschen->Name = L"btnLöschen";
+			this->btnLöschen->Size = System::Drawing::Size(108, 38);
+			this->btnLöschen->TabIndex = 29;
+			this->btnLöschen->Text = L"löschen";
+			this->btnLöschen->UseVisualStyleBackColor = false;
+			this->btnLöschen->Click += gcnew System::EventHandler(this, &Tabelle::btnLöschen_Click);
+			// 
+			// btnReset
+			// 
+			this->btnReset->BackColor = System::Drawing::SystemColors::Info;
+			this->btnReset->Font = (gcnew System::Drawing::Font(L"Arial", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnReset->Location = System::Drawing::Point(270, 5);
+			this->btnReset->Name = L"btnReset";
+			this->btnReset->Size = System::Drawing::Size(110, 36);
+			this->btnReset->TabIndex = 27;
+			this->btnReset->Text = L"Reset";
+			this->btnReset->UseVisualStyleBackColor = false;
+			this->btnReset->Click += gcnew System::EventHandler(this, &Tabelle::btnReset_Click);
+			// 
+			// dataGridView1
+			// 
+			this->dataGridView1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->dataGridView1->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::Fill;
+			this->dataGridView1->ColumnHeadersHeight = 29;
+			this->dataGridView1->Location = System::Drawing::Point(39, 415);
+			this->dataGridView1->Name = L"dataGridView1";
+			this->dataGridView1->RowHeadersWidth = 51;
+			this->dataGridView1->RowTemplate->Height = 24;
+			this->dataGridView1->Size = System::Drawing::Size(600, 275);
+			this->dataGridView1->TabIndex = 61;
+			this->dataGridView1->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Tabelle::dataGridView1_CellClick);
+			// 
+			// panel3
+			// 
+			this->panel3->BackColor = System::Drawing::Color::Azure;
+			this->panel3->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
+			this->panel3->Location = System::Drawing::Point(25, 397);
+			this->panel3->Name = L"panel3";
+			this->panel3->Size = System::Drawing::Size(634, 307);
+			this->panel3->TabIndex = 64;
 			// 
 			// btnTabzeigen
 			// 
@@ -152,7 +312,7 @@ namespace WIFIProject {
 			this->btnTabzeigen->TabIndex = 31;
 			this->btnTabzeigen->Text = L"Tabelle zeigen";
 			this->btnTabzeigen->UseVisualStyleBackColor = false;
-			this->btnTabzeigen->Click += gcnew System::EventHandler(this, &Tabelle1::btnTabzeigen_Click);
+			this->btnTabzeigen->Click += gcnew System::EventHandler(this, &Tabelle::btnTabzeigen_Click);
 			// 
 			// btnNeuSt
 			// 
@@ -165,7 +325,7 @@ namespace WIFIProject {
 			this->btnNeuSt->TabIndex = 34;
 			this->btnNeuSt->Text = L"Tabelle neu_starten";
 			this->btnNeuSt->UseVisualStyleBackColor = false;
-			this->btnNeuSt->Click += gcnew System::EventHandler(this, &Tabelle1::btnNeuSt_Click);
+			this->btnNeuSt->Click += gcnew System::EventHandler(this, &Tabelle::btnNeuSt_Click);
 			// 
 			// btnUpdate
 			// 
@@ -178,7 +338,7 @@ namespace WIFIProject {
 			this->btnUpdate->TabIndex = 30;
 			this->btnUpdate->Text = L"Tabelle update";
 			this->btnUpdate->UseVisualStyleBackColor = false;
-			this->btnUpdate->Click += gcnew System::EventHandler(this, &Tabelle1::btnUpdate_Click);
+			this->btnUpdate->Click += gcnew System::EventHandler(this, &Tabelle::btnUpdate_Click);
 			// 
 			// btnExport
 			// 
@@ -193,190 +353,45 @@ namespace WIFIProject {
 			this->btnExport->TabIndex = 32;
 			this->btnExport->Text = L"Tabelle exportieren";
 			this->btnExport->UseVisualStyleBackColor = false;
-			this->btnExport->Click += gcnew System::EventHandler(this, &Tabelle1::btnExport_Click);
+			this->btnExport->Click += gcnew System::EventHandler(this, &Tabelle::btnExport_Click);
 			// 
-			// panel2
+			// panel1
 			// 
-			this->panel2->BackColor = System::Drawing::Color::LightCyan;
-			this->panel2->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
-			this->panel2->Controls->Add(this->btnAnlegen);
-			this->panel2->Controls->Add(this->btnLöschen);
-			this->panel2->Controls->Add(this->btnReset);
-			this->panel2->Location = System::Drawing::Point(52, 315);
-			this->panel2->Name = L"panel2";
-			this->panel2->Size = System::Drawing::Size(396, 54);
-			this->panel2->TabIndex = 48;
+			this->panel1->BackColor = System::Drawing::Color::LightCyan;
+			this->panel1->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
+			this->panel1->Controls->Add(this->btnTabzeigen);
+			this->panel1->Controls->Add(this->btnNeuSt);
+			this->panel1->Controls->Add(this->btnUpdate);
+			this->panel1->Controls->Add(this->btnExport);
+			this->panel1->Location = System::Drawing::Point(689, 415);
+			this->panel1->Name = L"panel1";
+			this->panel1->Size = System::Drawing::Size(238, 234);
+			this->panel1->TabIndex = 62;
 			// 
-			// btnAnlegen
+			// linkLabel1
 			// 
-			this->btnAnlegen->BackColor = System::Drawing::SystemColors::Info;
-			this->btnAnlegen->Font = (gcnew System::Drawing::Font(L"Arial", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->linkLabel1->Font = (gcnew System::Drawing::Font(L"Arial", 12, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnAnlegen->Location = System::Drawing::Point(3, 3);
-			this->btnAnlegen->Name = L"btnAnlegen";
-			this->btnAnlegen->Size = System::Drawing::Size(101, 36);
-			this->btnAnlegen->TabIndex = 28;
-			this->btnAnlegen->Text = L"anlegen";
-			this->btnAnlegen->UseVisualStyleBackColor = false;
-			this->btnAnlegen->Click += gcnew System::EventHandler(this, &Tabelle1::btnAnlegen_Click);
+			this->linkLabel1->LinkColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+			this->linkLabel1->Location = System::Drawing::Point(821, 715);
+			this->linkLabel1->Name = L"linkLabel1";
+			this->linkLabel1->Size = System::Drawing::Size(115, 29);
+			this->linkLabel1->TabIndex = 60;
+			this->linkLabel1->TabStop = true;
+			this->linkLabel1->Text = L"zum H-F";
+			this->linkLabel1->LinkClicked += gcnew System::Windows::Forms::LinkLabelLinkClickedEventHandler(this, &Tabelle::linkLabel1_LinkClicked_1);
 			// 
-			// btnLöschen
-			// 
-			this->btnLöschen->BackColor = System::Drawing::SystemColors::Info;
-			this->btnLöschen->Font = (gcnew System::Drawing::Font(L"Arial", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->btnLöschen->Location = System::Drawing::Point(128, 3);
-			this->btnLöschen->Name = L"btnLöschen";
-			this->btnLöschen->Size = System::Drawing::Size(108, 38);
-			this->btnLöschen->TabIndex = 29;
-			this->btnLöschen->Text = L"löschen";
-			this->btnLöschen->UseVisualStyleBackColor = false;
-			this->btnLöschen->Click += gcnew System::EventHandler(this, &Tabelle1::btnLöschen_Click);
-			// 
-			// btnReset
-			// 
-			this->btnReset->BackColor = System::Drawing::SystemColors::Info;
-			this->btnReset->Font = (gcnew System::Drawing::Font(L"Arial", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->btnReset->Location = System::Drawing::Point(270, 5);
-			this->btnReset->Name = L"btnReset";
-			this->btnReset->Size = System::Drawing::Size(110, 36);
-			this->btnReset->TabIndex = 27;
-			this->btnReset->Text = L"Reset";
-			this->btnReset->UseVisualStyleBackColor = false;
-			this->btnReset->Click += gcnew System::EventHandler(this, &Tabelle1::btnReset_Click);
-			// 
-			// dataGridView1
-			// 
-			this->dataGridView1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
-				| System::Windows::Forms::AnchorStyles::Right));
-			this->dataGridView1->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::Fill;
-			this->dataGridView1->ColumnHeadersHeight = 29;
-			this->dataGridView1->Location = System::Drawing::Point(44, 405);
-			this->dataGridView1->Name = L"dataGridView1";
-			this->dataGridView1->RowHeadersWidth = 51;
-			this->dataGridView1->RowTemplate->Height = 24;
-			this->dataGridView1->Size = System::Drawing::Size(600, 275);
-			this->dataGridView1->TabIndex = 46;
-			this->dataGridView1->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Tabelle1::dataGridView1_CellClick);
-			// 
-			// label4
-			// 
-			this->label4->AutoSize = true;
-			this->label4->Font = (gcnew System::Drawing::Font(L"Arial", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label4->Location = System::Drawing::Point(47, 236);
-			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(180, 26);
-			this->label4->TabIndex = 40;
-			this->label4->Text = L"Login_Passwort:";
-			// 
-			// tbPass
-			// 
-			this->tbPass->Location = System::Drawing::Point(299, 223);
-			this->tbPass->Name = L"tbPass";
-			this->tbPass->Size = System::Drawing::Size(237, 34);
-			this->tbPass->TabIndex = 43;
-			// 
-			// labelID
-			// 
-			this->labelID->Font = (gcnew System::Drawing::Font(L"Arial", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->labelID->Location = System::Drawing::Point(772, 151);
-			this->labelID->Name = L"labelID";
-			this->labelID->Size = System::Drawing::Size(43, 29);
-			this->labelID->TabIndex = 49;
-			this->labelID->Text = L"...";
-			// 
-			// tbName
-			// 
-			this->tbName->Location = System::Drawing::Point(299, 162);
-			this->tbName->Name = L"tbName";
-			this->tbName->Size = System::Drawing::Size(237, 34);
-			this->tbName->TabIndex = 42;
-			// 
-			// tbNameIn
-			// 
-			this->tbNameIn->Location = System::Drawing::Point(299, 107);
-			this->tbNameIn->Name = L"tbNameIn";
-			this->tbNameIn->Size = System::Drawing::Size(237, 34);
-			this->tbNameIn->TabIndex = 41;
-			// 
-			// label3
-			// 
-			this->label3->AutoSize = true;
-			this->label3->Font = (gcnew System::Drawing::Font(L"Arial", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label3->Location = System::Drawing::Point(59, 170);
-			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(142, 26);
-			this->label3->TabIndex = 39;
-			this->label3->Text = L"Login_name:";
-			// 
-			// label2
-			// 
-			this->label2->AutoSize = true;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Arial", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label2->Location = System::Drawing::Point(24, 115);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(258, 26);
-			this->label2->TabIndex = 38;
-			this->label2->Text = L"Name der Internet Seite:";
-			// 
-			// panel3
-			// 
-			this->panel3->BackColor = System::Drawing::Color::Azure;
-			this->panel3->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
-			this->panel3->Location = System::Drawing::Point(30, 387);
-			this->panel3->Name = L"panel3";
-			this->panel3->Size = System::Drawing::Size(634, 307);
-			this->panel3->TabIndex = 50;
-			// 
-			// tbSuchen
-			// 
-			this->tbSuchen->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->tbSuchen->Font = (gcnew System::Drawing::Font(L"Arial", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->tbSuchen->Location = System::Drawing::Point(671, 23);
-			this->tbSuchen->Name = L"tbSuchen";
-			this->tbSuchen->Size = System::Drawing::Size(221, 34);
-			this->tbSuchen->TabIndex = 44;
-			// 
-			// btnSuchen
-			// 
-			this->btnSuchen->Anchor = System::Windows::Forms::AnchorStyles::None;
-			this->btnSuchen->BackColor = System::Drawing::SystemColors::Info;
-			this->btnSuchen->Font = (gcnew System::Drawing::Font(L"Arial", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->btnSuchen->Location = System::Drawing::Point(566, 20);
-			this->btnSuchen->Name = L"btnSuchen";
-			this->btnSuchen->Size = System::Drawing::Size(99, 39);
-			this->btnSuchen->TabIndex = 45;
-			this->btnSuchen->Text = L"Suchen";
-			this->btnSuchen->UseVisualStyleBackColor = false;
-			this->btnSuchen->Click += gcnew System::EventHandler(this, &Tabelle1::btnSuchen_Click);
-			// 
-			// panel4
-			// 
-			this->panel4->BackColor = System::Drawing::Color::Azure;
-			this->panel4->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
-			this->panel4->Controls->Add(this->btnSuchen);
-			this->panel4->Controls->Add(this->tbSuchen);
-			this->panel4->Controls->Add(this->labelID);
-			this->panel4->Location = System::Drawing::Point(12, 77);
-			this->panel4->Name = L"panel4";
-			this->panel4->Size = System::Drawing::Size(920, 208);
-			this->panel4->TabIndex = 51;
-			// 
-			// Tabelle1
+			// Tabelle
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(13, 26);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(953, 760);
-			this->Controls->Add(this->panel1);
+			this->ClientSize = System::Drawing::Size(960, 803);
 			this->Controls->Add(this->panel2);
 			this->Controls->Add(this->dataGridView1);
+			this->Controls->Add(this->panel3);
+			this->Controls->Add(this->panel1);
+			this->Controls->Add(this->linkLabel1);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->tbPass);
 			this->Controls->Add(this->tbName);
@@ -384,41 +399,42 @@ namespace WIFIProject {
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
-			this->Controls->Add(this->linkLabel1);
-			this->Controls->Add(this->panel3);
 			this->Controls->Add(this->panel4);
 			this->Font = (gcnew System::Drawing::Font(L"Arial", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Margin = System::Windows::Forms::Padding(5);
-			this->Name = L"Tabelle1";
-			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"User Konto 1";
-			this->panel1->ResumeLayout(false);
-			this->panel2->ResumeLayout(false);
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
+			this->Name = L"Tabelle";
+			this->Text = L"Tabelle";
 			this->panel4->ResumeLayout(false);
 			this->panel4->PerformLayout();
+			this->panel2->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
+			this->panel1->ResumeLayout(false);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
-		private:System::Void t_1()
-		{
+public: Users^ user = nullptr;
+	  
+	private:System::Void t_1()
+	{
+		int l = user->liste;
 
-			
-			//die Methode wifi_users soll den Inhalt eine Tabelle der Databank lesen und dann in a datagridview aufladen, damit man sie lesen kann.
+		//die Methode wifi_users soll den Inhalt eine Tabelle der Databank lesen und dann in a datagridview aufladen, damit man sie lesen kann.
 
-			MySqlConnection^ sqlconn = gcnew MySqlConnection();
-			sqlconn->ConnectionString = "datasource = localhost; port = 3306; username = Login Daten Verwalter; password = wifi123; database = wifi";
-			sqlconn->Open();
-			//man öffnet die Connection zum Server und einen Bestimmte Database/schema(wifi)
-			MySqlCommand^ sqlcom = gcnew MySqlCommand();
-			sqlcom->Connection = sqlconn;
-			//man verbindet sich mit der Database
-			sqlcom->CommandText = "select * from t_1";
+		MySqlConnection^ sqlconn = gcnew MySqlConnection();
+		sqlconn->ConnectionString = "datasource = localhost; port = 3306; username = Login Daten Verwalter; password = wifi123; database = wifi";
+		sqlconn->Open();
+		//man öffnet die Connection zum Server und einen Bestimmte Database/schema(wifi)
+		MySqlCommand^ sqlcom = gcnew MySqlCommand();
+		//sqlcom->Connection = sqlconn;
+		//man verbindet sich mit der Database
+		switch (l) {
+		case 1:sqlcom->Connection = sqlconn; sqlcom->CommandText = "select * from t_1"; break; case 2: sqlcom->CommandText = "select * from t_2"; break;
+
 			MySqlDataReader^ sqlrd = sqlcom->ExecuteReader();
-			//Man liest den Inhalt der Tabelle(t_1) mittels ein Reader
+
 			DataTable^ sqldt = gcnew DataTable();
 			sqldt->Load(sqlrd);
 			//man ladet den gelesenen Inhalt in einer Table auf
@@ -427,14 +443,16 @@ namespace WIFIProject {
 			dataGridView1->DataSource = sqldt;
 			//man setzt die Table mit dem gelesenen Inhalt als Informationsquelle für den DataGridView, damit der User des {(L-D)-V} sie lesen kann.
 		}
-
-	public: bool To_Haupt_Fenster = false;
-	private: System::Void linkLabel1_LinkClicked(System::Object^ sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^ e) {
-		this->To_Haupt_Fenster = true;
-		this->Close();
+		//sqlcom->CommandText = "select * from t_1";
+		
 	}
+
 	private: System::Void btnAnlegen_Click(System::Object^ sender, System::EventArgs^ e) {
+
 		try {
+			
+			int l = user->liste;
+
 			MySqlConnection^ sqlconn = gcnew MySqlConnection();
 			sqlconn->ConnectionString = "datasource = localhost; port = 3306; username = Login Daten Verwalter; password = wifi123; database = wifi";
 			sqlconn->Open();
@@ -445,14 +463,22 @@ namespace WIFIProject {
 			//man verbindet sich mit der Database
 			// 
 			//Die Variable nameInt, nameLog, und passLog werden von den zugehörigen textboxes gelesen
-			
+
 			String^ nameInt = tbNameIn->Text;
 			String^ nameLog = tbName->Text;
 			String^ passLog = tbPass->Text;
 			//mittels den Command Insert, fügt man den gelesene Inhalt von den Variablen (Name, LoginName, LoginPasswort) in der zugehörigen Spalte der Tabelle(t_1) hinzu
-			sqlcom->CommandText = "insert into t_1(Name, LoginName, LoginPasswort)" + "values('" + nameInt + "','" + nameLog + "', '" + passLog + "')";
+			if (l == 1) { sqlcom->CommandText = "insert into t_1(Name, LoginName, LoginPasswort)" + "values('" + nameInt + "','" + nameLog + "', '" + passLog + "')";
+			sqlcom->ExecuteNonQuery(); sqlconn->Close();}
+			/*switch (l)
+			{  break;
+			case 2: sqlcom->CommandText = "insert into t_2(Name, LoginName, LoginPasswort)" + "values('" + nameInt + "','" + nameLog + "', '" + passLog + "')";
+				sqlcom->ExecuteNonQuery(); sqlconn->Close(); break;
+			
+			}*/
+	/*		sqlcom->CommandText = "insert into t_1(Name, LoginName, LoginPasswort)" + "values('" + nameInt + "','" + nameLog + "', '" + passLog + "')";
 			sqlcom->ExecuteNonQuery();
-			sqlconn->Close();
+			sqlconn->Close();*/
 			//man macht den reader und die Connection wieder zu und man aktualisiert das dataGridView
 
 			t_1();
@@ -463,14 +489,13 @@ namespace WIFIProject {
 			MessageBox::Show(e->Message, "{(L-D)-V}", MessageBoxButtons::YesNo, MessageBoxIcon::Information);
 		}
 	}
-private: System::Void btnReset_Click(System::Object^ sender, System::EventArgs^ e) {
-	//man leert die textboxes und das Label
-	this->tbNameIn->Text = "";
-	this->tbName->Text = "";
-	this->tbPass->Text = "";
-	this->tbSuchen->Text = "";
-	this->labelID->Text = "";
-}
+	private: System::Void btnReset_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->tbNameIn->Text = "";
+		this->tbName->Text = "";
+		this->tbPass->Text = "";
+		this->tbSuchen->Text = "";
+		this->labelID->Text = "";
+	}
 private: System::Void dataGridView1_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 	try {
 		labelID->Text = dataGridView1->SelectedRows[0]->Cells[0]->Value->ToString();
@@ -591,7 +616,6 @@ private: System::Void btnSuchen_Click(System::Object^ sender, System::EventArgs^
 	{
 		MessageBox::Show(e->Message, "{(L-D)-V}", MessageBoxButtons::YesNo, MessageBoxIcon::Information);
 	}
-
 }
 private: System::Void btnTabzeigen_Click(System::Object^ sender, System::EventArgs^ e) {
 	try {
@@ -640,5 +664,11 @@ private: System::Void btnExport_Click(System::Object^ sender, System::EventArgs^
 	}
 
 }
+public: bool To_Haupt_Fenster = false;
+private: System::Void linkLabel1_LinkClicked_1(System::Object^ sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^ e) {
+	this->To_Haupt_Fenster = true;
+	this->Close();
+}
 };
 }
+
