@@ -155,7 +155,6 @@
     <ClInclude Include="HauptFensterForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="resource.h" />
     <ClInclude Include="Tabelle1.h">
       <FileType>CppForm</FileType>
     </ClInclude>

@@ -405,8 +405,6 @@ namespace WIFIProject {
 #pragma endregion
 		private:System::Void t_1()
 		{
-
-			
 			//die Methode wifi_users soll den Inhalt eine Tabelle der Databank lesen und dann in a datagridview aufladen, damit man sie lesen kann.
 
 			MySqlConnection^ sqlconn = gcnew MySqlConnection();

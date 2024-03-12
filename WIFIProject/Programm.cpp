@@ -14,18 +14,13 @@
 #include "Tabelle8.h"
 #include "Tabelle9.h"
 #include "Tabelle10.h"
-
-
-
 //folgende HeaderFiles wurden hinzugefügt
 
 using namespace System;
 using namespace System::Windows::Forms;
-//
 
 void main(array<String^>^ args)
 {
-   
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
 	
@@ -44,7 +39,6 @@ void main(array<String^>^ args)
 			//Wenn das Objekt nicht leer ist, das heisst wenn die angegebene Informationen mit den vom DB überall stimmen 
 			if (admin != nullptr)
 			{
-                
 				MessageBox::Show("Willkommen "  + admin->name + ". Sie sind der Administrator" , "{(L-D)-V}", MessageBoxButtons::OK);
 
 				//es öffnet sich automatisch der Admin Fenster
@@ -87,14 +81,12 @@ void main(array<String^>^ args)
 			WIFIProject::Tabelle9 tabelle9;//...
 			WIFIProject::Tabelle10 tabelle10;//...
 
-		
-
 
 			userloginform.ShowDialog();//ruft den Form userlogin auf
 			Users^ user = userloginform.user;
 			if (user != nullptr)
 			{//wenn der user existiert, d.h. wenn information von der Tabelle im DB gelesen wurde. dann wird folgende Meldung erscheinen
-			int l = user->liste;
+				int l = user->liste;
 
 				MessageBox::Show("Willkommen " + user->name + "!. Sie dürfen die Konto: " + user->liste + " jetzt verwalten", "{(L-D)-V}", MessageBoxButtons::OK);
 				// man deklariert eine integer Variable sie wird mit dem gelesene Wert user->liste initialisiert.
@@ -113,7 +105,6 @@ void main(array<String^>^ args)
 				case 10:tabelle10.ShowDialog(); if (tabelle10.To_Haupt_Fenster) { continue; }break;
 				}
 
-				
 			}
 			if (userloginform.To_Haupt_Fenster)
 			{
